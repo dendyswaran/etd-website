@@ -2,13 +2,15 @@
 
 ## Project Structure & Module Organization
 
-This is the East Town Digital teaser website, built with Astro 7, TypeScript, Bun, and GSAP. It produces static HTML with client-side animation and no backend.
+This is the East Town Digital company website, built with Astro 7, TypeScript, Bun, and GSAP. It produces static HTML with client-side animation and no backend.
 
 - `src/pages/index.astro`: company introduction, metadata, and WhatsApp links.
 - `src/styles/global.scss`: responsive layout, Carbon styles, and brand tokens.
 - `src/scripts/motion.ts`: GSAP entrance, scroll, and canvas animations.
 - `public/`: static assets, including the favicon.
-- `tests/`: Bun integration tests against the rendered homepage.
+- `src/pages/robots.txt.ts` and `sitemap.xml.ts`: crawler endpoints.
+- `tests/`: Bun integration tests against rendered pages and analytics.
+- `docs/seo.md`: SEO publishing and measurement guidance.
 - `.github/workflows/`: continuous integration.
 
 Keep generated `dist/`, `.astro/`, installed dependencies, and `.vercel/` out of version control.
@@ -38,4 +40,4 @@ Use concise, imperative subjects such as `Add company teaser and WhatsApp contac
 
 ## Scope & Deployment
 
-Keep this release focused on company introduction and contact. Preserve usable content without JavaScript and respect reduced-motion preferences. Deploy static output to Vercel using `vercel.json`. Never commit secrets or local environment files.
+Keep content focused on Indonesian clients, services, verified experience, and contact. Use `https://www.easttowndigital.com/` as canonical. Never publish private project identifiers or unsupported client claims. Preserve usable content without JavaScript and respect reduced-motion preferences. Deploy static output to Vercel using `vercel.json`. Never commit secrets or local environment files.

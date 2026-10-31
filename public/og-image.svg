@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><pattern id="lines" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M8 4v8" stroke="#a5a797" stroke-width="1" opacity=".24"/></pattern></defs>
+  <rect width="1200" height="630" fill="#f9f8f5"/>
+  <rect y="144" width="1200" height="486" fill="url(#lines)"/>
+  <path d="M56 48h40v8H64v8h27v8H64v8h32v8H56V48Z" fill="#252620"/>
+  <text x="112" y="77" font-family="Helvetica, sans-serif" font-size="30" font-weight="500" fill="#252620">East Town Digital</text>
+  <text x="56" y="228" font-family="Helvetica, sans-serif" font-size="76" letter-spacing="-4" fill="#252620">Software house.</text>
+  <text x="56" y="316" font-family="Helvetica, sans-serif" font-size="76" letter-spacing="-4" fill="#252620">Untuk bisnis Indonesia.</text>
+  <rect x="56" y="380" width="328" height="52" rx="4" fill="#e9e6db"/>
+  <text x="76" y="414" font-family="Helvetica, sans-serif" font-size="23" fill="#252620">Pengalaman 15+ tahun di IT</text>
+  <text x="56" y="552" font-family="Helvetica, sans-serif" font-size="22" fill="#696a62">Website · Aplikasi bisnis · Mobile · Integrasi sistem</text>
+  <text x="1144" y="596" text-anchor="end" font-family="Helvetica, sans-serif" font-size="20" fill="#696a62">easttowndigital.com</text>
+</svg>

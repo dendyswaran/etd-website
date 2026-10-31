@@ -1,8 +1,8 @@
 # East Town Digital
 
-An introductory website for East Town Digital, an independent software house with 15+ years of IT experience. Inspired by the warm, typographic composition and animated line field at [abliteration.ai](https://abliteration.ai), with original branding, copy, and artwork.
+An Indonesian-language website for East Town Digital, an independent software house with 15+ years of IT experience. Inspired by the warm, typographic composition and animated line field at [abliteration.ai](https://abliteration.ai), with original branding, copy, and artwork.
 
-[Live website](https://etd-website-seven.vercel.app) · [Public GitHub repository](https://github.com/dendyswaran/etd-website)
+[Live website](https://www.easttowndigital.com) · [Public GitHub repository](https://github.com/dendyswaran/etd-website)
 
 ## Stack
 
@@ -39,7 +39,11 @@ Open the local URL printed by Astro, normally `http://localhost:4321`.
 
 Content and contact links render without JavaScript. Animation follows reduced-motion preferences and the background pauses when offscreen or the tab is hidden. No backend or environment variables are required.
 
-Google Analytics uses measurement ID `G-C4DHWJTYQL` through Google's asynchronous `gtag.js` snippet. Tracking is included in production builds only, keeping local development out of analytics. The tag follows the deployed hostname, including custom domains, without a code change. Production preview builds also include the tag.
+Google Analytics uses measurement ID `G-C4DHWJTYQL` through Google's asynchronous `gtag.js` snippet. Tracking is included in production builds only, keeping local development out of analytics. The tag follows the deployed hostname, including custom domains, without a code change. Production preview builds also include the tag. WhatsApp clicks send the `contact_whatsapp` event with the link location; they do not imply that a message was sent.
+
+## SEO
+
+The canonical domain is `https://www.easttowndigital.com/`, configured in `astro.config.mjs`. The website includes Indonesian service content, organization JSON-LD, social-preview images, `robots.txt`, and a single-page XML sitemap. See [SEO operations](docs/seo.md) for Search Console setup, content rules, and lead measurement.
 
 ## Deployment
 

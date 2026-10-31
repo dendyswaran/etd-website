@@ -7,10 +7,53 @@ import '../styles/global.scss';
 
 const whatsapp = 'https://wa.me/62817131366';
 const year = new Date().getFullYear();
+const canonical = new URL('/', Astro.site).href;
+const title = 'Software House Indonesia | East Town Digital';
+const description =
+  'East Town Digital, software house untuk bisnis di Indonesia dengan pengalaman 15+ tahun di IT. Diskusikan kebutuhan software Anda langsung lewat WhatsApp.';
+const socialImage = new URL('/og-image.png', Astro.site).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${canonical}#organization`,
+      name: 'East Town Digital',
+      url: canonical,
+      description,
+      logo: new URL('/logo.png', Astro.site).href,
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+62817131366',
+        contactType: 'sales',
+        availableLanguage: ['Indonesian'],
+        areaServed: { '@type': 'Country', name: 'Indonesia' },
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${canonical}#website`,
+      url: canonical,
+      name: 'East Town Digital',
+      inLanguage: 'id-ID',
+      publisher: { '@id': `${canonical}#organization` },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: 'id-ID',
+      isPartOf: { '@id': `${canonical}#website` },
+      about: { '@id': `${canonical}#organization` },
+    },
+  ],
+};
 ---
 
 <!doctype html>
-<html lang="en" class="cds--white">
+<html lang="id" class="cds--white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,37 +71,62 @@ const year = new Date().getFullYear();
           }
           gtag('js', new Date());
           gtag('config', 'G-C4DHWJTYQL');
+          document.addEventListener('click', function (event) {
+            const link = event.target?.closest?.('a[data-contact-location]');
+            if (link?.href !== 'https://wa.me/62817131366') return;
+            gtag('event', 'contact_whatsapp', {
+              link_location: link.dataset.contactLocation,
+            });
+          });
         </script>
       </>
     )}
     <meta name="theme-color" content="#f9f8f5" />
-    <title>East Town Digital — Good ideas. Built right.</title>
-    <meta
-      name="description"
-      content="East Town Digital is a software house shaped by 15+ years of IT experience. A new chapter in building thoughtful software. Let's talk on WhatsApp."
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="East Town Digital" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
     <meta
-      property="og:title"
-      content="East Town Digital — Good ideas. Built right."
+      property="og:image:alt"
+      content="East Town Digital — Software house untuk bisnis Indonesia. Pengalaman 15+ tahun di IT."
     />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <meta
-      property="og:description"
-      content="A software house shaped by 15+ years in IT. Your next chapter starts with a conversation."
+      name="twitter:image:alt"
+      content="East Town Digital — Software house untuk bisnis Indonesia. Pengalaman 15+ tahun di IT."
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')}
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main">
-      Skip to content
+      Langsung ke konten
     </a>
     <div class="announcement">
       <span class="status-dot" aria-hidden="true"></span>
-      <span>A new chapter. 15+ years in the making.</span>
+      <span>Babak baru. Berbekal 15+ tahun pengalaman di IT.</span>
       <span class="announcement-label">EAST TOWN DIGITAL</span>
     </div>
     <header class="site-header page-grid">
-      <a class="brand" href="#top" aria-label="East Town Digital home">
+      <a class="brand" href="#top" aria-label="Beranda East Town Digital">
         <svg
           class="brand-mark"
           viewBox="0 0 40 40"
@@ -72,14 +140,19 @@ const year = new Date().getFullYear();
           East Town<span class="brand-second">Digital</span>
         </span>
       </a>
-      <span class="header-note">INDEPENDENT MINDS. SHARED AMBITION.</span>
+      <nav class="header-note" aria-label="Navigasi utama">
+        <a href="#layanan">LAYANAN</a>
+        <a href="#pengalaman">PENGALAMAN</a>
+        <a href="#contact">KONTAK</a>
+      </nav>
       <a
         class="cds--btn cds--btn--tertiary header-contact"
         href={whatsapp}
+        data-contact-location="header"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Contact Us <span aria-hidden="true">↗</span>
+        Hubungi Kami <span aria-hidden="true">↗</span>
       </a>
     </header>
     <main id="main">
@@ -92,44 +165,45 @@ const year = new Date().getFullYear();
             <span class="small-cross" aria-hidden="true">
               +
             </span>{' '}
-            A SOFTWARE HOUSE WITH A FORWARD MINDSET
+            PARTNER PENGEMBANGAN SOFTWARE UNTUK BISNIS INDONESIA
           </p>
           <h1 id="hero-heading">
             <span class="headline-start" data-reveal>
-              Good ideas.
+              Software house.
               <br />
-              Built right.
+              Untuk bisnis Anda.
             </span>
             <span class="headline-end" data-reveal>
-              From the east.
+              Ide Anda.
               <br />
-              For what’s next.
+              Kami wujudkan.
             </span>
           </h1>
           <div class="hero-action" data-reveal>
             <p>
-              Thoughtful software.
+              Dari kebutuhan bisnis,
               <br />
-              Made for your next chapter.
+              menjadi solusi digital.
             </p>
             <a
               class="cds--btn cds--btn--primary contact-button"
               href={whatsapp}
+              data-contact-location="hero"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Contact Us{' '}
+              Diskusi Proyek{' '}
               <span class="button-arrow" aria-hidden="true">
                 ↗
               </span>
             </a>
-            <span class="contact-caption">LET’S TALK ON WHATSAPP</span>
+            <span class="contact-caption">LANGSUNG LEWAT WHATSAPP</span>
           </div>
           <div class="hero-baseline">
             <a class="scroll-link" href="#hello">
-              <span aria-hidden="true">↓</span> A LITTLE ABOUT US
+              <span aria-hidden="true">↓</span> KENALI KAMI
             </a>
-            <span class="edition">A NEW CHAPTER / SAME DEDICATION</span>
+            <span class="edition">PENGALAMAN PANJANG. SEMANGAT BARU.</span>
           </div>
         </div>
       </section>
@@ -140,39 +214,205 @@ const year = new Date().getFullYear();
       >
         <div class="intro-card page-grid">
           <p class="eyebrow intro-label" data-scroll-reveal>
-            01 / HELLO, WE’RE EAST TOWN DIGITAL
+            01 / TENTANG EAST TOWN DIGITAL
           </p>
           <div class="intro-copy" data-scroll-reveal>
             <h2 id="intro-heading">
-              A fresh name.
-              <br />A wealth of experience.
+              Nama baru.
+              <br />
+              Pengalaman yang matang.
             </h2>
             <p>
-              We’re East Town Digital, an independent software house built by
-              two partners with a shared passion for making technology work.
+              East Town Digital adalah software house yang dibangun oleh dua
+              partner dengan pengalaman lebih dari 15 tahun di dunia IT. Kami
+              membantu bisnis di Indonesia mewujudkan kebutuhan digital melalui
+              pengembangan website, aplikasi bisnis, aplikasi mobile, dan
+              integrasi sistem.
             </p>
             <p>
-              With more than 15 years in IT, we bring experience, curiosity, and
-              care to the software we build. A new chapter for us. A new
-              possibility for your business.
+              Setiap bisnis punya cara kerja sendiri. Karena itu, percakapan
+              dimulai dari proses yang Anda jalankan, kendala yang dihadapi, dan
+              tujuan yang ingin dicapai — agar software yang dibuat punya peran
+              yang jelas.
             </p>
           </div>
           <div class="experience" data-scroll-reveal>
             <span class="experience-number">
               15<span>+</span>
             </span>
-            <span class="eyebrow">YEARS IN IT</span>
+            <span class="eyebrow">TAHUN DI DUNIA IT</span>
             <span class="experience-line" aria-hidden="true"></span>
             <p>
-              Experience behind us.
+              Pengalaman sebagai bekal.
               <br />
-              Possibility ahead.
+              Kebutuhan Anda sebagai arah.
             </p>
           </div>
           <div class="intro-bottom">
-            <span>GOOD PEOPLE. THOUGHTFUL SOFTWARE.</span>
+            <span>TEKNOLOGI YANG BERANGKAT DARI KEBUTUHAN.</span>
             <span aria-hidden="true">ETD ↗</span>
           </div>
+        </div>
+      </section>
+      <section
+        class="section-wrap"
+        id="layanan"
+        aria-labelledby="services-heading"
+      >
+        <div class="editorial-card page-grid">
+          <div class="section-heading" data-scroll-reveal>
+            <p class="eyebrow">02 / LAYANAN KAMI</p>
+            <h2 id="services-heading">
+              Software yang mengikuti
+              <br />
+              cara kerja bisnis Anda.
+            </h2>
+            <p>
+              Dari kehadiran digital hingga proses operasional, kami membantu
+              Anda memilih dan membangun solusi yang sesuai kebutuhan.
+            </p>
+          </div>
+          <div class="service-list">
+            <article class="service-row" data-scroll-reveal>
+              <span class="eyebrow" aria-hidden="true">
+                01
+              </span>
+              <h3>Jasa pembuatan website</h3>
+              <p>
+                Website perusahaan, halaman produk, dan website dengan CMS agar
+                tim Anda dapat mengelola konten sendiri. Dirancang untuk
+                menyampaikan bisnis dengan jelas dan memudahkan calon pelanggan
+                menghubungi Anda.
+              </p>
+            </article>
+            <article class="service-row" data-scroll-reveal>
+              <span class="eyebrow" aria-hidden="true">
+                02
+              </span>
+              <h3>Aplikasi bisnis &amp; software custom</h3>
+              <p>
+                Pengembangan aplikasi untuk pencatatan transaksi, stok,
+                reservasi, antrean, hingga monitoring keuangan dan proyek. Alur
+                kerja disesuaikan dengan operasional bisnis Anda.
+              </p>
+            </article>
+            <article class="service-row" data-scroll-reveal>
+              <span class="eyebrow" aria-hidden="true">
+                03
+              </span>
+              <h3>Pengembangan aplikasi mobile</h3>
+              <p>
+                Aplikasi untuk pelanggan atau tim lapangan, termasuk pengalaman
+                web mobile dan PWA. Pilihan platform dan fitur dibahas
+                berdasarkan perangkat, pengguna, dan kebutuhan pekerjaan.
+              </p>
+            </article>
+            <article class="service-row" data-scroll-reveal>
+              <span class="eyebrow" aria-hidden="true">
+                04
+              </span>
+              <h3>Integrasi API &amp; sistem</h3>
+              <p>
+                Hubungkan aplikasi, database, dan layanan yang sudah digunakan.
+                Integrasi membantu data mengalir antarproses sehingga tim tidak
+                perlu mengulang pencatatan yang sama.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section
+        class="section-wrap"
+        id="pengalaman"
+        aria-labelledby="work-heading"
+      >
+        <div class="editorial-card page-grid">
+          <div class="section-heading" data-scroll-reveal>
+            <p class="eyebrow">03 / PENGALAMAN PENGEMBANGAN</p>
+            <h2 id="work-heading">
+              Dekat dengan
+              <br />
+              kebutuhan nyata.
+            </h2>
+            <p>
+              Pengalaman kami mencakup berbagai kebutuhan operasional berikut.
+              Ceritakan konteks bisnis Anda untuk membahas pendekatan yang
+              relevan.
+            </p>
+          </div>
+          <div class="work-list">
+            <article data-scroll-reveal>
+              <h3>POS &amp; reservasi salon</h3>
+              <p>
+                Kalender pemesanan, pengaturan peran staf, kasir, dan pencetakan
+                struk untuk alur layanan salon.
+              </p>
+            </article>
+            <article data-scroll-reveal>
+              <h3>Sistem antrean layanan</h3>
+              <p>
+                Pengambilan nomor, pemanggilan antrean, layar informasi, serta
+                rekap dan ekspor laporan layanan.
+              </p>
+            </article>
+            <article data-scroll-reveal>
+              <h3>Monitoring keuangan &amp; proyek</h3>
+              <p>
+                Pemantauan anggaran, termin pembayaran, pengeluaran, dan
+                pencatatan bukti transaksi melalui web mobile.
+              </p>
+            </article>
+            <article data-scroll-reveal>
+              <h3>Website, CMS &amp; portal operasional</h3>
+              <p>
+                Pengelolaan artikel dan konten website, portal pelanggan, serta
+                aplikasi pencatatan transaksi dan stok.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section
+        class="section-wrap"
+        id="pertanyaan"
+        aria-labelledby="questions-heading"
+      >
+        <div class="editorial-card page-grid">
+          <div class="section-heading" data-scroll-reveal>
+            <p class="eyebrow">04 / SEBELUM MEMULAI</p>
+            <h2 id="questions-heading">
+              Mulai dari kebutuhan.
+              <br />
+              Bukan daftar fitur.
+            </h2>
+          </div>
+          <dl class="question-list">
+            <div data-scroll-reveal>
+              <dt>Berapa biaya pembuatan website atau software?</dt>
+              <dd>
+                Biaya bergantung pada cakupan fitur, integrasi, dan kompleksitas
+                proyek. Ceritakan kebutuhan Anda melalui WhatsApp agar estimasi
+                dapat dibahas berdasarkan ruang lingkup yang jelas.
+              </dd>
+            </div>
+            <div data-scroll-reveal>
+              <dt>Apa yang perlu disiapkan untuk diskusi awal?</dt>
+              <dd>
+                Cukup jelaskan bisnis Anda, kendala yang ingin diselesaikan,
+                siapa yang akan memakai sistem, serta target waktu jika ada.
+                Contoh alur kerja atau aplikasi yang sudah digunakan juga
+                membantu.
+              </dd>
+            </div>
+            <div data-scroll-reveal>
+              <dt>Apakah bisa berdiskusi dari luar kota?</dt>
+              <dd>
+                Bisa. Diskusi awal dapat dimulai melalui WhatsApp dari mana saja
+                di Indonesia. Kebutuhan, cara kerja sama, dan langkah
+                selanjutnya dibahas sesuai proyek Anda.
+              </dd>
+            </div>
+          </dl>
         </div>
       </section>
       <section
@@ -182,27 +422,28 @@ const year = new Date().getFullYear();
       >
         <div class="contact-card page-grid">
           <p class="eyebrow contact-label" data-scroll-reveal>
-            <span class="status-dot" aria-hidden="true"></span> THE NEXT CHAPTER
-            STARTS WITH A CONVERSATION
+            <span class="status-dot" aria-hidden="true"></span> MULAI DARI
+            PERCAKAPAN
           </p>
           <h2 id="contact-heading" data-scroll-reveal>
-            What are you
+            Ada rencana
             <br />
-            thinking of building?
+            untuk bisnis Anda?
           </h2>
           <div class="contact-detail" data-scroll-reveal>
             <p>
-              Tell us about it.
+              Ceritakan kebutuhan Anda.
               <br />
-              Let’s see where we can take it, together.
+              Mari bahas arah solusi dan langkah selanjutnya bersama.
             </p>
             <a
               class="cds--btn cds--btn--primary contact-button contact-button-light"
               href={whatsapp}
+              data-contact-location="contact"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Contact Us{' '}
+              Diskusi Proyek{' '}
               <span class="button-arrow" aria-hidden="true">
                 ↗
               </span>
@@ -210,6 +451,7 @@ const year = new Date().getFullYear();
             <a
               class="phone-link"
               href={whatsapp}
+              data-contact-location="phone"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -227,7 +469,7 @@ const year = new Date().getFullYear();
         EAST TOWN DIGITAL <span aria-hidden="true">↗</span>
       </a>
       <span>© {year} East Town Digital</span>
-      <span class="footer-note">GOOD IDEAS. BUILT RIGHT.</span>
+      <span class="footer-note">SOFTWARE HOUSE UNTUK BISNIS INDONESIA.</span>
     </footer>
     <script>
       import '../scripts/motion';
