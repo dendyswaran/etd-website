@@ -31,13 +31,13 @@ const structuredData = {
       url: canonical,
       name: title,
       description: page.description,
-      inLanguage: 'id-ID',
+      inLanguage: 'en',
       isPartOf: { '@id': `${home}#website` },
     },
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Beranda', item: home },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: home },
         { '@type': 'ListItem', position: 2, name: page.title, item: canonical },
       ],
     },
@@ -46,7 +46,7 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html lang="id" class="cds--white">
+<html lang="en" class="cds--white">
   <head>
     <SeoHead
       title={title}
@@ -57,15 +57,15 @@ const structuredData = {
   </head>
   <body>
     <a class="skip-link" href="#main">
-      Langsung ke konten
+      Skip to content
     </a>
     <header class="site-header page-grid">
-      <a class="brand" href="/" aria-label="Beranda East Town Digital">
+      <a class="brand" href="/" aria-label="East Town Digital home">
         East Town<span class="brand-second">Digital</span>
       </a>
-      <nav class="header-note" aria-label="Navigasi utama">
-        <a href="/#layanan">LAYANAN</a>
-        <a href="/#pengalaman">PENGALAMAN</a>
+      <nav class="header-note" aria-label="Main navigation">
+        <a href="/#layanan">SERVICES</a>
+        <a href="/#pengalaman">EXPERIENCE</a>
       </nav>
       <a
         class="cds--btn cds--btn--tertiary header-contact"
@@ -74,13 +74,13 @@ const structuredData = {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Hubungi Kami ↗
+        Contact us ↗
       </a>
     </header>
     <main id="main" class="detail-page">
       <div class="page-grid detail-intro">
         <nav class="detail-breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Beranda</a>
+          <a href="/">Home</a>
           <span aria-hidden="true"> / </span>
           <span>{page.kind}</span>
         </nav>
@@ -106,8 +106,8 @@ const structuredData = {
         )}
       </div>
       <div class="page-grid detail-body">
-        <aside class="detail-aside" aria-label="Dalam halaman ini">
-          <p class="eyebrow">DALAM HALAMAN INI</p>
+        <aside class="detail-aside" aria-label="On this page">
+          <p class="eyebrow">ON THIS PAGE</p>
           <nav>
             {page.sections.map((section, index) => (
               <a href={`#bagian-${index + 1}`}>{section.heading}</a>
@@ -126,8 +126,8 @@ const structuredData = {
       <section class="section-wrap" aria-labelledby="related-heading">
         <div class="editorial-card page-grid">
           <div class="section-heading">
-            <p class="eyebrow">BACA JUGA</p>
-            <h2 id="related-heading">Konteks untuk langkah berikutnya.</h2>
+            <p class="eyebrow">READ MORE</p>
+            <h2 id="related-heading">Related reading.</h2>
           </div>
           <div class="work-list">
             {related.map((item) => (
@@ -147,14 +147,14 @@ const structuredData = {
       <section class="section-wrap" aria-labelledby="discussion-heading">
         <div class="editorial-card page-grid">
           <div class="section-heading">
-            <p class="eyebrow">MULAI DARI PERCAKAPAN</p>
-            <h2 id="discussion-heading">Ceritakan kebutuhan bisnis Anda.</h2>
+            <p class="eyebrow">DISCUSS A PROJECT</p>
+            <h2 id="discussion-heading">Tell us about your business needs.</h2>
           </div>
           <div class="service-list">
             <p>
-              Diskusikan alur kerja, kendala, dan tujuan proyek Anda dengan East
-              Town Digital. Berbekal pengalaman 15+ tahun di IT, kami memulai
-              dari kebutuhan yang ingin Anda selesaikan.
+              Send a summary of your workflow, challenges, and target timeline
+              through WhatsApp. Examples of spreadsheets or applications you use
+              help us understand the project.
             </p>
             <a
               class="cds--btn cds--btn--primary contact-button detail-contact"
@@ -163,7 +163,7 @@ const structuredData = {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Diskusi Proyek ↗
+              Discuss your project ↗
             </a>
           </div>
         </div>
@@ -175,17 +175,5 @@ const structuredData = {
       </a>
       <span>© {new Date().getFullYear()} East Town Digital</span>
     </footer>
-    <script>
-      import { gsap } from 'gsap';
-      gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
-        gsap.from('.detail-intro > :not(nav)', {
-          y: 16,
-          duration: 0.7,
-          stagger: 0.08,
-          ease: 'power2.out',
-          clearProps: 'all',
-        });
-      });
-    </script>
   </body>
 </html>

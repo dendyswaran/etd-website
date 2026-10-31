@@ -12,7 +12,7 @@ The sitemap is generated from the homepage and the eleven published entries in `
 
 ## Content and evidence
 
-The primary language is Indonesian. Core topics are software development for businesses in Indonesia, websites and CMS, custom business applications, mobile experiences, API integration, AI agents, speech-to-text, and AI-assisted quality assurance. Service descriptions should explain the customer's problem and relevant scope rather than repeat keywords.
+The default website language is English (`lang="en"`, Open Graph `en_US`, and JSON-LD `inLanguage: "en"`). Existing route paths are retained so published links remain valid. Core topics are software development for businesses in Indonesia, websites and CMS, custom business applications, mobile experiences, API integration, AI agents, speech-to-text, and AI-assisted quality assurance. Service descriptions should explain the customer's problem and relevant scope rather than repeat keywords.
 
 Keep project examples factual. Publish only generalized capabilities from approved recent work; do not expose private repository names, client identities, internal URLs, source code, credentials, or screenshots without explicit publication authorization. Do not invent customer testimonials, certifications, delivery guarantees, prices, or performance statistics. The 15+ years claim describes IT experience, not the age of the company.
 

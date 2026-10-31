@@ -39,8 +39,8 @@ afterAll(async () => {
 });
 
 // Catch staging URLs or mismatched languages reaching search engines and shared links.
-test('homepage consistently identifies its Indonesian content and canonical production URL', () => {
-  expect(document.documentElement.lang).toBe('id');
+test('homepage consistently identifies its default English content and canonical production URL', () => {
+  expect(document.documentElement.lang).toBe('en');
   expect(document.title).toMatch(/software house.*Indonesia/i);
   expect(document.querySelector('h1')?.textContent).toMatch(/software house/i);
   expect(document.querySelector('main')?.textContent).toContain('Indonesia');
@@ -54,7 +54,7 @@ test('homepage consistently identifies its Indonesian content and canonical prod
     document
       .querySelector('meta[property="og:locale"]')
       ?.getAttribute('content'),
-  ).toBe('id_ID');
+  ).toBe('en_US');
   expect(
     document.querySelector('meta[name="robots"]')?.getAttribute('content'),
   ).not.toContain('noindex');
@@ -71,6 +71,11 @@ test('organization data exposes verified company contact details without invente
   expect(organization.url).toBe('https://www.easttowndigital.com/');
   expect(organization.contactPoint.telephone).toBe('+62817131366');
   expect(organization.contactPoint.areaServed.name).toBe('Indonesia');
+  for (const item of graph.filter((item: Record<string, unknown>) =>
+    ['WebSite', 'WebPage'].includes(String(item['@type'])),
+  )) {
+    expect(item.inLanguage).toBe('en');
+  }
   expect(organization.address).toBeUndefined();
   expect(organization.aggregateRating).toBeUndefined();
 });
@@ -129,6 +134,17 @@ test('service, case-study and article pages are discoverable, unique and usable 
     const response = await fetch(origin + path);
     expect(response.status).toBe(200);
     const page = parseHTML(await response.text()).document;
+    expect(page.documentElement.lang).toBe('en');
+    expect(
+      page.querySelector('meta[property="og:locale"]')?.getAttribute('content'),
+    ).toBe('en_US');
+    const graph = JSON.parse(
+      page.querySelector('script[type="application/ld+json"]')!.textContent!,
+    )['@graph'];
+    expect(
+      graph.find((item: Record<string, unknown>) => item['@type'] === 'WebPage')
+        .inLanguage,
+    ).toBe('en');
     expect(page.querySelectorAll('h1').length).toBe(1);
     expect(
       page.querySelector('link[rel="canonical"]')?.getAttribute('href'),
@@ -166,7 +182,7 @@ test('article illustrations are distinct, accessible, responsive and served as o
     expect(image!.getAttribute('srcset')).toContain('1536w');
     expect(image!.getAttribute('sizes')).toContain('100vw');
     expect(page.querySelector('figcaption')?.textContent).toContain(
-      'Ilustrasi',
+      'Illustration',
     );
     const source = image!.getAttribute('src')!;
     sources.add(source);

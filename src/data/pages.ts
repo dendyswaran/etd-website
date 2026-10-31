@@ -1,27 +1,27 @@
 export const pages = [
   {
     slug: 'solusi-ai',
-    kind: 'Layanan',
-    title: 'Pengembangan Solusi AI & Automasi untuk Bisnis Indonesia',
+    kind: 'Services',
+    title: 'AI solutions & automation for businesses in Indonesia',
     description:
-      'Solusi AI untuk bisnis: AI agent, training AI, speech-to-text, dan integrasi workflow. Bahas kebutuhan serta kesiapan data bersama East Town Digital.',
-    lead: 'East Town Digital membantu bisnis di Indonesia menerapkan AI pada pekerjaan yang nyata. Mulai dari pengolahan percakapan dan evaluasi layanan hingga automasi alur kerja, kami menghubungkan kemampuan AI dengan aplikasi, data, dan proses yang sudah digunakan tim Anda.',
+      'AI agents, model adaptation, speech-to-text, and workflow integration. Discuss your goals and data readiness with East Town Digital.',
+    lead: 'East Town Digital helps businesses in Indonesia apply AI to everyday work. From conversation analysis and service evaluation to workflow automation, we connect AI capabilities with the applications, data, and processes your team already uses.',
     sections: [
       {
-        heading: 'AI agent dan agent harnesses',
-        text: 'Tim kami aktif memanfaatkan beragam agent harnesses dalam pengembangan software. Harness mengatur konteks, instruksi, akses alat, dan langkah kerja agent. Untuk kebutuhan bisnis, pendekatan ini dapat digunakan untuk membangun alur berbantuan AI yang terhubung dengan sistem Anda. Hak akses, batas tindakan, pengujian, dan titik persetujuan manusia ditentukan sesuai pekerjaan yang akan dijalankan.',
+        heading: 'AI agents and agent harnesses',
+        text: 'Our team uses a range of agent harnesses in software development. A harness manages context, instructions, tool access, and the steps an agent follows. For business applications, this approach can support AI-assisted workflows connected to your systems. Permissions, action limits, testing, and human approval points are defined around the work involved.',
       },
       {
-        heading: 'Training AI sesuai kebutuhan dan kesiapan data',
-        text: 'Kebutuhan training AI dimulai dari tujuan, contoh data, dan cara mengukur hasil. Kami membahas penyiapan data, penyusunan knowledge, evaluasi, serta penyempurnaan konfigurasi AI agar sesuai konteks bisnis. Pemilihan antara prompting, retrieval knowledge, dan pelatihan model seperti fine-tuning ditentukan setelah peninjauan data dan kelayakan. Memasukkan dokumen ke knowledge base tidak sama dengan melatih ulang model.',
+        heading: 'AI training based on goals and data readiness',
+        text: 'AI training starts with a goal, sample data, and a way to measure results. We discuss data preparation, knowledge organization, evaluation, and configuration to fit your business context. The choice between prompting, knowledge retrieval, and model training such as fine-tuning follows a review of data and feasibility. Adding documents to a knowledge base is not the same as retraining a model.',
       },
       {
-        heading: 'Speech-to-text dan analisis percakapan',
-        text: 'Rekaman percakapan dapat menjadi masukan untuk transkripsi, pemisahan peran pembicara, evaluasi berbasis rubrik, dan bahan coaching. Pengalaman pengembangan kami mencakup alur audio ke transkrip, evaluasi AI dengan acuan knowledge, hingga peninjauan hasil dan ekspor laporan. Kualitas audio, bahasa, istilah khusus, dan kebutuhan privasi menjadi bagian penting dari pembahasan solusi.',
+        heading: 'Speech-to-text and conversation analysis',
+        text: 'Recorded conversations can support transcription, speaker role identification, rubric-based evaluation, and coaching. Our development experience covers audio-to-transcript workflows, AI evaluation grounded in reference knowledge, result review, and report exports. Audio quality, language, specialist terminology, and privacy requirements are part of the discussion.',
       },
       {
-        heading: 'Mulai dari satu workflow yang bisa dievaluasi',
-        text: 'Ceritakan pekerjaan yang ingin dibantu AI, aplikasi yang digunakan, serta data yang tersedia dan boleh diproses. Kami membahas ruang lingkup awal, contoh penilaian, biaya layanan model, integrasi, dan pengawasan manusia. Hasil AI perlu diuji terhadap contoh yang representatif; target akurasi dan manfaat operasional disepakati berdasarkan kebutuhan, tanpa menjanjikan hasil otomatis yang selalu benar.',
+        heading: 'Start with one workflow you can evaluate',
+        text: 'Tell us which task you want AI to help with, which applications you use, and what data is available and permitted for processing. We discuss initial scope, evaluation examples, model service costs, integration, and human oversight. AI results need testing against representative examples. Accuracy targets and operational benefits should be agreed around your needs, without assuming every automated result will be correct.',
       },
     ],
     related: [
@@ -32,54 +32,54 @@ export const pages = [
   },
   {
     slug: 'studi-kasus/ai-quality-assurance',
-    kind: 'Studi kasus',
-    title: 'AI Quality Assurance: Dari Rekaman ke Evaluasi Layanan',
+    kind: 'Case studies',
+    title: 'AI quality assurance: from recordings to service evaluation',
     description:
-      'Pengalaman membangun alur QA berbasis AI: speech-to-text, evaluasi dengan knowledge dan rubrik, coaching, koreksi reviewer, serta laporan.',
-    lead: 'Rekaman percakapan menyimpan konteks yang berguna untuk meninjau kualitas layanan. Pengalaman pengembangan kami mencakup sistem yang mengolah audio menjadi transkrip dan evaluasi terstruktur, dengan reviewer tetap dapat memeriksa serta mengoreksi hasil. Ringkasan ini disajikan tanpa identitas klien atau data percakapan.',
+      'Experience building an AI-assisted QA workflow with speech-to-text, rubric-based evaluation, coaching notes, reviewer corrections, and reporting.',
+    lead: 'Recorded conversations provide useful context for reviewing service quality. Our development experience includes a system that turns audio into transcripts and structured evaluations, while allowing reviewers to check and correct results. This summary does not disclose client identities or conversation data.',
     sections: [
       {
-        heading: 'Audio menjadi transkrip yang dapat ditinjau',
-        text: 'Alur dimulai dari unggahan rekaman, lalu transkripsi speech-to-text dan identifikasi peran pembicara. Ekstraksi fitur audio melengkapi informasi yang tersedia untuk evaluasi. Pemrosesan dilakukan melalui antrean dengan status pekerjaan dan penanganan kegagalan, sehingga tim dapat mengikuti tahap pemrosesan tanpa harus menjalankan setiap langkah secara manual.',
+        heading: 'From audio to reviewable transcripts',
+        text: 'The workflow starts with recording uploads, speech-to-text transcription, and speaker role identification. Audio feature extraction adds information for evaluation. Processing runs through a queue with job status and failure handling, so the team can follow each stage without carrying out every step manually.',
       },
       {
-        heading: 'Evaluasi dengan rubrik dan knowledge',
-        text: 'Evaluator AI menggunakan transkrip, rubrik penilaian, serta knowledge produk dan prosedur sebagai acuan. Hasilnya mencakup penilaian terstruktur, bukti dari percakapan, dan catatan coaching. Skor akhir dihitung kembali oleh sistem berdasarkan bobot rubrik. Pendekatan ini memisahkan interpretasi AI dari perhitungan skor dan memudahkan pemeriksaan alasan di balik penilaian.',
+        heading: 'Evaluation grounded in rubrics and reference knowledge',
+        text: 'The AI evaluator uses transcripts, assessment rubrics, and product and procedure knowledge as references. Outputs include structured assessments, evidence from the conversation, and coaching notes. The system recalculates final scores using rubric weights. This separates AI interpretation from score calculation and makes the reasoning behind an assessment easier to inspect.',
       },
       {
-        heading: 'Reviewer tetap memegang keputusan',
-        text: 'Reviewer dapat meninjau dan mengoreksi penilaian dengan catatan, lalu sistem menghitung ulang hasilnya. Koreksi dapat digunakan sebagai contoh evaluasi berikutnya; ini merupakan pemanfaatan contoh dan konteks, bukan klaim pelatihan ulang model. Jejak tahapan pemrosesan membantu penelusuran, sementara ekspor laporan mendukung kebutuhan rekap dan pembahasan hasil bersama tim.',
+        heading: 'Reviewers retain the final decision',
+        text: 'Reviewers can inspect and correct assessments with notes, after which the system recalculates the results. Corrections can inform subsequent evaluations as examples and context; this does not imply model retraining. Processing history supports traceability, while report exports help the team summarize and discuss results.',
       },
       {
-        heading: 'Pelajaran untuk penerapan di bisnis Anda',
-        text: 'Workflow seperti ini membutuhkan definisi kualitas yang jelas, contoh penilaian manusia, dan pengujian terhadap rekaman yang representatif. Akses rekaman, izin pemrosesan, penyimpanan, dan layanan AI yang digunakan perlu dibahas sejak awal. Kebutuhan setiap bisnis berbeda; pengalaman ini menjadi dasar diskusi untuk merancang ruang lingkup dan evaluasi, bukan jaminan angka akurasi atau penghematan tertentu.',
+        heading: 'Lessons for your business',
+        text: 'A workflow like this needs clear quality definitions, human assessment examples, and testing against representative recordings. Access to recordings, processing permission, storage, and the AI services involved should be discussed early. Each business has different requirements. This experience informs scope and evaluation discussions, rather than guaranteeing a particular accuracy or savings figure.',
       },
     ],
     related: ['solusi-ai', 'integrasi-sistem', 'software-custom'],
   },
   {
     slug: 'jasa-pembuatan-website',
-    kind: 'Layanan',
-    title: 'Jasa Pembuatan Website untuk Bisnis Indonesia',
+    kind: 'Services',
+    title: 'Website development for businesses in Indonesia',
     description:
-      'Website perusahaan dan CMS sesuai kebutuhan bisnis. Bahas struktur konten, pengelolaan website, dan kebutuhan integrasi bersama East Town Digital.',
-    lead: 'Website yang baik membantu calon pelanggan memahami bisnis Anda dan menemukan langkah berikutnya. East Town Digital membantu merancang website perusahaan, halaman produk, dan website dengan pengelolaan konten yang sesuai kebutuhan tim.',
+      'Company websites and content management tailored to your business. Discuss content structure, website management, and integration with East Town Digital.',
+    lead: 'A useful website helps potential customers understand your business and find their next step. East Town Digital helps plan company websites, product pages, and content management around the needs of your team.',
     sections: [
       {
-        heading: 'Mulai dari tujuan pengunjung',
-        text: 'Apakah pengunjung perlu memahami layanan, melihat pengalaman proyek, atau menghubungi tim penjualan? Tujuan ini menentukan susunan halaman, informasi yang ditampilkan, dan jalur kontak. Kami mengajak Anda memetakan siapa pembacanya serta pertanyaan apa yang perlu dijawab sebelum mereka memutuskan untuk menghubungi bisnis Anda.',
+        heading: 'Start with the visitor’s goal',
+        text: 'Do visitors need to understand your services, explore project experience, or contact your sales team? That goal shapes the page structure, information, and contact path. We work with you to identify your audience and the questions they need answered before deciding to get in touch.',
       },
       {
-        heading: 'Konten yang dapat dikelola tim Anda',
-        text: 'Bila artikel, layanan, atau informasi perusahaan sering berubah, CMS dapat menjadi bagian dari kebutuhan proyek. Pengalaman pengembangan kami mencakup pengelolaan artikel, draft, publikasi, dan penyuntingan konten situs. Hak akses dan proses persetujuan perlu dibahas agar pengelolaan konten sesuai cara kerja tim, bukan sekadar menambahkan panel admin.',
+        heading: 'Content your team can manage',
+        text: 'If articles, services, or company information change regularly, a CMS may be part of the project. Our development experience includes article management, drafts, publishing, and website content editing. Permissions and approval processes should reflect how your team works, rather than simply adding an admin panel.',
       },
       {
-        heading: 'Ruang lingkup dan integrasi',
-        text: 'Dalam diskusi awal, siapkan identitas merek, daftar layanan, materi foto yang boleh dipakai, dan contoh website yang Anda sukai. Jika website perlu terhubung dengan aplikasi lain, jelaskan sumber data dan siapa yang mengelolanya. Kebutuhan formulir, bahasa, migrasi konten, serta pemeliharaan dibahas sebagai bagian ruang lingkup; masing-masing dapat memengaruhi estimasi pekerjaan.',
+        heading: 'Scope and integration',
+        text: 'For the initial discussion, prepare your brand identity, service list, approved photography, and examples of websites you like. If the site needs to connect to other applications, explain the data sources and who manages them. Forms, languages, content migration, and maintenance are scope decisions that can affect the estimate.',
       },
       {
-        heading: 'Bagaimana memulai',
-        text: 'Anda tidak perlu memiliki spesifikasi teknis lengkap. Ceritakan tujuan bisnis dan kendala website saat ini melalui WhatsApp. Kami dapat membahas prioritas halaman, materi yang perlu disiapkan, serta pilihan pendekatan. Biaya dan jadwal baru dapat dinilai setelah kebutuhan serta batas pekerjaan dipahami bersama.',
+        heading: 'How to get started',
+        text: 'You do not need a complete technical specification. Share your business goals and current website challenges through WhatsApp. We can discuss priority pages, materials to prepare, and possible approaches. Costs and schedules can be assessed once the requirements and boundaries of the work are understood.',
       },
     ],
     related: [
@@ -90,27 +90,27 @@ export const pages = [
   },
   {
     slug: 'software-custom',
-    kind: 'Layanan',
-    title: 'Pengembangan Software Custom & Aplikasi Bisnis',
+    kind: 'Services',
+    title: 'Custom software & business applications',
     description:
-      'Pengembangan software custom untuk transaksi, stok, reservasi, antrean, dan monitoring bisnis. Diskusikan kebutuhan operasional Anda bersama East Town Digital.',
-    lead: 'Software custom ditujukan untuk kebutuhan yang tidak cukup terlayani oleh aplikasi siap pakai. Fokusnya adalah menyelaraskan sistem dengan proses bisnis, pengguna, dan aturan data yang benar-benar dibutuhkan.',
+      'Custom software for transactions, inventory, reservations, queues, and business monitoring. Discuss your operational needs with East Town Digital.',
+    lead: 'Custom software addresses needs that off-the-shelf applications do not adequately cover. The aim is to align the system with your business processes, users, and the data rules you actually need.',
     sections: [
       {
-        heading: 'Kenali proses yang perlu dibantu',
-        text: 'Mulailah dari satu proses: misalnya pencatatan transaksi, pengaturan reservasi, atau pelaporan pengeluaran proyek. Jelaskan siapa yang memasukkan data, siapa yang menyetujui, serta informasi yang dibutuhkan untuk mengambil keputusan. Contoh dokumen atau alur kerja membantu mengidentifikasi masalah tanpa langsung mengunci solusi pada daftar fitur yang panjang.',
+        heading: 'Identify the process that needs support',
+        text: 'Start with one process, such as recording transactions, managing reservations, or reporting project expenses. Explain who enters data, who approves it, and what information supports decisions. Sample documents and workflows help identify the problem before committing to a long feature list.',
       },
       {
-        heading: 'Pengalaman operasional yang relevan',
-        text: 'Pengembangan yang pernah kami kerjakan mencakup POS dan reservasi salon, sistem antrean layanan, serta monitoring keuangan dan proyek. Cakupannya meliputi peran pengguna, pencatatan transaksi, rekap, dan ekspor laporan. Contoh tersebut menunjukkan jenis kebutuhan yang dapat dibahas, bukan paket fitur yang otomatis cocok untuk setiap bisnis.',
+        heading: 'Relevant operational experience',
+        text: 'Our development experience includes salon POS and reservations, service queue systems, and financial and project monitoring. This work covers user roles, transaction records, summaries, and report exports. These examples show the kinds of needs we can discuss, rather than a feature package that automatically fits every business.',
       },
       {
-        heading: 'Tentukan batas pekerjaan sejak awal',
-        text: 'Hak akses, status transaksi, koreksi data, dan kebutuhan laporan perlu dijelaskan bersama. Integrasi sistem lama atau migrasi spreadsheet juga memiliki pekerjaan tersendiri. Prioritas dapat dimulai dari alur yang paling penting, lalu kebutuhan lanjutan ditinjau berdasarkan pemakaian. Keputusan mengenai pengujian, penerimaan pekerjaan, deployment, dan pemeliharaan menjadi bagian pembahasan proyek.',
+        heading: 'Define the boundaries early',
+        text: 'Permissions, transaction states, data corrections, and reporting requirements need a shared definition. Legacy system integration and spreadsheet migration involve separate work. Begin with the most important workflow, then review further requirements based on actual use. Testing, acceptance, deployment, and maintenance are also part of the project discussion.',
       },
       {
-        heading: 'Kapan software custom masuk akal',
-        text: 'Pertimbangkan software custom ketika proses yang penting membutuhkan aturan khusus, melibatkan beberapa peran, atau menimbulkan pencatatan berulang. Jika kebutuhan masih sederhana, aplikasi siap pakai mungkin memadai. Ceritakan situasi Anda agar pembahasan dimulai dari manfaat dan ruang lingkup, bukan asumsi bahwa semua proses harus dibuat ulang.',
+        heading: 'When custom software makes sense',
+        text: 'Consider custom software when a critical process needs specific rules, involves several roles, or creates repeated data entry. Off-the-shelf applications may be enough for simpler needs. Share your situation so the discussion starts with value and scope, rather than assuming every process needs to be rebuilt.',
       },
     ],
     related: [
@@ -121,27 +121,27 @@ export const pages = [
   },
   {
     slug: 'aplikasi-mobile',
-    kind: 'Layanan',
-    title: 'Pengembangan Aplikasi Mobile untuk Tim & Pelanggan',
+    kind: 'Services',
+    title: 'Mobile applications for teams & customers',
     description:
-      'Diskusikan aplikasi mobile, web mobile, dan PWA untuk pelanggan atau operasional lapangan bersama East Town Digital. Pilih pendekatan sesuai kebutuhan pengguna.',
-    lead: 'Pekerjaan tidak selalu dilakukan dari meja kantor. Aplikasi mobile membantu pengguna mengakses alur yang relevan dari perangkat yang mereka bawa, dengan tampilan dan interaksi yang dirancang untuk layar kecil.',
+      'Discuss mobile applications, mobile web, and PWAs for customers or field operations with East Town Digital. Choose an approach around user needs.',
+    lead: 'Work does not always happen at a desk. Mobile applications help people access the workflows they need from the devices they carry, with layouts and interactions designed for smaller screens.',
     sections: [
       {
-        heading: 'Pilih pendekatan sesuai pekerjaan',
-        text: 'Aplikasi native, web mobile, dan Progressive Web App atau PWA memiliki karakteristik yang berbeda. Kebutuhan akses kamera, distribusi aplikasi, koneksi internet, serta perangkat pengguna perlu dipetakan sebelum memilih pendekatan. Tidak semua proyek memerlukan publikasi di toko aplikasi, dan tidak semua kebutuhan perangkat dapat dipenuhi hanya melalui browser.',
+        heading: 'Choose an approach around the work',
+        text: 'Native applications, mobile websites, and Progressive Web Apps (PWAs) have different characteristics. Camera access, distribution, internet connectivity, and user devices need to be mapped before choosing an approach. Not every project needs an app store release, and not every device requirement can be met through a browser alone.',
       },
       {
-        heading: 'Pengalaman web mobile dan PWA',
-        text: 'Salah satu pengalaman pengembangan kami adalah antarmuka mobile untuk pencatatan pengeluaran proyek dan unggah bukti transaksi. Alur tersebut membantu tim menghubungkan kegiatan lapangan dengan monitoring di sisi desktop. Kemampuan seperti kamera atau pemasangan PWA tetap perlu diuji pada perangkat dan browser sasaran; dukungannya dapat berbeda antarplatform.',
+        heading: 'Mobile web and PWA experience',
+        text: 'One example of our development work is a mobile interface for recording project expenses and uploading receipts. The workflow connects field activity with desktop monitoring. Capabilities such as camera access and PWA installation still need testing on target devices and browsers, as support varies across platforms.',
       },
       {
-        heading: 'Perhatikan alur, bukan hanya ukuran layar',
-        text: 'Formulir yang panjang, unggah berkas, konfirmasi data, dan pesan kesalahan harus dirancang untuk kondisi penggunaan yang sebenarnya. Diskusikan siapa penggunanya, apakah perangkat milik perusahaan atau pribadi, serta bagaimana data digunakan oleh tim lain. Jika penggunaan tanpa koneksi dibutuhkan, hal itu perlu menjadi kebutuhan eksplisit dan tidak diasumsikan tersedia.',
+        heading: 'Consider the workflow, not just screen size',
+        text: 'Long forms, file uploads, data confirmation, and error messages should be designed for real usage conditions. Discuss who will use the system, whether devices are company-owned or personal, and how other teams use the data. Offline use must be an explicit requirement rather than an assumed capability.',
       },
       {
-        heading: 'Siapkan diskusi awal',
-        text: 'Bawa contoh pekerjaan yang akan dilakukan melalui ponsel, jenis perangkat yang digunakan, dan sistem yang perlu dihubungkan. Kami akan membahas prioritas fitur, pilihan platform, integrasi, dan pengujiannya. Estimasi mengikuti ruang lingkup yang disepakati, termasuk kebutuhan distribusi, pengelolaan akun, serta pemeliharaan setelah implementasi.',
+        heading: 'Prepare for an initial discussion',
+        text: 'Bring examples of tasks people will perform on their phones, the devices they use, and the systems to connect. We can discuss feature priorities, platforms, integration, and testing. Estimates follow the agreed scope, including distribution, account management, and maintenance after implementation.',
       },
     ],
     related: [
@@ -152,27 +152,27 @@ export const pages = [
   },
   {
     slug: 'integrasi-sistem',
-    kind: 'Layanan',
-    title: 'Jasa Integrasi API, Database & Sistem Bisnis',
+    kind: 'Services',
+    title: 'API, database & business system integration',
     description:
-      'Hubungkan aplikasi, database, dan alur operasional bisnis melalui integrasi sistem yang sesuai kebutuhan. Diskusikan API dan sumber data Anda dengan East Town Digital.',
-    lead: 'Data yang sama sering dicatat kembali di beberapa aplikasi. Integrasi sistem bertujuan menghubungkan proses dan sumber data tersebut, dengan aturan yang jelas mengenai kepemilikan, pembaruan, dan penanganan kesalahan.',
+      'Connect applications, databases, and operational workflows through integration tailored to your needs. Discuss your APIs and data sources with East Town Digital.',
+    lead: 'The same data is often entered again in several applications. System integration connects these processes and data sources, with clear rules for ownership, updates, and error handling.',
     sections: [
       {
-        heading: 'Petakan sumber dan tujuan data',
-        text: 'Tentukan aplikasi mana yang menjadi sumber informasi utama, data apa yang dipindahkan, dan kapan pembaruan diperlukan. Integrasi dapat melibatkan API, impor berkas, atau koneksi data yang disetujui. Ketersediaan dokumentasi serta izin dari pemilik sistem perlu dipastikan sebelum menentukan solusi dan estimasi.',
+        heading: 'Map data sources and destinations',
+        text: 'Identify the application that holds the primary record, the data to transfer, and when updates are needed. Integration may involve APIs, file imports, or approved data connections. Documentation and permission from system owners must be confirmed before choosing a solution and preparing an estimate.',
       },
       {
-        heading: 'Aturan bisnis tetap menjadi inti',
-        text: 'Menghubungkan dua sistem bukan sekadar mengirim data. Identitas transaksi, format tanggal, status pembayaran, hak akses, dan penanganan data ganda perlu dipahami. Tentukan pula apa yang terjadi ketika koneksi gagal atau data ditolak. Keputusan ini membantu tim menelusuri kesalahan dan menghindari pembaruan yang membingungkan.',
+        heading: 'Business rules remain central',
+        text: 'Connecting two systems involves more than sending data. Transaction identifiers, date formats, payment states, permissions, and duplicate handling need to be understood. Define what should happen when a connection fails or data is rejected. These decisions help the team trace errors and avoid confusing updates.',
       },
       {
-        heading: 'Contoh kebutuhan yang bisa dibahas',
-        text: 'Pengalaman pengembangan aplikasi bisnis kami mencakup pencatatan transaksi dan stok, impor data spreadsheet, serta ekspor rekap untuk kebutuhan operasional. Proyek Anda dapat memiliki sumber data atau perangkat yang berbeda. Integrasi dengan layanan tertentu hanya dapat dipastikan setelah antarmuka, batas penggunaan, dan akses yang diperlukan ditinjau.',
+        heading: 'Examples of needs we can discuss',
+        text: 'Our business application experience includes transaction and inventory records, spreadsheet imports, and operational summary exports. Your project may involve different data sources or devices. Integration with a particular service can only be confirmed after reviewing its interfaces, usage limits, and required access.',
       },
       {
-        heading: 'Apa yang perlu Anda siapkan',
-        text: 'Siapkan daftar aplikasi, contoh data yang sudah disamarkan, dokumentasi API bila tersedia, dan penjelasan proses yang ingin dihubungkan. Jangan mengirim kredensial produksi untuk diskusi awal. Mulailah dengan tujuan integrasi, pemilik data, dan kendala saat ini agar pilihan pendekatan dapat dibahas dengan ruang lingkup yang jelas.',
+        heading: 'What to prepare',
+        text: 'Prepare a list of applications, anonymized sample data, API documentation if available, and an explanation of the processes to connect. Do not send production credentials for an initial discussion. Start with the integration goal, data owners, and current challenges so we can discuss an approach with a clear scope.',
       },
     ],
     related: [
@@ -183,27 +183,27 @@ export const pages = [
   },
   {
     slug: 'studi-kasus/pos-reservasi-salon',
-    kind: 'Studi kasus',
-    title: 'Pengembangan POS & Reservasi Salon',
+    kind: 'Case studies',
+    title: 'Salon POS & reservation system development',
     description:
-      'Ringkasan anonim pengalaman pengembangan POS salon: kalender reservasi, peran staf, checkout, dan pencetakan struk.',
-    lead: 'Ringkasan ini menjelaskan cakupan implementasi yang pernah dikerjakan. Identitas pelanggan, data operasional, dan detail akses internal tidak ditampilkan. Tidak ada klaim angka peningkatan omzet atau efisiensi tanpa pengukuran.',
+      'An anonymous summary of salon POS development experience: reservation calendars, staff roles, checkout, and receipt printing.',
+    lead: 'This summary describes the scope of a previous implementation. Customer identities, operational data, and internal access details are omitted. It makes no claims about revenue or efficiency improvements without measurement.',
     sections: [
       {
-        heading: 'Kebutuhan yang ditangani',
-        text: 'Operasional salon mempertemukan pemesanan waktu, ketersediaan staf, layanan yang dipilih, dan pembayaran. Sistem perlu membantu pengguna berpindah dari reservasi menuju checkout tanpa kehilangan konteks transaksi. Peran staf juga perlu dibedakan agar tampilan dan tindakan sesuai tanggung jawab masing-masing.',
+        heading: 'The operational needs',
+        text: 'Salon operations bring together booking times, staff availability, selected services, and payments. The system needs to support the move from reservation to checkout while retaining transaction context. Staff roles also need to be distinguished so views and actions match each person’s responsibilities.',
       },
       {
-        heading: 'Cakupan pengembangan',
-        text: 'Implementasi mencakup kalender booking, pengaturan peran staf, alur kasir, dan pencetakan struk. Dukungan pencetakan melibatkan beberapa pendekatan perangkat sehingga metode yang digunakan perlu disesuaikan dengan lingkungan operasional. Fitur yang ada dalam suatu implementasi tidak berarti semua printer atau perangkat lain otomatis kompatibel.',
+        heading: 'Development scope',
+        text: 'The implementation covers a booking calendar, staff role management, checkout, and receipt printing. Printing support involves several device approaches, so the method needs to suit the operating environment. A feature in one implementation does not imply automatic compatibility with every printer or device.',
       },
       {
-        heading: 'Hal yang perlu diperhatikan',
-        text: 'Sebelum mengembangkan sistem serupa, petakan cara reservasi masuk, aturan perubahan jadwal, proses checkout, serta perangkat kasir yang digunakan. Perbedaan cabang, hak akses, dan kebutuhan rekap dapat mengubah ruang lingkup. Pengujian alur operasional dan perangkat nyata menjadi bagian penting pembahasan implementasi.',
+        heading: 'What to consider',
+        text: 'Before developing a similar system, map how reservations arrive, scheduling change rules, checkout, and the devices used at the counter. Branch differences, permissions, and reporting needs can change the scope. Testing real workflows and hardware is an important part of implementation planning.',
       },
       {
-        heading: 'Relevansi untuk bisnis Anda',
-        text: 'Contoh ini relevan ketika reservasi dan transaksi perlu dikelola dalam alur yang terhubung. Kebutuhan salon Anda mungkin lebih sederhana atau lebih kompleks. Diskusikan situasi sekarang dan prioritasnya melalui WhatsApp; pembahasan dapat dimulai dari proses yang paling sering menimbulkan kendala, bukan menyalin seluruh fitur proyek lain.',
+        heading: 'Relevance to your business',
+        text: 'This example is relevant when reservations and transactions need a connected workflow. Your salon may have simpler or more complex needs. Discuss your current situation and priorities through WhatsApp. Start with the process that causes the most friction, rather than copying every feature from another project.',
       },
     ],
     related: [
@@ -214,27 +214,27 @@ export const pages = [
   },
   {
     slug: 'studi-kasus/sistem-antrean',
-    kind: 'Studi kasus',
-    title: 'Pengembangan Sistem Antrean Layanan',
+    kind: 'Case studies',
+    title: 'Service queue system development',
     description:
-      'Ringkasan anonim pengembangan sistem antrean: nomor antrean, pemanggilan operator, layar informasi, dan rekap layanan.',
-    lead: 'Sistem antrean membutuhkan lebih dari tampilan nomor. Pengalaman pengembangan ini mencakup hubungan antara pengambilan antrean, tindakan operator, informasi pengunjung, dan rekap layanan. Ringkasan disajikan tanpa identitas atau data internal pelanggan.',
+      'An anonymous summary of queue system development: ticket numbers, operator calls, information displays, and service reports.',
+    lead: 'A queue system needs more than a number display. This development experience covers the relationship between ticket issuance, operator actions, visitor information, and service reporting. The summary omits customer identities and internal data.',
     sections: [
       {
-        heading: 'Alur yang saling terhubung',
-        text: 'Pengunjung mengambil nomor, operator memanggil antrean, dan layar menampilkan informasi yang relevan. Perubahan status perlu dipahami oleh masing-masing pihak. Sebelum membangun sistem, aturan jenis layanan, pemanggilan ulang, dan pergantian hari harus dijelaskan agar alur yang dirancang sesuai kondisi operasional.',
+        heading: 'Connected workflows',
+        text: 'Visitors take a number, operators call the queue, and displays show relevant information. Everyone involved needs to understand status changes. Service categories, repeat calls, and daily resets should be defined before development so the workflow reflects actual operations.',
       },
       {
-        heading: 'Cakupan implementasi',
-        text: 'Pengembangan mencakup pengambilan nomor, pemanggilan antrean oleh operator, layar display, serta rekap dan ekspor laporan. Terdapat pula kebutuhan cetak tiket dan pengelolaan konten layar. Integrasi perangkat dan bentuk laporan disesuaikan dengan kebutuhan implementasi, sehingga lingkungan pemasangan menjadi bagian yang perlu ditinjau.',
+        heading: 'Implementation scope',
+        text: 'Development covers number issuance, operator queue calls, displays, summaries, and report exports. It also includes ticket printing and display content management. Hardware integration and report formats are tailored to the implementation, making the installation environment part of the review.',
       },
       {
-        heading: 'Pelajaran untuk proyek serupa',
-        text: 'Susunan loket, jenis perangkat, format tiket, dan informasi laporan memengaruhi desain sistem. Tim juga perlu mengetahui cara menangani antrean yang terlewat serta koreksi operasional. Simulasi alur bersama pengguna membantu menemukan kebutuhan yang belum tampak dari rancangan layar saja.',
+        heading: 'Lessons for similar projects',
+        text: 'Counter layouts, devices, ticket formats, and reporting requirements affect system design. Teams also need a way to handle missed turns and operational corrections. Simulating the workflow with users helps uncover requirements that screen designs alone may miss.',
       },
       {
-        heading: 'Membahas kebutuhan layanan Anda',
-        text: 'Jika Anda ingin merapikan alur antrean, siapkan gambaran lokasi layanan, jumlah jenis layanan, perangkat yang tersedia, dan contoh rekap yang dibutuhkan. Informasi ini membantu membahas batas pekerjaan. Ringkasan ini menunjukkan pengalaman implementasi; hasil waktu tunggu atau kepuasan pengunjung belum dinyatakan karena tidak ada pengukuran yang dipublikasikan.',
+        heading: 'Discussing your service needs',
+        text: 'If you want to organize your queue workflow, prepare an overview of the service location, service categories, available devices, and reporting examples. This information helps define the work. This summary demonstrates implementation experience; waiting-time or visitor-satisfaction results are not presented as measured outcomes.',
       },
     ],
     related: [
@@ -245,81 +245,81 @@ export const pages = [
   },
   {
     slug: 'studi-kasus/monitoring-keuangan-proyek',
-    kind: 'Studi kasus',
-    title: 'Pengembangan Monitoring Keuangan & Proyek',
+    kind: 'Case studies',
+    title: 'Financial & project monitoring development',
     description:
-      'Ringkasan anonim aplikasi monitoring proyek: anggaran, termin pembayaran, pengeluaran, bukti transaksi, dan web mobile.',
-    lead: 'Ketika pengeluaran dicatat di lapangan sementara anggaran dipantau di kantor, sistem perlu menghubungkan konteks transaksi dengan proyeknya. Ringkasan ini berfokus pada cakupan pengembangan, tanpa membuka nilai kontrak, pelanggan, atau data keuangan internal.',
+      'An anonymous summary of a project monitoring application: budgets, payment milestones, expenses, receipts, and mobile web access.',
+    lead: 'When expenses are recorded in the field while budgets are monitored in the office, the system needs to connect each transaction with its project. This summary focuses on development scope without disclosing contract values, customers, or internal financial data.',
     sections: [
       {
-        heading: 'Kebutuhan monitoring',
-        text: 'Pengelola proyek perlu membandingkan anggaran, termin pembayaran, dan pengeluaran. Sementara itu, pengguna lapangan membutuhkan cara mencatat bukti transaksi yang tidak mengharuskan mereka memakai tampilan desktop. Perbedaan peran tersebut menjadi pertimbangan dalam menyusun pengalaman pengguna.',
+        heading: 'Monitoring needs',
+        text: 'Project managers need to compare budgets, payment milestones, and expenses. Field users need a way to record receipts without relying on a desktop interface. These different roles inform the user experience.',
       },
       {
-        heading: 'Cakupan yang dikembangkan',
-        text: 'Implementasi mencakup informasi proyek dan anggaran, pencatatan termin, pengeluaran, galeri bukti transaksi, serta dashboard monitoring. Pengalaman web mobile dan PWA mendukung unggah bukti serta konfirmasi pengeluaran. Riwayat perubahan dan peran pengguna menjadi bagian dari pengelolaan data aplikasi.',
+        heading: 'What was developed',
+        text: 'The implementation covers project and budget information, payment milestones, expenses, receipt galleries, and a monitoring dashboard. Mobile web and PWA interfaces support receipt uploads and expense confirmation. Change history and user roles are part of application data management.',
       },
       {
-        heading: 'Menjaga konteks data',
-        text: 'Angka pada dashboard hanya berguna bila asal transaksi dan statusnya jelas. Karena itu, hubungan antara proyek, pengeluaran, bukti, dan pengguna perlu dirancang sejak awal. Aturan koreksi, format ekspor, serta kebutuhan impor data juga perlu dibahas berdasarkan proses organisasi yang menggunakan sistem.',
+        heading: 'Preserving data context',
+        text: 'Dashboard figures are useful only when the source and status of transactions are clear. Relationships between projects, expenses, receipts, and users need to be designed early. Correction rules, export formats, and data import requirements should follow the processes of the organization using the system.',
       },
       {
-        heading: 'Menilai kebutuhan bisnis Anda',
-        text: 'Bila tim Anda masih menggabungkan rekap dari banyak spreadsheet, mulailah dengan memetakan data yang paling penting dan siapa pemiliknya. Tidak semua kebutuhan harus dikembangkan sekaligus. Contoh ini tidak menyatakan adanya penghematan biaya tertentu; manfaat proyek baru perlu ditetapkan dan diukur berdasarkan kondisi awal yang disepakati.',
+        heading: 'Assessing your business needs',
+        text: 'If your team combines summaries from many spreadsheets, start by mapping the most important data and who owns it. Not every requirement needs to be developed at once. This example does not claim specific cost savings. The benefits of a new project need to be defined and measured against an agreed starting point.',
       },
     ],
     related: ['software-custom', 'aplikasi-mobile', 'integrasi-sistem'],
   },
   {
     slug: 'artikel/biaya-software-custom',
-    kind: 'Panduan',
-    title: 'Apa yang Menentukan Biaya Software Custom?',
+    kind: 'Guides',
+    title: 'What determines the cost of custom software?',
     description:
-      'Pahami faktor biaya software custom: alur kerja, fitur, integrasi, migrasi data, pengujian, dan pemeliharaan sebelum meminta estimasi.',
-    lead: 'Pertanyaan tentang biaya paling mudah dijawab setelah kebutuhan proyek dipahami. Dua aplikasi dengan tampilan serupa dapat memiliki pekerjaan yang berbeda karena aturan bisnis, integrasi, dan kualitas data awalnya tidak sama.',
+      'Understand custom software cost factors: workflows, features, integration, data migration, testing, and maintenance before requesting an estimate.',
+    lead: 'Cost questions are easier to answer once the project requirements are understood. Two applications that look similar can involve different work because their business rules, integrations, and initial data quality differ.',
     sections: [
       {
-        heading: 'Cakupan lebih penting daripada jumlah layar',
-        text: 'Satu layar checkout dapat melibatkan perhitungan, hak akses, status transaksi, koreksi, dan pencetakan. Karena itu, estimasi sebaiknya membahas tindakan pengguna dan aturan di belakangnya. Pisahkan kebutuhan yang wajib tersedia saat peluncuran dari kebutuhan yang dapat ditinjau setelah sistem mulai digunakan.',
+        heading: 'Scope matters more than screen count',
+        text: 'A single checkout screen may involve calculations, permissions, transaction states, corrections, and printing. An estimate should therefore cover user actions and the rules behind them. Separate launch requirements from needs that can be reviewed after the system is in use.',
       },
       {
-        heading: 'Integrasi dan migrasi memiliki pekerjaan tersendiri',
-        text: 'API yang sudah terdokumentasi berbeda dari sistem yang hanya menyediakan ekspor berkas. Migrasi spreadsheet juga dapat memerlukan pemetaan kolom, pembersihan data, dan pemeriksaan hasil. Jelaskan sumber data, akses yang tersedia, serta siapa yang dapat mengonfirmasi ketepatannya ketika meminta estimasi.',
+        heading: 'Integration and migration involve separate work',
+        text: 'A documented API differs from a system that only offers file exports. Spreadsheet migration may require column mapping, data cleaning, and result checks. Explain the data sources, available access, and who can confirm accuracy when requesting an estimate.',
       },
       {
-        heading: 'Jangan lupa pengujian dan operasional',
-        text: 'Diskusikan perangkat sasaran, lingkungan deployment, pengujian pengguna, dokumentasi, dan serah terima. Tanyakan juga batas pemeliharaan: perubahan fitur, penanganan masalah, serta pengelolaan infrastruktur tidak selalu termasuk dalam ruang lingkup yang sama. Penawaran yang jelas menjelaskan apa yang dikerjakan dan bagaimana pekerjaan diterima.',
+        heading: 'Include testing and operations',
+        text: 'Discuss target devices, deployment environments, user testing, documentation, and handover. Ask about maintenance boundaries too: feature changes, issue resolution, and infrastructure management are not always included in the same scope. A clear proposal explains what will be delivered and how the work will be accepted.',
       },
       {
-        heading: 'Cara menyiapkan permintaan estimasi',
-        text: 'Tuliskan tujuan bisnis, pengguna utama, contoh alur sekarang, integrasi yang diperlukan, dan target waktu bila ada. Sertakan contoh data yang sudah disamarkan. East Town Digital dapat diajak membahas kebutuhan melalui WhatsApp. Artikel ini tidak menetapkan kisaran harga karena estimasi harus mengikuti ruang lingkup proyek yang benar-benar ditinjau.',
+        heading: 'How to prepare an estimate request',
+        text: 'Describe your business goal, main users, current workflow, required integrations, and target timeline if available. Include anonymized sample data. You can discuss these needs with East Town Digital through WhatsApp. This guide does not set a price range because an estimate should follow a reviewed project scope.',
       },
     ],
     related: ['software-custom', 'jasa-pembuatan-website', 'integrasi-sistem'],
   },
   {
     slug: 'artikel/kapan-beralih-dari-excel',
-    kind: 'Panduan',
-    title: 'Kapan Bisnis Perlu Beralih dari Excel ke Aplikasi?',
+    kind: 'Guides',
+    title: 'When should your business move from Excel to an application?',
     description:
-      'Kenali kebutuhan aplikasi bisnis saat spreadsheet mulai menyulitkan kolaborasi, hak akses, pelacakan perubahan, dan pelaporan operasional.',
-    lead: 'Spreadsheet tetap berguna untuk banyak pekerjaan. Pertimbangan beralih ke aplikasi muncul ketika cara berbagi, mengubah, dan memeriksa data mulai menghambat proses yang penting bagi bisnis.',
+      'Recognize when spreadsheets make collaboration, permissions, change tracking, and operational reporting difficult enough to consider a business application.',
+    lead: 'Spreadsheets remain useful for many tasks. Moving to an application becomes worth considering when sharing, updating, and checking data starts to hinder important business processes.',
     sections: [
       {
-        heading: 'Perhatikan masalah yang berulang',
-        text: 'Apakah tim sulit memastikan versi rekap yang benar? Apakah data dicatat ulang di beberapa berkas? Apakah hanya satu orang yang memahami rumus penting? Catat kejadian nyata beserta proses yang terdampak. Daftar masalah ini lebih berguna untuk menentukan kebutuhan daripada langsung memutuskan bahwa semua spreadsheet harus diganti.',
+        heading: 'Look for recurring problems',
+        text: 'Does your team struggle to identify the correct report version? Is data entered again in several files? Does only one person understand critical formulas? Record actual incidents and the processes they affect. This list is more useful for defining requirements than deciding immediately that every spreadsheet must be replaced.',
       },
       {
-        heading: 'Hak akses dan riwayat perubahan',
-        text: 'Ketika satu data digunakan oleh beberapa peran, siapa yang boleh melihat, mengubah, atau menyetujui perlu diperjelas. Aplikasi dapat dirancang untuk kebutuhan tersebut, tetapi aturan organisasinya tetap harus disepakati. Riwayat perubahan juga membutuhkan keputusan mengenai tindakan apa yang dicatat dan siapa yang berhak meninjaunya.',
+        heading: 'Permissions and change history',
+        text: 'When several roles share data, clarify who can view, edit, or approve it. An application can support these needs, but the organization still has to agree on the rules. Change history also requires decisions about which actions to record and who may review them.',
       },
       {
-        heading: 'Mulai dari satu proses yang terukur',
-        text: 'Pilih proses dengan sumber data dan penanggung jawab yang jelas, misalnya pencatatan pengeluaran proyek atau transaksi stok. Tentukan ukuran keberhasilan bersama tim sebelum implementasi. Data awal perlu dipetakan dan diperiksa agar perpindahan sistem tidak sekadar memindahkan ketidakkonsistenan dari berkas lama ke aplikasi baru.',
+        heading: 'Start with one measurable process',
+        text: 'Choose a process with a clear data source and owner, such as project expense records or inventory transactions. Agree on measures of success with the team before implementation. Map and check the initial data so the move does not simply transfer inconsistencies from old files into a new application.',
       },
       {
-        heading: 'Siapkan langkah perpindahan',
-        text: 'Bicarakan format impor dan ekspor, validasi data, pelatihan pengguna, serta cara memeriksa hasil sebelum sistem lama dihentikan. Untuk sebagian bisnis, memperbaiki spreadsheet atau menggunakan aplikasi siap pakai sudah cukup. Bila diperlukan alur khusus atau integrasi, konsultasikan pengembangan software custom berdasarkan masalah yang sudah diidentifikasi.',
+        heading: 'Plan the transition',
+        text: 'Discuss import and export formats, data validation, user training, and how to check results before retiring the old system. Improving a spreadsheet or using an off-the-shelf application may be enough for some businesses. If custom workflows or integration are needed, discuss custom software development around the problems already identified.',
       },
     ],
     related: [

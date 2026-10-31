@@ -8,14 +8,14 @@ export const articleIllustrations: Record<
 > = {
   'artikel/biaya-software-custom': {
     image: softwareCost,
-    alt: 'Dua orang menyusun modul software, alur integrasi, jam, dan keping anggaran untuk menggambarkan faktor biaya pengembangan.',
+    alt: 'Two people arrange software modules, connected workflows, a clock, and budget tokens to illustrate development cost factors.',
     caption:
-      'Ilustrasi: ruang lingkup, integrasi, dan waktu pengerjaan membentuk kebutuhan anggaran software.',
+      'Illustration: scope, integration, and development time shape a software budget.',
   },
   'artikel/kapan-beralih-dari-excel': {
     image: spreadsheetToApp,
-    alt: 'Dua orang menata lembar spreadsheet menjadi satu ruang kerja aplikasi yang terhubung, menggambarkan perpindahan proses bisnis secara bertahap.',
+    alt: 'Two people organize spreadsheet sheets into a connected application workspace, illustrating a gradual transition of business processes.',
     caption:
-      'Ilustrasi: perpindahan dari spreadsheet ke aplikasi dimulai dengan menata alur kerja dan data.',
+      'Illustration: moving from spreadsheets to an application starts with organizing workflows and data.',
   },
 };

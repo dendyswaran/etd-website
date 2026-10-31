@@ -8,11 +8,15 @@ import SeoHead from '../components/SeoHead.astro';
 import { pages } from '../data/pages';
 
 const whatsapp = 'https://wa.me/62817131366';
+const resourceGroups = ['Services', 'Case studies', 'Guides'].map((kind) => ({
+  kind,
+  pages: pages.filter((page) => page.kind === kind),
+}));
 const year = new Date().getFullYear();
 const canonical = new URL('/', Astro.site).href;
-const title = 'Software House & Solusi AI Indonesia | East Town Digital';
+const title = 'Software House & AI Solutions in Indonesia | East Town Digital';
 const description =
-  'Software house dan solusi AI untuk bisnis Indonesia. Berbekal 15+ tahun pengalaman IT, kami membangun AI agent, speech-to-text, dan aplikasi bisnis.';
+  'Software house and AI solutions for businesses in Indonesia. Backed by 15+ years in IT, we build AI agents, speech-to-text workflows, and business applications.';
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -36,7 +40,7 @@ const structuredData = {
       '@id': `${canonical}#website`,
       url: canonical,
       name: 'East Town Digital',
-      inLanguage: 'id-ID',
+      inLanguage: 'en',
       publisher: { '@id': `${canonical}#organization` },
     },
     {
@@ -45,7 +49,7 @@ const structuredData = {
       url: canonical,
       name: title,
       description,
-      inLanguage: 'id-ID',
+      inLanguage: 'en',
       isPartOf: { '@id': `${canonical}#website` },
       about: { '@id': `${canonical}#organization` },
     },
@@ -54,7 +58,7 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html lang="id" class="cds--white">
+<html lang="en" class="cds--white">
   <head>
     <SeoHead
       title={title}
@@ -65,15 +69,10 @@ const structuredData = {
   </head>
   <body id="top">
     <a class="skip-link" href="#main">
-      Langsung ke konten
+      Skip to content
     </a>
-    <div class="announcement">
-      <span class="status-dot" aria-hidden="true"></span>
-      <span>Babak baru. Berbekal 15+ tahun pengalaman di IT.</span>
-      <span class="announcement-label">EAST TOWN DIGITAL</span>
-    </div>
     <header class="site-header page-grid">
-      <a class="brand" href="#top" aria-label="Beranda East Town Digital">
+      <a class="brand" href="#top" aria-label="East Town Digital home">
         <svg
           class="brand-mark"
           viewBox="0 0 40 40"
@@ -87,11 +86,11 @@ const structuredData = {
           East Town<span class="brand-second">Digital</span>
         </span>
       </a>
-      <nav class="header-note" aria-label="Navigasi utama">
-        <a href="#ai">AI &amp; AUTOMASI</a>
-        <a href="#layanan">LAYANAN</a>
-        <a href="#pengalaman">PENGALAMAN</a>
-        <a href="#contact">KONTAK</a>
+      <nav class="header-note" aria-label="Main navigation">
+        <a href="#ai">AI &amp; AUTOMATION</a>
+        <a href="#layanan">SERVICES</a>
+        <a href="#pengalaman">EXPERIENCE</a>
+        <a href="#contact">CONTACT</a>
       </nav>
       <a
         class="cds--btn cds--btn--tertiary header-contact"
@@ -100,38 +99,31 @@ const structuredData = {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Hubungi Kami <span aria-hidden="true">↗</span>
+        Contact us <span aria-hidden="true">↗</span>
       </a>
     </header>
     <main id="main">
       <section class="hero" aria-labelledby="hero-heading">
-        <div class="field" aria-hidden="true">
-          <canvas id="east-field"></canvas>
-        </div>
         <div class="hero-inner page-grid">
-          <p class="eyebrow hero-eyebrow" data-reveal>
-            <span class="small-cross" aria-hidden="true">
-              +
-            </span>{' '}
-            SOFTWARE &amp; AI UNTUK BISNIS INDONESIA
+          <p class="eyebrow hero-eyebrow">
+            SOFTWARE &amp; AI FOR BUSINESSES IN INDONESIA
           </p>
-          <h1 id="hero-heading">
-            <span class="headline-start" data-reveal>
-              Software house.
-              <br />
-              Untuk bisnis Anda.
-            </span>
-            <span class="headline-end" data-reveal>
-              Dengan AI.
-              <br />
-              Lebih jauh.
-            </span>
+          <h1 id="hero-heading" class="hero-title">
+            Software house and AI for
+            <br />
+            your business operations.
           </h1>
-          <div class="hero-action" data-reveal>
+          <div class="hero-proof">
+            <p class="eyebrow">DEVELOPMENT EXPERIENCE</p>
+            <a class="resource-link" href="/studi-kasus/ai-quality-assurance/">
+              Service recordings → transcripts → QA evaluation
+            </a>
+            <p>Assessment rubrics, coaching notes, and human review.</p>
+          </div>
+          <div class="hero-action">
             <p>
-              Aplikasi, AI, dan automasi.
-              <br />
-              Berangkat dari kebutuhan Anda.
+              We build websites, business applications, and system integrations.
+              From inventory records to AI-assisted conversation evaluation.
             </p>
             <a
               class="cds--btn cds--btn--primary contact-button"
@@ -140,18 +132,18 @@ const structuredData = {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Diskusi Proyek{' '}
+              Discuss your project{' '}
               <span class="button-arrow" aria-hidden="true">
                 ↗
               </span>
             </a>
-            <span class="contact-caption">LANGSUNG LEWAT WHATSAPP</span>
+            <span class="contact-caption">DIRECTLY VIA WHATSAPP</span>
           </div>
           <div class="hero-baseline">
             <a class="scroll-link" href="#hello">
-              <span aria-hidden="true">↓</span> KENALI KAMI
+              <span aria-hidden="true">↓</span> MEET THE TEAM
             </a>
-            <span class="edition">PENGALAMAN PANJANG. SEMANGAT BARU.</span>
+            <span class="edition">WEB / APPLICATIONS / INTEGRATION / AI</span>
           </div>
         </div>
       </section>
@@ -161,108 +153,95 @@ const structuredData = {
         aria-labelledby="intro-heading"
       >
         <div class="intro-card page-grid">
-          <p class="eyebrow intro-label" data-scroll-reveal>
-            01 / TENTANG EAST TOWN DIGITAL
-          </p>
-          <div class="intro-copy" data-scroll-reveal>
+          <p class="eyebrow intro-label">01 / ABOUT EAST TOWN DIGITAL</p>
+          <div class="intro-copy">
             <h2 id="intro-heading">
-              Nama baru.
+              A new name.
               <br />
-              Pengalaman yang matang.
+              Years of experience.
             </h2>
             <p>
-              East Town Digital adalah software house yang dibangun oleh dua
-              partner dengan pengalaman lebih dari 15 tahun di dunia IT. Kami
-              membantu bisnis di Indonesia mewujudkan kebutuhan digital melalui
-              pengembangan website, aplikasi bisnis, aplikasi mobile, integrasi
-              sistem, serta solusi AI. Tim kami aktif memanfaatkan AI dalam
-              proses pengembangan dan membangun penerapannya untuk kebutuhan
-              operasional bisnis.
+              East Town Digital is a software house founded by two partners with
+              more than 15 years of IT experience. We help businesses in
+              Indonesia develop websites, business applications, mobile
+              applications, system integrations, and AI solutions. Our team uses
+              AI in development and builds applications of it for business
+              operations.
             </p>
             <p>
-              Setiap bisnis punya cara kerja sendiri. Karena itu, percakapan
-              dimulai dari proses yang Anda jalankan, kendala yang dihadapi, dan
-              tujuan yang ingin dicapai — agar software yang dibuat punya peran
-              yang jelas.
+              Every business has its own way of working. We start with your
+              processes, the challenges you face, and the goals you want to
+              achieve, so the software has a clear purpose.
             </p>
           </div>
-          <div class="experience" data-scroll-reveal>
-            <span class="experience-number">
-              15<span>+</span>
-            </span>
-            <span class="eyebrow">TAHUN DI DUNIA IT</span>
-            <span class="experience-line" aria-hidden="true"></span>
+          <aside class="experience">
+            <p class="eyebrow">TWO PARTNERS, 15+ YEARS IN IT</p>
             <p>
-              Pengalaman sebagai bekal.
-              <br />
-              Kebutuhan Anda sebagai arah.
+              Our development experience includes salon POS and reservations,
+              service queues, and financial and project monitoring.
             </p>
-          </div>
-          <div class="intro-bottom">
-            <span>TEKNOLOGI YANG BERANGKAT DARI KEBUTUHAN.</span>
-            <span aria-hidden="true">ETD ↗</span>
-          </div>
+            <a class="resource-link" href="#pengalaman">
+              Explore our development experience ↓
+            </a>
+          </aside>
         </div>
       </section>
       <section class="section-wrap" id="ai" aria-labelledby="ai-heading">
         <div class="editorial-card page-grid ai-card">
-          <div class="section-heading" data-scroll-reveal>
-            <p class="eyebrow">02 / AI DALAM PRAKTIK</p>
+          <div class="section-heading">
+            <p class="eyebrow">02 / AI IN PRACTICE</p>
             <h2 id="ai-heading">
-              AI yang bekerja.
+              Agents, transcription,
               <br />
-              Untuk kebutuhan nyata.
+              and service evaluation.
             </h2>
             <p>
-              Kami menggunakan AI dalam cara kami membangun software, sekaligus
-              membantu Anda menerapkannya pada pekerjaan bisnis. Dari agent
-              hingga analisis percakapan, selalu dengan tujuan dan evaluasi yang
-              jelas.
+              We use AI in software development and help you apply it to
+              business tasks. From agents to conversation analysis, each
+              workflow starts with clear goals and evaluation criteria.
             </p>
             <a class="resource-link" href="/solusi-ai/">
-              Jelajahi solusi AI <span aria-hidden="true">↗</span>
+              Explore AI solutions <span aria-hidden="true">↗</span>
             </a>
           </div>
           <div class="service-list">
-            <article class="service-row" data-scroll-reveal>
+            <article class="service-row">
               <span class="eyebrow" aria-hidden="true">
                 01
               </span>
-              <h3>AI agent &amp; agent harnesses</h3>
+              <h3>AI agents &amp; agent harnesses</h3>
               <p>
-                Beragam agent harnesses menjadi bagian dari workflow tim kami.
-                Kami merancang konteks, penggunaan alat, dan integrasi agent
-                dengan review engineer serta batas tindakan yang sesuai
-                kebutuhan.
+                Our team works with a range of agent harnesses. We design
+                context, tool use, and agent integrations with engineer review
+                and action limits suited to the task.
               </p>
             </article>
-            <article class="service-row" data-scroll-reveal>
+            <article class="service-row">
               <span class="eyebrow" aria-hidden="true">
                 02
               </span>
-              <h3>Training &amp; adaptasi AI</h3>
+              <h3>AI training &amp; adaptation</h3>
               <p>
-                Penyiapan data, knowledge, dan evaluasi untuk menyesuaikan AI
-                dengan konteks bisnis Anda. Metode adaptasi dan kebutuhan
-                training dipilih berdasarkan kesiapan data, tujuan, dan hasil
-                evaluasi.
+                Data preparation, reference knowledge, and evaluation help adapt
+                AI to your business context. Adaptation methods and training
+                needs follow data readiness, goals, and evaluation results.
               </p>
             </article>
-            <article class="service-row" data-scroll-reveal>
+            <article class="service-row">
               <span class="eyebrow" aria-hidden="true">
                 03
               </span>
               <h3>Speech-to-text &amp; quality assurance</h3>
               <p>
-                Ubah rekaman menjadi transkrip, evaluasi berbasis rubrik, dan
-                bahan coaching. Pengalaman kami mencakup alur ini dengan koreksi
-                reviewer serta ekspor laporan.
+                Turn recordings into transcripts, rubric-based evaluations, and
+                coaching material. Our experience includes reviewer corrections
+                and report exports within this workflow.
               </p>
               <a
                 class="resource-link"
                 href="/studi-kasus/ai-quality-assurance/"
               >
-                Lihat pengalaman AI QA <span aria-hidden="true">↗</span>
+                Explore our AI QA experience <span aria-hidden="true">↗</span>
               </a>
             </article>
           </div>
@@ -274,62 +253,61 @@ const structuredData = {
         aria-labelledby="services-heading"
       >
         <div class="editorial-card page-grid">
-          <div class="section-heading" data-scroll-reveal>
-            <p class="eyebrow">03 / LAYANAN KAMI</p>
+          <div class="section-heading">
+            <p class="eyebrow">03 / OUR SERVICES</p>
             <h2 id="services-heading">
-              Software yang mengikuti
+              Software that fits
               <br />
-              cara kerja bisnis Anda.
+              the way you work.
             </h2>
             <p>
-              Dari kehadiran digital hingga proses operasional, kami membantu
-              Anda memilih dan membangun solusi yang sesuai kebutuhan.
+              From your online presence to operational processes, we help you
+              choose and build solutions around your needs.
             </p>
           </div>
           <div class="service-list">
-            <article class="service-row" data-scroll-reveal>
+            <article class="service-row">
               <span class="eyebrow" aria-hidden="true">
                 01
               </span>
-              <h3>Jasa pembuatan website</h3>
+              <h3>Website development</h3>
               <p>
-                Website perusahaan, halaman produk, dan website dengan CMS agar
-                tim Anda dapat mengelola konten sendiri. Dirancang untuk
-                menyampaikan bisnis dengan jelas dan memudahkan calon pelanggan
-                menghubungi Anda.
+                Company websites, product pages, and CMS websites your team can
+                manage. Designed to explain your business clearly and help
+                potential customers get in touch.
               </p>
             </article>
-            <article class="service-row" data-scroll-reveal>
+            <article class="service-row">
               <span class="eyebrow" aria-hidden="true">
                 02
               </span>
-              <h3>Aplikasi bisnis &amp; software custom</h3>
+              <h3>Business applications &amp; custom software</h3>
               <p>
-                Pengembangan aplikasi untuk pencatatan transaksi, stok,
-                reservasi, antrean, hingga monitoring keuangan dan proyek. Alur
-                kerja disesuaikan dengan operasional bisnis Anda.
+                Applications for transactions, inventory, reservations, queues,
+                and financial and project monitoring. Workflows are tailored to
+                your business operations.
               </p>
             </article>
-            <article class="service-row" data-scroll-reveal>
+            <article class="service-row">
               <span class="eyebrow" aria-hidden="true">
                 03
               </span>
-              <h3>Pengembangan aplikasi mobile</h3>
+              <h3>Mobile application development</h3>
               <p>
-                Aplikasi untuk pelanggan atau tim lapangan, termasuk pengalaman
-                web mobile dan PWA. Pilihan platform dan fitur dibahas
-                berdasarkan perangkat, pengguna, dan kebutuhan pekerjaan.
+                Applications for customers or field teams, including mobile web
+                and PWAs. Platform and feature choices follow your devices,
+                users, and the work involved.
               </p>
             </article>
-            <article class="service-row" data-scroll-reveal>
+            <article class="service-row">
               <span class="eyebrow" aria-hidden="true">
                 04
               </span>
-              <h3>Integrasi API &amp; sistem</h3>
+              <h3>API &amp; system integration</h3>
               <p>
-                Hubungkan aplikasi, database, dan layanan yang sudah digunakan.
-                Integrasi membantu data mengalir antarproses sehingga tim tidak
-                perlu mengulang pencatatan yang sama.
+                Connect the applications, databases, and services you already
+                use. Integration helps data move between processes so your team
+                can avoid repeated data entry.
               </p>
             </article>
           </div>
@@ -341,60 +319,59 @@ const structuredData = {
         aria-labelledby="work-heading"
       >
         <div class="editorial-card page-grid">
-          <div class="section-heading" data-scroll-reveal>
-            <p class="eyebrow">04 / PENGALAMAN PENGEMBANGAN</p>
+          <div class="section-heading">
+            <p class="eyebrow">04 / DEVELOPMENT EXPERIENCE</p>
             <h2 id="work-heading">
-              Dekat dengan
+              What we have
               <br />
-              kebutuhan nyata.
+              built.
             </h2>
             <p>
-              Pengalaman kami mencakup berbagai kebutuhan operasional berikut.
-              Ceritakan konteks bisnis Anda untuk membahas pendekatan yang
-              relevan.
+              Our experience covers the operational needs below. Share your
+              business context so we can discuss a relevant approach.
             </p>
           </div>
           <div class="work-list">
-            <article data-scroll-reveal>
+            <article>
               <h3>
                 <a
                   class="resource-link"
                   href="/studi-kasus/ai-quality-assurance/"
                 >
-                  AI untuk evaluasi kualitas layanan ↗
+                  AI for service quality evaluation ↗
                 </a>
               </h3>
               <p>
-                Pipeline rekaman, speech-to-text, evaluasi dengan knowledge dan
-                rubrik, catatan coaching, serta peninjauan oleh manusia.
+                Recording pipelines, speech-to-text, evaluation grounded in
+                knowledge and rubrics, coaching notes, and human review.
               </p>
             </article>
-            <article data-scroll-reveal>
-              <h3>POS &amp; reservasi salon</h3>
+            <article>
+              <h3>Salon POS &amp; reservations</h3>
               <p>
-                Kalender pemesanan, pengaturan peran staf, kasir, dan pencetakan
-                struk untuk alur layanan salon.
+                Booking calendars, staff roles, checkout, and receipt printing
+                for salon service workflows.
               </p>
             </article>
-            <article data-scroll-reveal>
-              <h3>Sistem antrean layanan</h3>
+            <article>
+              <h3>Service queue systems</h3>
               <p>
-                Pengambilan nomor, pemanggilan antrean, layar informasi, serta
-                rekap dan ekspor laporan layanan.
+                Ticket issuance, queue calls, information displays, and service
+                summaries and report exports.
               </p>
             </article>
-            <article data-scroll-reveal>
-              <h3>Monitoring keuangan &amp; proyek</h3>
+            <article>
+              <h3>Financial &amp; project monitoring</h3>
               <p>
-                Pemantauan anggaran, termin pembayaran, pengeluaran, dan
-                pencatatan bukti transaksi melalui web mobile.
+                Budget, payment milestone, and expense monitoring, with receipt
+                recording through mobile web.
               </p>
             </article>
-            <article data-scroll-reveal>
-              <h3>Website, CMS &amp; portal operasional</h3>
+            <article>
+              <h3>Websites, CMS &amp; operational portals</h3>
               <p>
-                Pengelolaan artikel dan konten website, portal pelanggan, serta
-                aplikasi pencatatan transaksi dan stok.
+                Article and website content management, customer portals, and
+                applications for transaction and inventory records.
               </p>
             </article>
           </div>
@@ -406,38 +383,33 @@ const structuredData = {
         aria-labelledby="questions-heading"
       >
         <div class="editorial-card page-grid">
-          <div class="section-heading" data-scroll-reveal>
-            <p class="eyebrow">05 / SEBELUM MEMULAI</p>
-            <h2 id="questions-heading">
-              Mulai dari kebutuhan.
-              <br />
-              Bukan daftar fitur.
-            </h2>
+          <div class="section-heading">
+            <p class="eyebrow">05 / GETTING STARTED</p>
+            <h2 id="questions-heading">Before we discuss your project.</h2>
           </div>
           <dl class="question-list">
-            <div data-scroll-reveal>
-              <dt>Berapa biaya pembuatan website atau software?</dt>
+            <div>
+              <dt>How much does a website or software project cost?</dt>
               <dd>
-                Biaya bergantung pada cakupan fitur, integrasi, dan kompleksitas
-                proyek. Ceritakan kebutuhan Anda melalui WhatsApp agar estimasi
-                dapat dibahas berdasarkan ruang lingkup yang jelas.
+                Cost depends on features, integrations, and project complexity.
+                Share your needs through WhatsApp so we can discuss an estimate
+                based on a clear scope.
               </dd>
             </div>
-            <div data-scroll-reveal>
-              <dt>Apa yang perlu disiapkan untuk diskusi awal?</dt>
+            <div>
+              <dt>What should I prepare for an initial discussion?</dt>
               <dd>
-                Cukup jelaskan bisnis Anda, kendala yang ingin diselesaikan,
-                siapa yang akan memakai sistem, serta target waktu jika ada.
-                Contoh alur kerja atau aplikasi yang sudah digunakan juga
-                membantu.
+                Describe your business, the problem to solve, who will use the
+                system, and any target timeline. Examples of current workflows
+                or applications are also helpful.
               </dd>
             </div>
-            <div data-scroll-reveal>
-              <dt>Apakah bisa berdiskusi dari luar kota?</dt>
+            <div>
+              <dt>Can we discuss a project remotely?</dt>
               <dd>
-                Bisa. Diskusi awal dapat dimulai melalui WhatsApp dari mana saja
-                di Indonesia. Kebutuhan, cara kerja sama, dan langkah
-                selanjutnya dibahas sesuai proyek Anda.
+                Yes. Initial discussions can start through WhatsApp from
+                anywhere in Indonesia. We will discuss requirements, how to work
+                together, and next steps around your project.
               </dd>
             </div>
           </dl>
@@ -446,24 +418,28 @@ const structuredData = {
       <section class="section-wrap" aria-labelledby="resources-heading">
         <div class="editorial-card page-grid">
           <div class="section-heading">
-            <p class="eyebrow">JELAJAHI LEBIH LANJUT</p>
-            <h2 id="resources-heading">Kenali pendekatan kami.</h2>
+            <p class="eyebrow">EXPLORE FURTHER</p>
+            <h2 id="resources-heading">Explore our approach.</h2>
             <p>
-              Layanan, pengalaman pengembangan, dan panduan untuk mempersiapkan
-              proyek Anda.
+              Services, development experience, and guides to help you prepare
+              for your project.
             </p>
           </div>
-          <div class="work-list">
-            {pages.map((page) => (
-              <article>
-                <p class="eyebrow">{page.kind}</p>
-                <h3>
-                  <a class="resource-link" href={`/${page.slug}/`}>
-                    {page.title} <span aria-hidden="true">↗</span>
-                  </a>
-                </h3>
-                <p>{page.description}</p>
-              </article>
+          <div class="resource-directory">
+            {resourceGroups.map((group) => (
+              <div class="resource-group">
+                <h3 class="eyebrow">{group.kind}</h3>
+                <ul>
+                  {group.pages.map((page) => (
+                    <li>
+                      <a class="resource-link" href={`/${page.slug}/`}>
+                        {page.title}
+                        <span aria-hidden="true"> ↗</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
@@ -474,20 +450,17 @@ const structuredData = {
         aria-labelledby="contact-heading"
       >
         <div class="contact-card page-grid">
-          <p class="eyebrow contact-label" data-scroll-reveal>
-            <span class="status-dot" aria-hidden="true"></span> MULAI DARI
-            PERCAKAPAN
-          </p>
-          <h2 id="contact-heading" data-scroll-reveal>
-            Ada rencana
+          <p class="eyebrow contact-label">DISCUSS A PROJECT</p>
+          <h2 id="contact-heading">
+            Planning something
             <br />
-            untuk bisnis Anda?
+            for your business?
           </h2>
-          <div class="contact-detail" data-scroll-reveal>
+          <div class="contact-detail">
             <p>
-              Ceritakan kebutuhan Anda.
+              Tell us what you need.
               <br />
-              Mari bahas arah solusi dan langkah selanjutnya bersama.
+              Let’s discuss an approach and the next steps.
             </p>
             <a
               class="cds--btn cds--btn--primary contact-button contact-button-light"
@@ -496,7 +469,7 @@ const structuredData = {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Diskusi Proyek{' '}
+              Discuss your project{' '}
               <span class="button-arrow" aria-hidden="true">
                 ↗
               </span>
@@ -511,9 +484,6 @@ const structuredData = {
               +62 817 131 366 <span aria-hidden="true">↗</span>
             </a>
           </div>
-          <div class="contact-watermark" aria-hidden="true">
-            east town digital
-          </div>
         </div>
       </section>
     </main>
@@ -522,10 +492,9 @@ const structuredData = {
         EAST TOWN DIGITAL <span aria-hidden="true">↗</span>
       </a>
       <span>© {year} East Town Digital</span>
-      <span class="footer-note">SOFTWARE HOUSE UNTUK BISNIS INDONESIA.</span>
+      <span class="footer-note">
+        SOFTWARE HOUSE FOR BUSINESSES IN INDONESIA.
+      </span>
     </footer>
-    <script>
-      import '../scripts/motion';
-    </script>
   </body>
 </html>
