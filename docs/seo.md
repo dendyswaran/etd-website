@@ -2,7 +2,7 @@
 
 ## Canonical site
 
-The public site resolves to `https://www.easttowndigital.com/`. Astro's `site` setting is the source for canonical URLs, organization data, the sitemap, and crawler instructions. Keep the Vercel apex-to-www redirect aligned with it. The previous Vercel hostname remains available, with the custom domain declared canonical.
+The public site resolves to `https://www.easttowndigital.com/`. Astro's `site` setting is the source for canonical URLs, organization data, the sitemap, and crawler instructions. Keep the Vercel apex-to-www redirect aligned with it. `vercel.json` permanently redirects the previous `etd-website-seven.vercel.app` hostname to the custom domain while preserving paths. Deployment preview hostnames are unaffected.
 
 - Homepage: https://www.easttowndigital.com/
 - Sitemap: https://www.easttowndigital.com/sitemap.xml
@@ -22,7 +22,7 @@ No office address or city-specific local-business schema is configured because a
 
 The canonical URL-prefix property `https://www.easttowndigital.com/` is verified through Google Analytics. Preserve the production `gtag.js` snippet to retain this verification. A separate `easttowndigital.com` domain property can be added if needed. Domain verification requires access to DNS. Existing Google Analytics ownership may also support URL-prefix verification, depending on account permissions.
 
-Submit `https://www.easttowndigital.com/sitemap.xml` in Sitemaps, then inspect the homepage URL and request indexing when available. Submission does not guarantee indexing or rankings. Review impressions, queries, clicks, and country filters over time before expanding landing pages.
+The sitemap `https://www.easttowndigital.com/sitemap.xml` was submitted on 31 October 2026. Search Console reported Success and one discovered page. Submit new sitemap locations when changed, and inspect updated URLs to request indexing when available. Submission does not guarantee indexing or rankings. Review impressions, queries, clicks, and country filters over time before expanding landing pages.
 
 References: [Google Search Console setup](https://developers.google.com/search/docs/monitor-debug/search-console-start), [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide).
 
