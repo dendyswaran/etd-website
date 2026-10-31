@@ -147,3 +147,34 @@ test('service, case-study and article pages are discoverable, unique and usable 
   for (const path of newPaths)
     expect(locations).toContain('https://www.easttowndigital.com' + path);
 });
+
+test('article illustrations are distinct, accessible, responsive and served as optimized images', async () => {
+  const sources = new Set<string>();
+  for (const path of [
+    '/artikel/biaya-software-custom/',
+    '/artikel/kapan-beralih-dari-excel/',
+  ]) {
+    const page = parseHTML(await (await fetch(origin + path)).text()).document;
+    const image = page.querySelector('figure img');
+    expect(image).not.toBeNull();
+    expect(image!.getAttribute('alt')!.length).toBeGreaterThan(40);
+    expect(image!.getAttribute('width')).toBe('1536');
+    expect(image!.getAttribute('height')).toBe('1024');
+    expect(image!.getAttribute('srcset')).toContain('480w');
+    expect(image!.getAttribute('srcset')).toContain('1536w');
+    expect(image!.getAttribute('sizes')).toContain('100vw');
+    expect(page.querySelector('figcaption')?.textContent).toContain(
+      'Ilustrasi',
+    );
+    const source = image!.getAttribute('src')!;
+    sources.add(source);
+    const response = await fetch(new URL(source, origin));
+    expect(response.status).toBe(200);
+    expect(response.headers.get('content-type')).toContain('image/webp');
+  }
+  expect(sources.size).toBe(2);
+  const service = parseHTML(
+    await (await fetch(origin + '/software-custom/')).text(),
+  ).document;
+  expect(service.querySelector('figure')).toBeNull();
+});

@@ -1,6 +1,8 @@
 ---
 import { pages } from '../data/pages';
 import SeoHead from '../components/SeoHead.astro';
+import { Image } from 'astro:assets';
+import { articleIllustrations } from '../data/article-illustrations';
 import '@fontsource/ibm-plex-sans/latin-400.css';
 import '@fontsource/ibm-plex-sans/latin-500.css';
 import '@fontsource/ibm-plex-sans/latin-600.css';
@@ -13,6 +15,7 @@ export function getStaticPaths() {
   }));
 }
 const { page } = Astro.props;
+const illustration = articleIllustrations[page.slug];
 const canonical = new URL(`/${page.slug}/`, Astro.site).href;
 const title = `${page.title} | East Town Digital`;
 const related = page.related.map((slug) =>
@@ -86,6 +89,21 @@ const structuredData = {
         </p>
         <h1 class="detail-title">{page.title}</h1>
         <p class="detail-lead">{page.lead}</p>
+        {illustration && (
+          <figure class="article-illustration">
+            <Image
+              src={illustration.image}
+              alt={illustration.alt}
+              widths={[480, 768, 1152, 1536]}
+              sizes="(max-width: 671px) calc(100vw - 48px), (max-width: 1055px) calc(100vw - 64px), min(75vw, 1120px)"
+              format="webp"
+              quality={80}
+              loading="eager"
+              decoding="async"
+            />
+            <figcaption>{illustration.caption}</figcaption>
+          </figure>
+        )}
       </div>
       <div class="page-grid detail-body">
         <aside class="detail-aside" aria-label="Dalam halaman ini">
