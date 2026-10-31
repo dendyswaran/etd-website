@@ -37,7 +37,9 @@ Open the local URL printed by Astro, normally `http://localhost:4321`.
 
 `src/pages/index.astro` contains the landing page and WhatsApp destination. `src/styles/global.scss` defines the layout and brand styling. `src/scripts/motion.ts` owns GSAP animation. `public/` contains static assets; `tests/` contains Bun integration tests.
 
-Content and contact links render without JavaScript. Animation follows reduced-motion preferences and the background pauses when offscreen or the tab is hidden. No analytics, backend, or environment variables are required.
+Content and contact links render without JavaScript. Animation follows reduced-motion preferences and the background pauses when offscreen or the tab is hidden. No backend or environment variables are required.
+
+Google Analytics uses measurement ID `G-C4DHWJTYQL` through Google's asynchronous `gtag.js` snippet. Tracking is included in production builds only, keeping local development out of analytics. The tag follows the deployed hostname, including custom domains, without a code change. Production preview builds also include the tag.
 
 ## Deployment
 

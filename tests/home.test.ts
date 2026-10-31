@@ -42,6 +42,13 @@ afterAll(async () => {
   await server?.exited;
 });
 
+test('local development does not load Google Analytics', () => {
+  expect(document.querySelector('script[data-google-analytics]')).toBeNull();
+  expect(
+    document.querySelector('script[src*="googletagmanager.com"]'),
+  ).toBeNull();
+});
+
 test('the public homepage introduces the software house and its experience', () => {
   expect(status).toBe(200);
   expect(document.querySelectorAll('h1').length).toBe(1);
