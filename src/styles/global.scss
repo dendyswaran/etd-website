@@ -728,8 +728,13 @@ h2 {
   @include type.type-style('heading-03');
   font-weight: 500;
 }
-.service-row p {
+.service-row p,
+.service-row > .resource-link {
   grid-column: 2;
+}
+.ai-card .section-heading > .resource-link {
+  display: inline-block;
+  margin-top: 24px;
 }
 .work-list {
   display: grid;

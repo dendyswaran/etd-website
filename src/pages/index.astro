@@ -10,9 +10,9 @@ import { pages } from '../data/pages';
 const whatsapp = 'https://wa.me/62817131366';
 const year = new Date().getFullYear();
 const canonical = new URL('/', Astro.site).href;
-const title = 'Software House Indonesia | East Town Digital';
+const title = 'Software House & Solusi AI Indonesia | East Town Digital';
 const description =
-  'East Town Digital, software house untuk bisnis di Indonesia dengan pengalaman 15+ tahun di IT. Diskusikan kebutuhan software Anda langsung lewat WhatsApp.';
+  'Software house dan solusi AI untuk bisnis Indonesia. Berbekal 15+ tahun pengalaman IT, kami membangun AI agent, speech-to-text, dan aplikasi bisnis.';
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -88,6 +88,7 @@ const structuredData = {
         </span>
       </a>
       <nav class="header-note" aria-label="Navigasi utama">
+        <a href="#ai">AI &amp; AUTOMASI</a>
         <a href="#layanan">LAYANAN</a>
         <a href="#pengalaman">PENGALAMAN</a>
         <a href="#contact">KONTAK</a>
@@ -112,7 +113,7 @@ const structuredData = {
             <span class="small-cross" aria-hidden="true">
               +
             </span>{' '}
-            PARTNER PENGEMBANGAN SOFTWARE UNTUK BISNIS INDONESIA
+            SOFTWARE &amp; AI UNTUK BISNIS INDONESIA
           </p>
           <h1 id="hero-heading">
             <span class="headline-start" data-reveal>
@@ -121,16 +122,16 @@ const structuredData = {
               Untuk bisnis Anda.
             </span>
             <span class="headline-end" data-reveal>
-              Ide Anda.
+              Dengan AI.
               <br />
-              Kami wujudkan.
+              Lebih jauh.
             </span>
           </h1>
           <div class="hero-action" data-reveal>
             <p>
-              Dari kebutuhan bisnis,
+              Aplikasi, AI, dan automasi.
               <br />
-              menjadi solusi digital.
+              Berangkat dari kebutuhan Anda.
             </p>
             <a
               class="cds--btn cds--btn--primary contact-button"
@@ -173,8 +174,10 @@ const structuredData = {
               East Town Digital adalah software house yang dibangun oleh dua
               partner dengan pengalaman lebih dari 15 tahun di dunia IT. Kami
               membantu bisnis di Indonesia mewujudkan kebutuhan digital melalui
-              pengembangan website, aplikasi bisnis, aplikasi mobile, dan
-              integrasi sistem.
+              pengembangan website, aplikasi bisnis, aplikasi mobile, integrasi
+              sistem, serta solusi AI. Tim kami aktif memanfaatkan AI dalam
+              proses pengembangan dan membangun penerapannya untuk kebutuhan
+              operasional bisnis.
             </p>
             <p>
               Setiap bisnis punya cara kerja sendiri. Karena itu, percakapan
@@ -201,6 +204,70 @@ const structuredData = {
           </div>
         </div>
       </section>
+      <section class="section-wrap" id="ai" aria-labelledby="ai-heading">
+        <div class="editorial-card page-grid ai-card">
+          <div class="section-heading" data-scroll-reveal>
+            <p class="eyebrow">02 / AI DALAM PRAKTIK</p>
+            <h2 id="ai-heading">
+              AI yang bekerja.
+              <br />
+              Untuk kebutuhan nyata.
+            </h2>
+            <p>
+              Kami menggunakan AI dalam cara kami membangun software, sekaligus
+              membantu Anda menerapkannya pada pekerjaan bisnis. Dari agent
+              hingga analisis percakapan, selalu dengan tujuan dan evaluasi yang
+              jelas.
+            </p>
+            <a class="resource-link" href="/solusi-ai/">
+              Jelajahi solusi AI <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="service-list">
+            <article class="service-row" data-scroll-reveal>
+              <span class="eyebrow" aria-hidden="true">
+                01
+              </span>
+              <h3>AI agent &amp; agent harnesses</h3>
+              <p>
+                Beragam agent harnesses menjadi bagian dari workflow tim kami.
+                Kami merancang konteks, penggunaan alat, dan integrasi agent
+                dengan review engineer serta batas tindakan yang sesuai
+                kebutuhan.
+              </p>
+            </article>
+            <article class="service-row" data-scroll-reveal>
+              <span class="eyebrow" aria-hidden="true">
+                02
+              </span>
+              <h3>Training &amp; adaptasi AI</h3>
+              <p>
+                Penyiapan data, knowledge, dan evaluasi untuk menyesuaikan AI
+                dengan konteks bisnis Anda. Metode adaptasi dan kebutuhan
+                training dipilih berdasarkan kesiapan data, tujuan, dan hasil
+                evaluasi.
+              </p>
+            </article>
+            <article class="service-row" data-scroll-reveal>
+              <span class="eyebrow" aria-hidden="true">
+                03
+              </span>
+              <h3>Speech-to-text &amp; quality assurance</h3>
+              <p>
+                Ubah rekaman menjadi transkrip, evaluasi berbasis rubrik, dan
+                bahan coaching. Pengalaman kami mencakup alur ini dengan koreksi
+                reviewer serta ekspor laporan.
+              </p>
+              <a
+                class="resource-link"
+                href="/studi-kasus/ai-quality-assurance/"
+              >
+                Lihat pengalaman AI QA <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
       <section
         class="section-wrap"
         id="layanan"
@@ -208,7 +275,7 @@ const structuredData = {
       >
         <div class="editorial-card page-grid">
           <div class="section-heading" data-scroll-reveal>
-            <p class="eyebrow">02 / LAYANAN KAMI</p>
+            <p class="eyebrow">03 / LAYANAN KAMI</p>
             <h2 id="services-heading">
               Software yang mengikuti
               <br />
@@ -275,7 +342,7 @@ const structuredData = {
       >
         <div class="editorial-card page-grid">
           <div class="section-heading" data-scroll-reveal>
-            <p class="eyebrow">03 / PENGALAMAN PENGEMBANGAN</p>
+            <p class="eyebrow">04 / PENGALAMAN PENGEMBANGAN</p>
             <h2 id="work-heading">
               Dekat dengan
               <br />
@@ -288,6 +355,20 @@ const structuredData = {
             </p>
           </div>
           <div class="work-list">
+            <article data-scroll-reveal>
+              <h3>
+                <a
+                  class="resource-link"
+                  href="/studi-kasus/ai-quality-assurance/"
+                >
+                  AI untuk evaluasi kualitas layanan ↗
+                </a>
+              </h3>
+              <p>
+                Pipeline rekaman, speech-to-text, evaluasi dengan knowledge dan
+                rubrik, catatan coaching, serta peninjauan oleh manusia.
+              </p>
+            </article>
             <article data-scroll-reveal>
               <h3>POS &amp; reservasi salon</h3>
               <p>
@@ -326,7 +407,7 @@ const structuredData = {
       >
         <div class="editorial-card page-grid">
           <div class="section-heading" data-scroll-reveal>
-            <p class="eyebrow">04 / SEBELUM MEMULAI</p>
+            <p class="eyebrow">05 / SEBELUM MEMULAI</p>
             <h2 id="questions-heading">
               Mulai dari kebutuhan.
               <br />

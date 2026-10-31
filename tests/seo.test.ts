@@ -111,6 +111,8 @@ test('social previews have a reachable image with the advertised dimensions', as
 });
 
 const newPaths = [
+  '/solusi-ai/',
+  '/studi-kasus/ai-quality-assurance/',
   '/jasa-pembuatan-website/',
   '/software-custom/',
   '/aplikasi-mobile/',
@@ -177,4 +179,19 @@ test('article illustrations are distinct, accessible, responsive and served as o
     await (await fetch(origin + '/software-custom/')).text(),
   ).document;
   expect(service.querySelector('figure')).toBeNull();
+});
+
+test('AI capabilities are discoverable from the homepage and linked to detailed services and experience', () => {
+  expect(document.querySelector('h1')?.textContent).toMatch(/AI/);
+  expect(
+    document.querySelector('meta[name="description"]')?.getAttribute('content'),
+  ).toMatch(/AI/);
+  const navigation = document.querySelector('nav a[href="#ai"]');
+  expect(navigation).not.toBeNull();
+  const section = document.querySelector(navigation!.getAttribute('href')!);
+  expect(section).not.toBeNull();
+  expect(section!.querySelector('a[href="/solusi-ai/"]')).not.toBeNull();
+  expect(
+    section!.querySelector('a[href="/studi-kasus/ai-quality-assurance/"]'),
+  ).not.toBeNull();
 });

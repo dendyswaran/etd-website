@@ -1,5 +1,63 @@
 export const pages = [
   {
+    slug: 'solusi-ai',
+    kind: 'Layanan',
+    title: 'Pengembangan Solusi AI & Automasi untuk Bisnis Indonesia',
+    description:
+      'Solusi AI untuk bisnis: AI agent, training AI, speech-to-text, dan integrasi workflow. Bahas kebutuhan serta kesiapan data bersama East Town Digital.',
+    lead: 'East Town Digital membantu bisnis di Indonesia menerapkan AI pada pekerjaan yang nyata. Mulai dari pengolahan percakapan dan evaluasi layanan hingga automasi alur kerja, kami menghubungkan kemampuan AI dengan aplikasi, data, dan proses yang sudah digunakan tim Anda.',
+    sections: [
+      {
+        heading: 'AI agent dan agent harnesses',
+        text: 'Tim kami aktif memanfaatkan beragam agent harnesses dalam pengembangan software. Harness mengatur konteks, instruksi, akses alat, dan langkah kerja agent. Untuk kebutuhan bisnis, pendekatan ini dapat digunakan untuk membangun alur berbantuan AI yang terhubung dengan sistem Anda. Hak akses, batas tindakan, pengujian, dan titik persetujuan manusia ditentukan sesuai pekerjaan yang akan dijalankan.',
+      },
+      {
+        heading: 'Training AI sesuai kebutuhan dan kesiapan data',
+        text: 'Kebutuhan training AI dimulai dari tujuan, contoh data, dan cara mengukur hasil. Kami membahas penyiapan data, penyusunan knowledge, evaluasi, serta penyempurnaan konfigurasi AI agar sesuai konteks bisnis. Pemilihan antara prompting, retrieval knowledge, dan pelatihan model seperti fine-tuning ditentukan setelah peninjauan data dan kelayakan. Memasukkan dokumen ke knowledge base tidak sama dengan melatih ulang model.',
+      },
+      {
+        heading: 'Speech-to-text dan analisis percakapan',
+        text: 'Rekaman percakapan dapat menjadi masukan untuk transkripsi, pemisahan peran pembicara, evaluasi berbasis rubrik, dan bahan coaching. Pengalaman pengembangan kami mencakup alur audio ke transkrip, evaluasi AI dengan acuan knowledge, hingga peninjauan hasil dan ekspor laporan. Kualitas audio, bahasa, istilah khusus, dan kebutuhan privasi menjadi bagian penting dari pembahasan solusi.',
+      },
+      {
+        heading: 'Mulai dari satu workflow yang bisa dievaluasi',
+        text: 'Ceritakan pekerjaan yang ingin dibantu AI, aplikasi yang digunakan, serta data yang tersedia dan boleh diproses. Kami membahas ruang lingkup awal, contoh penilaian, biaya layanan model, integrasi, dan pengawasan manusia. Hasil AI perlu diuji terhadap contoh yang representatif; target akurasi dan manfaat operasional disepakati berdasarkan kebutuhan, tanpa menjanjikan hasil otomatis yang selalu benar.',
+      },
+    ],
+    related: [
+      'studi-kasus/ai-quality-assurance',
+      'integrasi-sistem',
+      'software-custom',
+    ],
+  },
+  {
+    slug: 'studi-kasus/ai-quality-assurance',
+    kind: 'Studi kasus',
+    title: 'AI Quality Assurance: Dari Rekaman ke Evaluasi Layanan',
+    description:
+      'Pengalaman membangun alur QA berbasis AI: speech-to-text, evaluasi dengan knowledge dan rubrik, coaching, koreksi reviewer, serta laporan.',
+    lead: 'Rekaman percakapan menyimpan konteks yang berguna untuk meninjau kualitas layanan. Pengalaman pengembangan kami mencakup sistem yang mengolah audio menjadi transkrip dan evaluasi terstruktur, dengan reviewer tetap dapat memeriksa serta mengoreksi hasil. Ringkasan ini disajikan tanpa identitas klien atau data percakapan.',
+    sections: [
+      {
+        heading: 'Audio menjadi transkrip yang dapat ditinjau',
+        text: 'Alur dimulai dari unggahan rekaman, lalu transkripsi speech-to-text dan identifikasi peran pembicara. Ekstraksi fitur audio melengkapi informasi yang tersedia untuk evaluasi. Pemrosesan dilakukan melalui antrean dengan status pekerjaan dan penanganan kegagalan, sehingga tim dapat mengikuti tahap pemrosesan tanpa harus menjalankan setiap langkah secara manual.',
+      },
+      {
+        heading: 'Evaluasi dengan rubrik dan knowledge',
+        text: 'Evaluator AI menggunakan transkrip, rubrik penilaian, serta knowledge produk dan prosedur sebagai acuan. Hasilnya mencakup penilaian terstruktur, bukti dari percakapan, dan catatan coaching. Skor akhir dihitung kembali oleh sistem berdasarkan bobot rubrik. Pendekatan ini memisahkan interpretasi AI dari perhitungan skor dan memudahkan pemeriksaan alasan di balik penilaian.',
+      },
+      {
+        heading: 'Reviewer tetap memegang keputusan',
+        text: 'Reviewer dapat meninjau dan mengoreksi penilaian dengan catatan, lalu sistem menghitung ulang hasilnya. Koreksi dapat digunakan sebagai contoh evaluasi berikutnya; ini merupakan pemanfaatan contoh dan konteks, bukan klaim pelatihan ulang model. Jejak tahapan pemrosesan membantu penelusuran, sementara ekspor laporan mendukung kebutuhan rekap dan pembahasan hasil bersama tim.',
+      },
+      {
+        heading: 'Pelajaran untuk penerapan di bisnis Anda',
+        text: 'Workflow seperti ini membutuhkan definisi kualitas yang jelas, contoh penilaian manusia, dan pengujian terhadap rekaman yang representatif. Akses rekaman, izin pemrosesan, penyimpanan, dan layanan AI yang digunakan perlu dibahas sejak awal. Kebutuhan setiap bisnis berbeda; pengalaman ini menjadi dasar diskusi untuk merancang ruang lingkup dan evaluasi, bukan jaminan angka akurasi atau penghematan tertentu.',
+      },
+    ],
+    related: ['solusi-ai', 'integrasi-sistem', 'software-custom'],
+  },
+  {
     slug: 'jasa-pembuatan-website',
     kind: 'Layanan',
     title: 'Jasa Pembuatan Website untuk Bisnis Indonesia',
