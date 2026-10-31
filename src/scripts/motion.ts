@@ -1,25 +1,57 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { playOpeningIntro } from './intro';
 
 gsap.registerPlugin(ScrollTrigger);
 const media = gsap.matchMedia();
 
 // Enhance visible HTML only after the animation library is ready.
 media.add('(prefers-reduced-motion: no-preference)', (motionContext) => {
-  const arrival = document.querySelector('.hero-inner, .detail-intro');
-  if (arrival) {
-    const beats = arrival.querySelectorAll(
-      '.hero-eyebrow, .hero-title > span, .hero-action, .hero-proof, .detail-label, .detail-title, .detail-lead',
+  const revealArrival = (immediate = false) => {
+    const arrival = document.querySelector('.hero-inner, .detail-intro');
+    if (!arrival) return;
+    const lines = arrival.querySelectorAll('.hero-line');
+    const details = arrival.querySelectorAll(
+      '.hero-eyebrow, .hero-action, .hero-proof, .detail-label, .detail-title, .detail-lead',
     );
-    gsap.from(beats, {
-      y: 24,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.09,
-      ease: 'power3.out',
-      clearProps: 'transform,opacity',
+    const animated = [
+      ...lines,
+      ...details,
+      ...document.querySelectorAll('.hero-field'),
+    ];
+    animated.forEach((element) =>
+      element.setAttribute('data-intro-animated', ''),
+    );
+    if (immediate || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.killTweensOf(animated);
+      gsap.set(animated, { clearProps: 'transform,opacity,visibility' });
+      return;
+    }
+    motionContext.add(() => {
+      gsap.from(lines, {
+        yPercent: 105,
+        duration: 0.95,
+        stagger: 0.12,
+        ease: 'expo.out',
+        clearProps: 'transform',
+      });
+      gsap.from(details, {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.07,
+        delay: 0.12,
+        ease: 'power3.out',
+        clearProps: 'transform,opacity',
+      });
+      gsap.from('.hero-field', {
+        opacity: 0,
+        duration: 1,
+        clearProps: 'opacity',
+      });
     });
-  }
+  };
+  if (!playOpeningIntro(revealArrival)) revealArrival();
 
   // Animate each section as a group when it arrives, never hide the whole page.
   const sections = document.querySelectorAll(

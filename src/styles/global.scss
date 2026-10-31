@@ -832,6 +832,14 @@ h1.detail-title {
 .hero-title > span {
   display: block;
 }
+.hero-line-mask {
+  overflow: hidden;
+  padding-block: 4px;
+  margin-block: -4px;
+}
+.hero-line {
+  display: block;
+}
 .motion-toggle {
   color: var(--cds-text-secondary);
   padding-inline: 16px;
@@ -862,5 +870,147 @@ h1.detail-title {
   .contact-button:active,
   .header-contact:active {
     transform: scale(0.98);
+  }
+}
+
+// A bounded opening sequence: the oversized identity resolves into the real header.
+.opening-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  overflow: hidden;
+  color: var(--cds-text-primary);
+}
+.opening-intro[hidden] {
+  display: none;
+}
+.intro-surface {
+  position: absolute;
+  inset: 0;
+  background: var(--cds-background);
+}
+.intro-pattern {
+  position: absolute;
+  inset: 0;
+  color: var(--cds-border-subtle);
+  opacity: 0;
+}
+.intro-meta {
+  position: absolute;
+  inset-inline: 0;
+  top: max(32px, env(safe-area-inset-top));
+  @include type.type-style('label-01');
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.045em;
+}
+.intro-meta > :first-child {
+  grid-column: 1 / 12;
+}
+.intro-meta > :last-child {
+  grid-column: 12 / -1;
+  justify-self: end;
+}
+.intro-bars {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  align-items: center;
+  gap: 16px;
+  padding-inline: 16px;
+}
+.intro-bar {
+  display: block;
+  height: min(24vw, 240px);
+  background: currentColor;
+  transform: scaleY(0);
+}
+.intro-identity {
+  position: absolute;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+.intro-name {
+  display: block;
+}
+.intro-word-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 4px;
+  margin-bottom: -4px;
+}
+.intro-word {
+  display: block;
+}
+.intro-caption {
+  position: absolute;
+  inset-inline-start: max(48px, env(safe-area-inset-left));
+  bottom: max(48px, env(safe-area-inset-bottom));
+  @include type.type-style('label-01');
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--cds-text-secondary);
+}
+.intro-skip {
+  position: absolute;
+  inset-inline-end: max(48px, env(safe-area-inset-right));
+  bottom: max(32px, env(safe-area-inset-bottom));
+  min-height: 48px;
+  color: var(--cds-text-primary);
+  gap: 24px;
+}
+html[data-intro] body {
+  overflow: hidden;
+}
+html:is([data-intro='pending'], [data-intro='playing'])
+  :is(.site-header, main, .site-footer) {
+  visibility: hidden;
+}
+html[data-intro] .site-header .brand {
+  visibility: hidden;
+}
+html[data-intro] .skip-link {
+  z-index: 10000;
+}
+@media (max-width: 1055px) {
+  .intro-meta > :first-child {
+    grid-column: 1 / 6;
+  }
+  .intro-meta > :last-child {
+    grid-column: 6 / -1;
+  }
+}
+@media (max-width: 671px) {
+  .intro-meta {
+    top: max(24px, env(safe-area-inset-top));
+  }
+  .intro-meta > :first-child {
+    grid-column: 1 / 4;
+  }
+  .intro-meta > :last-child {
+    grid-column: 4 / -1;
+  }
+  .intro-bars {
+    gap: 8px;
+    padding-inline: 8px;
+  }
+  .intro-caption {
+    inset-inline-start: 24px;
+    bottom: max(32px, env(safe-area-inset-bottom));
+  }
+  .intro-skip {
+    inset-inline-end: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .opening-intro {
+    display: none;
+  }
+  html[data-intro] body {
+    overflow: auto;
+  }
+  html[data-intro] :is(.site-header, main, .site-footer, .site-header .brand) {
+    visibility: visible;
   }
 }

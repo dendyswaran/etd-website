@@ -5,6 +5,7 @@ import '@fontsource/ibm-plex-sans/latin-600.css';
 import '@fontsource/ibm-plex-mono/latin-400.css';
 import '../styles/global.scss';
 import SeoHead from '../components/SeoHead.astro';
+import OpeningIntro from '../components/OpeningIntro.astro';
 import { pages } from '../data/pages';
 
 const whatsapp = 'https://wa.me/62817131366';
@@ -71,6 +72,7 @@ const structuredData = {
     <a class="skip-link" href="#main">
       Skip to content
     </a>
+    <OpeningIntro />
     <header class="site-header page-grid">
       <a class="brand" href="#top" aria-label="East Town Digital home">
         <svg
@@ -102,7 +104,7 @@ const structuredData = {
         Contact us <span aria-hidden="true">↗</span>
       </a>
     </header>
-    <main id="main">
+    <main id="main" tabindex="-1">
       <section class="hero" aria-labelledby="hero-heading">
         <div class="hero-field" aria-hidden="true">
           <canvas id="east-field"></canvas>
@@ -112,8 +114,12 @@ const structuredData = {
             SOFTWARE &amp; AI FOR BUSINESSES IN INDONESIA
           </p>
           <h1 id="hero-heading" class="hero-title">
-            <span>Software house and AI for</span>
-            <span>your business operations.</span>
+            <span class="hero-line-mask">
+              <span class="hero-line">Software house and AI for</span>
+            </span>{' '}
+            <span class="hero-line-mask">
+              <span class="hero-line">your business operations.</span>
+            </span>
           </h1>
           <div class="hero-proof">
             <p class="eyebrow">DEVELOPMENT EXPERIENCE</p>
