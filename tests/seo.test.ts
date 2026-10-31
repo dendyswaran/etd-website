@@ -89,7 +89,7 @@ test('crawler endpoints lead to a reachable sitemap of canonical URLs', async ()
   const xml = parseHTML(await sitemap.text()).document;
   expect(
     [...xml.querySelectorAll('loc')].map((entry) => entry.textContent),
-  ).toEqual(['https://www.easttowndigital.com/']);
+  ).toContain('https://www.easttowndigital.com/');
 });
 
 test('social previews have a reachable image with the advertised dimensions', async () => {
@@ -108,4 +108,42 @@ test('social previews have a reachable image with the advertised dimensions', as
   const bytes = new DataView(await response.arrayBuffer());
   expect(bytes.getUint32(16)).toBe(1200);
   expect(bytes.getUint32(20)).toBe(630);
+});
+
+const newPaths = [
+  '/jasa-pembuatan-website/',
+  '/software-custom/',
+  '/aplikasi-mobile/',
+  '/integrasi-sistem/',
+  '/studi-kasus/pos-reservasi-salon/',
+  '/studi-kasus/sistem-antrean/',
+  '/studi-kasus/monitoring-keuangan-proyek/',
+  '/artikel/biaya-software-custom/',
+  '/artikel/kapan-beralih-dari-excel/',
+];
+test('service, case-study and article pages are discoverable, unique and usable without JavaScript', async () => {
+  const titles = new Set<string>();
+  for (const path of newPaths) {
+    const response = await fetch(origin + path);
+    expect(response.status).toBe(200);
+    const page = parseHTML(await response.text()).document;
+    expect(page.querySelectorAll('h1').length).toBe(1);
+    expect(
+      page.querySelector('link[rel="canonical"]')?.getAttribute('href'),
+    ).toBe('https://www.easttowndigital.com' + path);
+    expect(
+      page.querySelector('a[href="https://wa.me/62817131366"]'),
+    ).not.toBeNull();
+    expect(page.querySelector('main')!.textContent!.length).toBeGreaterThan(
+      1200,
+    );
+    titles.add(page.title);
+  }
+  expect(titles.size).toBe(newPaths.length);
+  const map = parseHTML(
+    await (await fetch(origin + '/sitemap.xml')).text(),
+  ).document;
+  const locations = [...map.querySelectorAll('loc')].map((n) => n.textContent);
+  for (const path of newPaths)
+    expect(locations).toContain('https://www.easttowndigital.com' + path);
 });

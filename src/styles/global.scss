@@ -817,3 +817,112 @@ h2 {
     @include type.type-style('heading-02');
   }
 }
+.resource-link {
+  text-decoration: underline;
+  text-decoration-color: var(--cds-border-subtle);
+  text-underline-offset: 4px;
+}
+.resource-link:hover {
+  text-decoration-color: currentColor;
+}
+.detail-intro {
+  padding-block: 40px 64px;
+  border-bottom: 1px solid var(--cds-border-subtle);
+}
+.detail-breadcrumb,
+.detail-label {
+  grid-column: 1 / -1;
+  margin-bottom: 32px;
+}
+.detail-breadcrumb {
+  @include type.type-style('body-compact-01');
+  color: var(--cds-text-secondary);
+}
+h1.detail-title {
+  display: block;
+  grid-column: 1 / 14;
+  @include type.type-style('expressive-heading-05', true);
+  letter-spacing: -0.045em;
+  margin-bottom: 32px;
+  overflow-wrap: break-word;
+}
+.detail-lead {
+  grid-column: 5 / 14;
+  @include type.type-style('heading-03');
+  color: var(--cds-text-secondary);
+}
+.detail-body {
+  padding-block: 64px;
+}
+.detail-aside {
+  grid-column: 1 / 5;
+  color: var(--cds-text-secondary);
+}
+.detail-aside nav {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+.detail-aside a {
+  @include type.type-style('body-compact-01');
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.detail-copy {
+  grid-column: 6 / 15;
+  min-width: 0;
+}
+.detail-copy section {
+  margin-bottom: 48px;
+  scroll-margin-top: 32px;
+}
+.detail-copy h2 {
+  @include type.type-style('heading-04');
+  margin-bottom: 24px;
+}
+.detail-copy p {
+  @include type.type-style('body-02');
+  color: var(--cds-text-secondary);
+  line-height: 1.75;
+}
+.detail-contact {
+  margin-top: 24px;
+}
+@media (max-width: 1055px) {
+  h1.detail-title {
+    grid-column: 1 / -1;
+  }
+  .detail-lead {
+    grid-column: 3 / -1;
+  }
+  .detail-aside {
+    grid-column: 1 / 3;
+  }
+  .detail-copy {
+    grid-column: 3 / -1;
+  }
+}
+@media (max-width: 671px) {
+  .detail-intro,
+  .detail-body {
+    padding-block: 32px;
+  }
+  .detail-lead,
+  .detail-copy,
+  .detail-aside {
+    grid-column: 1 / -1;
+  }
+  .detail-aside {
+    margin-bottom: 40px;
+  }
+  h1.detail-title {
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+  .detail-lead {
+    @include type.type-style('body-02');
+  }
+  .detail-copy h2 {
+    @include type.type-style('heading-03');
+  }
+}

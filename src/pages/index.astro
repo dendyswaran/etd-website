@@ -4,6 +4,8 @@ import '@fontsource/ibm-plex-sans/latin-500.css';
 import '@fontsource/ibm-plex-sans/latin-600.css';
 import '@fontsource/ibm-plex-mono/latin-400.css';
 import '../styles/global.scss';
+import SeoHead from '../components/SeoHead.astro';
+import { pages } from '../data/pages';
 
 const whatsapp = 'https://wa.me/62817131366';
 const year = new Date().getFullYear();
@@ -11,7 +13,6 @@ const canonical = new URL('/', Astro.site).href;
 const title = 'Software House Indonesia | East Town Digital';
 const description =
   'East Town Digital, software house untuk bisnis di Indonesia dengan pengalaman 15+ tahun di IT. Diskusikan kebutuhan software Anda langsung lewat WhatsApp.';
-const socialImage = new URL('/og-image.png', Astro.site).href;
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -55,66 +56,12 @@ const structuredData = {
 <!doctype html>
 <html lang="id" class="cds--white">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {import.meta.env.PROD && (
-      <>
-        <script
-          is:inline
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-C4DHWJTYQL"
-        />
-        <script is:inline data-google-analytics>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            window.dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
-          gtag('config', 'G-C4DHWJTYQL');
-          document.addEventListener('click', function (event) {
-            const link = event.target?.closest?.('a[data-contact-location]');
-            if (link?.href !== 'https://wa.me/62817131366') return;
-            gtag('event', 'contact_whatsapp', {
-              link_location: link.dataset.contactLocation,
-            });
-          });
-        </script>
-      </>
-    )}
-    <meta name="theme-color" content="#f9f8f5" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href={canonical} />
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="East Town Digital" />
-    <meta property="og:locale" content="id_ID" />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={socialImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
-    <meta
-      property="og:image:alt"
-      content="East Town Digital — Software house untuk bisnis Indonesia. Pengalaman 15+ tahun di IT."
+    <SeoHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      structuredData={structuredData}
     />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={socialImage} />
-    <meta
-      name="twitter:image:alt"
-      content="East Town Digital — Software house untuk bisnis Indonesia. Pengalaman 15+ tahun di IT."
-    />
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')}
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main">
@@ -413,6 +360,31 @@ const structuredData = {
               </dd>
             </div>
           </dl>
+        </div>
+      </section>
+      <section class="section-wrap" aria-labelledby="resources-heading">
+        <div class="editorial-card page-grid">
+          <div class="section-heading">
+            <p class="eyebrow">JELAJAHI LEBIH LANJUT</p>
+            <h2 id="resources-heading">Kenali pendekatan kami.</h2>
+            <p>
+              Layanan, pengalaman pengembangan, dan panduan untuk mempersiapkan
+              proyek Anda.
+            </p>
+          </div>
+          <div class="work-list">
+            {pages.map((page) => (
+              <article>
+                <p class="eyebrow">{page.kind}</p>
+                <h3>
+                  <a class="resource-link" href={`/${page.slug}/`}>
+                    {page.title} <span aria-hidden="true">↗</span>
+                  </a>
+                </h3>
+                <p>{page.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
       <section

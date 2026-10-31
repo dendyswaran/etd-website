@@ -5,6 +5,8 @@
 This is the East Town Digital company website, built with Astro 7, TypeScript, Bun, and GSAP. It produces static HTML with client-side animation and no backend.
 
 - `src/pages/index.astro`: company introduction, metadata, and WhatsApp links.
+- `src/data/pages.ts`: published service pages, anonymous case studies, and guides.
+- `src/components/SeoHead.astro`: shared metadata and analytics.
 - `src/styles/global.scss`: responsive layout, Carbon styles, and brand tokens.
 - `src/scripts/motion.ts`: GSAP entrance, scroll, and canvas animations.
 - `public/`: static assets, including the favicon.

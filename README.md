@@ -41,9 +41,11 @@ Content and contact links render without JavaScript. Animation follows reduced-m
 
 Google Analytics uses measurement ID `G-C4DHWJTYQL` through Google's asynchronous `gtag.js` snippet. Tracking is included in production builds only, keeping local development out of analytics. The tag follows the deployed hostname, including custom domains, without a code change. Production preview builds also include the tag. WhatsApp clicks send the `contact_whatsapp` event with the link location; they do not imply that a message was sent.
 
+Content entries live in `src/data/pages.ts`; `src/pages/[...slug].astro` renders the service pages, anonymous case studies, and guides. `src/components/SeoHead.astro` shares metadata and production analytics across pages.
+
 ## SEO
 
-The canonical domain is `https://www.easttowndigital.com/`, configured in `astro.config.mjs`. The website includes Indonesian service content, organization JSON-LD, social-preview images, `robots.txt`, and a single-page XML sitemap. See [SEO operations](docs/seo.md) for Search Console setup, content rules, and lead measurement.
+The canonical domain is `https://www.easttowndigital.com/`, configured in `astro.config.mjs`. The website includes Indonesian service content, organization JSON-LD, social-preview images, `robots.txt`, and an XML sitemap for all published pages. See [SEO operations](docs/seo.md) for Search Console setup, content rules, and lead measurement.
 
 ## Deployment
 
