@@ -6,6 +6,12 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "etd-website-seven.vercel.app" }],
+      "destination": "https://www.easttowndigital.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "etd-website-seven.vercel.app" }],
       "destination": "https://www.easttowndigital.com/:path*",
