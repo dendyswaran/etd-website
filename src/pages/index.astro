@@ -6,6 +6,7 @@ import '@fontsource/ibm-plex-mono/latin-400.css';
 import '../styles/global.scss';
 import SeoHead from '../components/SeoHead.astro';
 import OpeningIntro from '../components/OpeningIntro.astro';
+import Brand from '../components/Brand.astro';
 import { pages } from '../data/pages';
 
 const whatsapp = 'https://wa.me/62817131366';
@@ -74,20 +75,7 @@ const structuredData = {
     </a>
     <OpeningIntro />
     <header class="site-header page-grid">
-      <a class="brand" href="#top" aria-label="East Town Digital home">
-        <svg
-          class="brand-mark"
-          viewBox="0 0 40 40"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path d="M4 6h29v6H10v5h19v6H10v5h23v6H4V6Z" fill="currentColor" />
-          <path d="m27 16 9 4-9 4v-8Z" fill="currentColor" />
-        </svg>
-        <span>
-          East Town<span class="brand-second">Digital</span>
-        </span>
-      </a>
+      <Brand href="#top" />
       <nav class="header-note" aria-label="Main navigation">
         <a href="#ai">AI &amp; AUTOMATION</a>
         <a href="#layanan">SERVICES</a>

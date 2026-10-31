@@ -99,6 +99,7 @@ function runIntroBootstrap(
     hash?: string;
     search?: string;
     blockedStorage?: boolean;
+    navigationType?: 'navigate' | 'reload' | 'back_forward';
   } = {},
 ) {
   const page = parseHTML(document.documentElement.outerHTML);
@@ -116,6 +117,11 @@ function runIntroBootstrap(
           if (options.blockedStorage) throw new Error('Storage blocked');
           return options.seen ? '1' : null;
         },
+      },
+      performance: {
+        getEntriesByType: () => [
+          { type: options.navigationType ?? 'navigate' },
+        ],
       },
       URLSearchParams,
       Event: page.Event,
@@ -174,4 +180,22 @@ test('the opening releases content if its animation bundle fails or the page is 
   const page = runIntroBootstrap();
   page.document.dispatchEvent(new page.Event('etd:intro-complete'));
   expect(page.cleared).toEqual([1]);
+});
+
+test('refresh replays the opening even after a previous visit or at a fragment URL', () => {
+  for (const hash of ['', '#contact']) {
+    const page = runIntroBootstrap({
+      seen: true,
+      navigationType: 'reload',
+      hash,
+    });
+    expect(page.document.documentElement.dataset.intro).toBe('pending');
+    expect(page.document.getElementById('opening-intro')!.hidden).toBe(false);
+  }
+  const reduced = runIntroBootstrap({
+    seen: true,
+    navigationType: 'reload',
+    reduced: true,
+  });
+  expect(reduced.document.getElementById('opening-intro')!.hidden).toBe(true);
 });

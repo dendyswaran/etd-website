@@ -1,0 +1,44 @@
+---
+interface Props {
+  headingId: string;
+  title?: string;
+  description: string;
+  groups: { label: string; items: { name: string; icon: string }[] }[];
+}
+const {
+  headingId,
+  title = 'Technologies we work with.',
+  description,
+  groups,
+} = Astro.props;
+---
+
+<section class="integration-technologies" aria-labelledby={headingId}>
+  <div class="technology-heading">
+    <p class="eyebrow">OUR TECHNOLOGY EXPERIENCE</p>
+    <h2 id={headingId}>{title}</h2>
+    <p>{description}</p>
+  </div>
+  <div class="technology-groups">
+    {groups.map((group) => (
+      <div class="technology-group">
+        <h3 class="eyebrow">{group.label}</h3>
+        <ul>
+          {group.items.map((technology) => (
+            <li>
+              <img
+                src={`/technology/${technology.icon}.svg`}
+                alt=""
+                width="40"
+                height="40"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>{technology.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

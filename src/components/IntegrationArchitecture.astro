@@ -1,0 +1,146 @@
+---
+import TechnologyStack from './TechnologyStack.astro';
+const technologyGroups = [
+  {
+    label: 'Backend services',
+    items: [
+      { name: 'Node.js', icon: 'nodejs' },
+      { name: 'Java', icon: 'java' },
+      { name: 'Python', icon: 'python' },
+    ],
+  },
+  {
+    label: 'Web interfaces',
+    items: [
+      { name: 'React', icon: 'react' },
+      { name: 'TypeScript', icon: 'typescript' },
+    ],
+  },
+  {
+    label: 'Data & caching',
+    items: [
+      { name: 'PostgreSQL', icon: 'postgresql' },
+      { name: 'Redis', icon: 'redis' },
+    ],
+  },
+];
+const sources = [
+  { name: 'Websites & mobile apps', detail: 'Customer requests and activity' },
+  { name: 'POS & internal systems', detail: 'Transactions and inventory' },
+  { name: 'Spreadsheets & files', detail: 'Existing records and imports' },
+];
+const destinations = [
+  { name: 'Business applications', detail: 'Connected operational workflows' },
+  { name: 'Databases & records', detail: 'Updates to the system of record' },
+  { name: 'Reports & dashboards', detail: 'Data your team can review' },
+];
+---
+
+<div class="integration-visual">
+  <figure
+    class="integration-architecture"
+    aria-labelledby="architecture-heading architecture-caption"
+  >
+    <div class="architecture-heading">
+      <p class="eyebrow">EXAMPLE SYSTEM ARCHITECTURE</p>
+      <h2 id="architecture-heading">
+        From separate systems
+        <br />
+        to a connected workflow.
+      </h2>
+      <p>
+        Move data through a defined process, with checks before each update.
+      </p>
+    </div>
+    <div class="architecture-flow">
+      <div class="architecture-stage architecture-sources">
+        <p class="eyebrow architecture-stage-label">01 / YOUR SYSTEMS</p>
+        <ul class="architecture-nodes">
+          {sources.map((source) => (
+            <li class="architecture-node">
+              <strong>{source.name}</strong>
+              <span>{source.detail}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div
+        class="architecture-connector architecture-inbound"
+        aria-hidden="true"
+      >
+        <span>→</span>
+      </div>
+      <div class="architecture-stage architecture-processing">
+        <p class="eyebrow architecture-stage-label">02 / INTEGRATION LAYER</p>
+        <div class="architecture-hub">
+          <p class="eyebrow">APIs / FILES / DATA CONNECTIONS</p>
+          <h3>Check. Transform. Connect.</h3>
+          <ol>
+            <li>
+              <span aria-hidden="true">01</span>
+              <div>
+                <strong>Authenticate &amp; authorize</strong>
+                <p>Check which systems can access the data.</p>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">02</span>
+              <div>
+                <strong>Validate &amp; map</strong>
+                <p>Check formats, required fields, and duplicate records.</p>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">03</span>
+              <div>
+                <strong>Route &amp; synchronize</strong>
+                <p>Apply business rules before updating the destination.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div
+        class="architecture-connector architecture-outbound"
+        aria-hidden="true"
+      >
+        <span>→</span>
+      </div>
+      <div class="architecture-stage architecture-destinations">
+        <p class="eyebrow architecture-stage-label">
+          03 / CONNECTED OPERATIONS
+        </p>
+        <ul class="architecture-nodes">
+          {destinations.map((destination) => (
+            <li class="architecture-node">
+              <strong>{destination.name}</strong>
+              <span>{destination.detail}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="architecture-recovery">
+        <p class="eyebrow">WHEN SOMETHING FAILS</p>
+        <p>
+          <strong>
+            Log the issue <span aria-hidden="true">→</span> Retry when safe{' '}
+            <span aria-hidden="true">→</span> Review unresolved items
+          </strong>
+        </p>
+        <p>
+          Rejected data stays traceable. Retries need rules that prevent
+          duplicate updates.
+        </p>
+      </div>
+    </div>
+    <figcaption id="architecture-caption">
+      Example architecture. Connections, data ownership, and recovery rules are
+      defined around your project.
+    </figcaption>
+  </figure>
+  <TechnologyStack
+    headingId="integration-technologies-heading"
+    description="Tools used across our development work. The stack for your integration follows your existing systems and project requirements."
+    groups={technologyGroups}
+  />
+</div>

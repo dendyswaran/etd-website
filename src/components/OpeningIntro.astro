@@ -59,15 +59,18 @@
   (() => {
     const root = document.documentElement;
     const screen = document.getElementById('opening-intro');
+    const reloading =
+      performance.getEntriesByType('navigation')[0]?.type === 'reload';
     if (
       !screen ||
       matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      location.hash
+      (location.hash && !reloading)
     )
       return;
     try {
       if (
         sessionStorage.getItem('etd:intro-seen') &&
+        !reloading &&
         !new URLSearchParams(location.search).has('intro')
       )
         return;

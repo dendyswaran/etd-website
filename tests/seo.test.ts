@@ -211,3 +211,74 @@ test('AI capabilities are discoverable from the homepage and linked to detailed 
     section!.querySelector('a[href="/studi-kasus/ai-quality-assurance/"]'),
   ).not.toBeNull();
 });
+
+// The integration explanation and local technology assets must work without scripts or CDNs.
+test('the integration page exposes an accessible architecture diagram and self-hosted technology logos', async () => {
+  const page = parseHTML(
+    await (await fetch(origin + '/integrasi-sistem/')).text(),
+  ).document;
+  const diagram = page.querySelector('figure.integration-architecture');
+  expect(diagram).not.toBeNull();
+  expect(diagram!.querySelector('figcaption')?.textContent).toMatch(
+    /example|illustrative/i,
+  );
+  for (const id of diagram!.getAttribute('aria-labelledby')!.split(' ')) {
+    expect(page.getElementById(id)?.textContent?.trim().length).toBeGreaterThan(
+      0,
+    );
+  }
+  const technologies = page.querySelector(
+    '[aria-labelledby="integration-technologies-heading"]',
+  );
+  expect(technologies).not.toBeNull();
+  for (const name of ['Node.js', 'Java'])
+    expect(technologies!.textContent).toContain(name);
+  const logos = technologies!.querySelectorAll('img');
+  expect(logos.length).toBeGreaterThanOrEqual(2);
+  for (const logo of logos) {
+    expect(logo.getAttribute('src')).toMatch(/^\/technology\//);
+    expect(logo.hasAttribute('alt')).toBe(true);
+    expect(Number(logo.getAttribute('width'))).toBeGreaterThan(0);
+    expect(Number(logo.getAttribute('height'))).toBeGreaterThan(0);
+    const response = await fetch(origin + logo.getAttribute('src'));
+    expect(response.status).toBe(200);
+    expect(response.headers.get('content-type')).toContain('image/svg+xml');
+  }
+});
+
+test('the AI service page explains the audio QA workflow and distinguishes development tools from runtime services', async () => {
+  const page = parseHTML(
+    await (await fetch(origin + '/solusi-ai/')).text(),
+  ).document;
+  const workflow = page.querySelector('figure.ai-workflow');
+  expect(workflow).not.toBeNull();
+  expect(workflow!.querySelectorAll('.ai-pipeline > li').length).toBe(4);
+  expect(workflow!.textContent).toContain('ElevenLabs');
+  expect(workflow!.textContent).toContain('Sonnet 5.5');
+  expect(workflow!.textContent).toMatch(/human review/i);
+  expect(workflow!.querySelector('.ai-development')?.textContent).toContain(
+    'Codex',
+  );
+  const stack = page.querySelector(
+    '[aria-labelledby="ai-technologies-heading"]',
+  );
+  expect(stack).not.toBeNull();
+  for (const name of [
+    'Bun',
+    'Vite',
+    'React',
+    'TypeScript',
+    'Docker',
+    'PostgreSQL',
+    'Redis',
+    'Python',
+  ]) {
+    expect(stack!.textContent).toContain(name);
+  }
+  for (const image of page.querySelectorAll('.ai-visual img')) {
+    const response = await fetch(origin + image.getAttribute('src'));
+    expect(response.status).toBe(200);
+    expect(response.headers.get('content-type')).toContain('image/svg+xml');
+  }
+  expect(page.querySelector('#opening-intro')).not.toBeNull();
+});

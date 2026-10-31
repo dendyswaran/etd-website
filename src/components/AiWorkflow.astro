@@ -1,0 +1,149 @@
+---
+import TechnologyStack from './TechnologyStack.astro';
+const groups = [
+  {
+    label: 'Application & audio services',
+    items: [
+      { name: 'Bun', icon: 'bun' },
+      { name: 'Python', icon: 'python' },
+    ],
+  },
+  {
+    label: 'Reviewer interface',
+    items: [
+      { name: 'Vite', icon: 'vite' },
+      { name: 'React', icon: 'react' },
+      { name: 'TypeScript', icon: 'typescript' },
+    ],
+  },
+  {
+    label: 'Deployment & data',
+    items: [
+      { name: 'Docker', icon: 'docker' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
+      { name: 'Redis', icon: 'redis' },
+    ],
+  },
+];
+---
+
+<div class="integration-visual ai-visual">
+  <figure
+    class="integration-architecture ai-workflow"
+    aria-labelledby="ai-workflow-heading ai-workflow-caption"
+  >
+    <div class="architecture-heading">
+      <p class="eyebrow">EXAMPLE AI WORKFLOW / AUDIO QUALITY ASSURANCE</p>
+      <h2 id="ai-workflow-heading">
+        From a recorded conversation
+        <br />
+        to a reviewable evaluation.
+      </h2>
+      <p>
+        A defined processing pipeline, with evidence behind the assessment and
+        people in control of the result.
+      </p>
+    </div>
+    <ol class="ai-pipeline">
+      <li>
+        <p class="eyebrow ai-step-number">01 / INTAKE</p>
+        <div class="ai-provider">
+          <span>Bun / Redis / PostgreSQL</span>
+        </div>
+        <h3>Queue the recording</h3>
+        <p>
+          Upload audio, store the call record, and queue the job for processing.
+        </p>
+        <p class="ai-stage-detail">
+          Job status, retry handling, and a traceable processing history.
+        </p>
+      </li>
+      <li>
+        <p class="eyebrow ai-step-number">02 / TRANSCRIPTION</p>
+        <div class="ai-provider">
+          <img
+            src="/technology/elevenlabs.svg"
+            alt=""
+            width="24"
+            height="24"
+            loading="lazy"
+          />
+          <span>ElevenLabs</span>
+        </div>
+        <h3>Turn speech into text</h3>
+        <p>
+          Create a transcript with speaker labels for downstream evaluation.
+        </p>
+        <p class="ai-stage-detail">
+          A Python audio service extracts features that add context to the
+          assessment.
+        </p>
+      </li>
+      <li class="ai-stage-evaluation">
+        <p class="eyebrow ai-step-number">03 / EVALUATION</p>
+        <div class="ai-provider">
+          <img
+            src="/technology/claude.svg"
+            alt=""
+            width="24"
+            height="24"
+            loading="lazy"
+          />
+          <span>Sonnet 5.5</span>
+        </div>
+        <h3>Evaluate against a rubric</h3>
+        <p>
+          Assess the transcript using product knowledge and scoring criteria.
+        </p>
+        <p class="ai-stage-detail">
+          Structured assessments, conversation evidence, and coaching notes.
+        </p>
+      </li>
+      <li>
+        <p class="eyebrow ai-step-number">04 / HUMAN REVIEW</p>
+        <div class="ai-provider">
+          <span>Reviewer workspace</span>
+        </div>
+        <h3>Review, correct, export</h3>
+        <p>
+          Reviewers inspect evidence, correct assessments, and export reports.
+        </p>
+        <p class="ai-stage-detail">
+          The application recalculates scores using the rubric weights.
+        </p>
+      </li>
+    </ol>
+    <div class="ai-workflow-context">
+      <p class="eyebrow">EVALUATION CONTEXT</p>
+      <p>
+        Product knowledge <span aria-hidden="true">+</span> Assessment rubric{' '}
+        <span aria-hidden="true">+</span> Reviewer examples
+      </p>
+      <p>
+        Reviewer examples supply context for later evaluations. They do not
+        imply that the model has been retrained.
+      </p>
+    </div>
+    <aside class="ai-development" aria-label="Development workflow">
+      <div>
+        <p class="eyebrow">DEVELOPMENT WORKFLOW</p>
+        <h3>Codex + engineer review</h3>
+      </div>
+      <p>
+        Codex supports implementation. Engineers review the code and run tests
+        before delivery.
+      </p>
+    </aside>
+    <figcaption id="ai-workflow-caption">
+      Illustrative audio QA workflow based on our development experience.
+      Processing rules, data access, and evaluation criteria are scoped to each
+      project.
+    </figcaption>
+  </figure>
+  <TechnologyStack
+    headingId="ai-technologies-heading"
+    title="The stack behind the workflow."
+    description="Bun for application services, Python for audio analysis, and a Vite, React, and TypeScript reviewer interface. Docker, PostgreSQL, and Redis support deployment, records, and background processing."
+    groups={groups}
+  />
+</div>
