@@ -2,6 +2,8 @@
 
 An introductory website for East Town Digital, an independent software house with 15+ years of IT experience. Inspired by the warm, typographic composition and animated line field at [abliteration.ai](https://abliteration.ai), with original branding, copy, and artwork.
 
+[Live website](https://etd-website-seven.vercel.app) · [Public GitHub repository](https://github.com/dendyswaran/etd-website)
+
 ## Stack
 
 - Astro 7.4.4, statically rendered
@@ -45,4 +47,4 @@ Vercel detects Astro. `vercel.json` selects `bun install --frozen-lockfile`, `bu
 bunx vercel@latest --prod
 ```
 
-Link the GitHub repository to the Vercel project for future automatic deployments. Do not commit `.vercel/` or credentials.
+The GitHub repository is connected to the Vercel project for automatic deployments from `main`. Do not commit `.vercel/` or credentials.
