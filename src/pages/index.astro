@@ -104,14 +104,16 @@ const structuredData = {
     </header>
     <main id="main">
       <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-field" aria-hidden="true">
+          <canvas id="east-field"></canvas>
+        </div>
         <div class="hero-inner page-grid">
           <p class="eyebrow hero-eyebrow">
             SOFTWARE &amp; AI FOR BUSINESSES IN INDONESIA
           </p>
           <h1 id="hero-heading" class="hero-title">
-            Software house and AI for
-            <br />
-            your business operations.
+            <span>Software house and AI for</span>
+            <span>your business operations.</span>
           </h1>
           <div class="hero-proof">
             <p class="eyebrow">DEVELOPMENT EXPERIENCE</p>
@@ -143,7 +145,14 @@ const structuredData = {
             <a class="scroll-link" href="#hello">
               <span aria-hidden="true">↓</span> MEET THE TEAM
             </a>
-            <span class="edition">WEB / APPLICATIONS / INTEGRATION / AI</span>
+            <button
+              type="button"
+              class="cds--btn cds--btn--ghost motion-toggle"
+              aria-controls="east-field"
+              hidden
+            >
+              Pause animation
+            </button>
           </div>
         </div>
       </section>
@@ -496,5 +505,8 @@ const structuredData = {
         SOFTWARE HOUSE FOR BUSINESSES IN INDONESIA.
       </span>
     </footer>
+    <script>
+      import '../scripts/motion';
+    </script>
   </body>
 </html>

@@ -21,6 +21,7 @@
   --cds-button-tertiary: #252620;
   --cds-button-tertiary-hover: #eeeee7;
   --cds-focus: #656e43;
+  --etd-field: #a5a797;
   --etd-sand: #e9e6db;
   --etd-inverse: #f6f4ec;
 }
@@ -806,5 +807,60 @@ h1.detail-title {
   .hero-proof {
     grid-column: 1 / -1;
     grid-row: auto;
+  }
+}
+
+// The line field echoes the original motion direction; content remains foreground.
+.hero-field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  mask-image: linear-gradient(transparent, black 16%, black 84%, transparent);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0 15px,
+    var(--cds-border-subtle) 15px 16px
+  );
+}
+.hero-field canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--cds-background);
+}
+.hero-title > span {
+  display: block;
+}
+.motion-toggle {
+  color: var(--cds-text-secondary);
+  padding-inline: 16px;
+  min-height: 48px;
+  @include type.type-style('label-01');
+}
+.motion-toggle[hidden] {
+  display: none;
+}
+.motion-toggle:hover {
+  color: var(--cds-text-primary);
+  background: var(--etd-sand);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .contact-button,
+  .header-contact {
+    transition:
+      background-color 150ms,
+      color 150ms,
+      transform 150ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  }
+  .button-arrow {
+    transition: transform 150ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  }
+  .contact-button:is(:hover, :focus-visible) .button-arrow {
+    transform: translate(2px, -2px);
+  }
+  .contact-button:active,
+  .header-contact:active {
+    transform: scale(0.98);
   }
 }
