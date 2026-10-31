@@ -1,0 +1,219 @@
+---
+import '@fontsource/ibm-plex-sans/latin-400.css';
+import '@fontsource/ibm-plex-sans/latin-500.css';
+import '@fontsource/ibm-plex-sans/latin-600.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '../styles/global.scss';
+
+const whatsapp = 'https://wa.me/62817131366';
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en" class="cds--white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f9f8f5" />
+    <title>East Town Digital — Good ideas. Built right.</title>
+    <meta
+      name="description"
+      content="East Town Digital is a software house shaped by 15+ years of IT experience. A new chapter in building thoughtful software. Let's talk on WhatsApp."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="East Town Digital — Good ideas. Built right."
+    />
+    <meta
+      property="og:description"
+      content="A software house shaped by 15+ years in IT. Your next chapter starts with a conversation."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <div class="announcement">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>A new chapter. 15+ years in the making.</span>
+      <span class="announcement-label">EAST TOWN DIGITAL</span>
+    </div>
+    <header class="site-header page-grid">
+      <a class="brand" href="#top" aria-label="East Town Digital home">
+        <svg
+          class="brand-mark"
+          viewBox="0 0 40 40"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="M4 6h29v6H10v5h19v6H10v5h23v6H4V6Z" fill="currentColor" />
+          <path d="m27 16 9 4-9 4v-8Z" fill="currentColor" />
+        </svg>
+        <span>
+          East Town<span class="brand-second">Digital</span>
+        </span>
+      </a>
+      <span class="header-note">INDEPENDENT MINDS. SHARED AMBITION.</span>
+      <a
+        class="cds--btn cds--btn--tertiary header-contact"
+        href={whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Contact Us <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="field" aria-hidden="true">
+          <canvas id="east-field"></canvas>
+        </div>
+        <div class="hero-inner page-grid">
+          <p class="eyebrow hero-eyebrow" data-reveal>
+            <span class="small-cross" aria-hidden="true">
+              +
+            </span>{' '}
+            A SOFTWARE HOUSE WITH A FORWARD MINDSET
+          </p>
+          <h1 id="hero-heading">
+            <span class="headline-start" data-reveal>
+              Good ideas.
+              <br />
+              Built right.
+            </span>
+            <span class="headline-end" data-reveal>
+              From the east.
+              <br />
+              For what’s next.
+            </span>
+          </h1>
+          <div class="hero-action" data-reveal>
+            <p>
+              Thoughtful software.
+              <br />
+              Made for your next chapter.
+            </p>
+            <a
+              class="cds--btn cds--btn--primary contact-button"
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contact Us{' '}
+              <span class="button-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <span class="contact-caption">LET’S TALK ON WHATSAPP</span>
+          </div>
+          <div class="hero-baseline">
+            <a class="scroll-link" href="#hello">
+              <span aria-hidden="true">↓</span> A LITTLE ABOUT US
+            </a>
+            <span class="edition">A NEW CHAPTER / SAME DEDICATION</span>
+          </div>
+        </div>
+      </section>
+      <section
+        class="introduction section-wrap"
+        id="hello"
+        aria-labelledby="intro-heading"
+      >
+        <div class="intro-card page-grid">
+          <p class="eyebrow intro-label" data-scroll-reveal>
+            01 / HELLO, WE’RE EAST TOWN DIGITAL
+          </p>
+          <div class="intro-copy" data-scroll-reveal>
+            <h2 id="intro-heading">
+              A fresh name.
+              <br />A wealth of experience.
+            </h2>
+            <p>
+              We’re East Town Digital, an independent software house built by
+              two partners with a shared passion for making technology work.
+            </p>
+            <p>
+              With more than 15 years in IT, we bring experience, curiosity, and
+              care to the software we build. A new chapter for us. A new
+              possibility for your business.
+            </p>
+          </div>
+          <div class="experience" data-scroll-reveal>
+            <span class="experience-number">
+              15<span>+</span>
+            </span>
+            <span class="eyebrow">YEARS IN IT</span>
+            <span class="experience-line" aria-hidden="true"></span>
+            <p>
+              Experience behind us.
+              <br />
+              Possibility ahead.
+            </p>
+          </div>
+          <div class="intro-bottom">
+            <span>GOOD PEOPLE. THOUGHTFUL SOFTWARE.</span>
+            <span aria-hidden="true">ETD ↗</span>
+          </div>
+        </div>
+      </section>
+      <section
+        class="contact-section section-wrap"
+        id="contact"
+        aria-labelledby="contact-heading"
+      >
+        <div class="contact-card page-grid">
+          <p class="eyebrow contact-label" data-scroll-reveal>
+            <span class="status-dot" aria-hidden="true"></span> THE NEXT CHAPTER
+            STARTS WITH A CONVERSATION
+          </p>
+          <h2 id="contact-heading" data-scroll-reveal>
+            What are you
+            <br />
+            thinking of building?
+          </h2>
+          <div class="contact-detail" data-scroll-reveal>
+            <p>
+              Tell us about it.
+              <br />
+              Let’s see where we can take it, together.
+            </p>
+            <a
+              class="cds--btn cds--btn--primary contact-button contact-button-light"
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contact Us{' '}
+              <span class="button-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <a
+              class="phone-link"
+              href={whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              +62 817 131 366 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="contact-watermark" aria-hidden="true">
+            east town digital
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer page-grid">
+      <a class="footer-brand" href="#top">
+        EAST TOWN DIGITAL <span aria-hidden="true">↗</span>
+      </a>
+      <span>© {year} East Town Digital</span>
+      <span class="footer-note">GOOD IDEAS. BUILT RIGHT.</span>
+    </footer>
+    <script>
+      import '../scripts/motion';
+    </script>
+  </body>
+</html>
