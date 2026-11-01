@@ -282,3 +282,55 @@ test('the AI service page explains the audio QA workflow and distinguishes devel
   }
   expect(page.querySelector('#opening-intro')).not.toBeNull();
 });
+
+test('project brief is a public static page with accessible fields and the exact contact destination', async () => {
+  const response = await fetch(origin + '/project-brief/');
+  expect(response.status).toBe(200);
+  const page = parseHTML(await response.text()).document;
+  expect(page.querySelector('h1')?.textContent).toMatch(/project brief/i);
+  for (const input of page.querySelectorAll(
+    'input, select, textarea:not([readonly])',
+  ))
+    expect(page.querySelector(`label[for="${input.id}"]`)).not.toBeNull();
+  expect(page.querySelector('[data-brief-contact]')?.getAttribute('href')).toBe(
+    'https://wa.me/62817131366',
+  );
+  expect(page.querySelector('#brief-summary[readonly]')).not.toBeNull();
+});
+
+test('every English page has a reachable Indonesian counterpart with reciprocal language metadata', async () => {
+  for (const path of ['/', ...newPaths, '/project-brief/']) {
+    const idPath = '/id' + path;
+    const response = await fetch(origin + idPath);
+    expect(response.status).toBe(200);
+    const translated = parseHTML(await response.text()).document;
+    expect(translated.documentElement.lang).toBe('id');
+    expect(
+      translated
+        .querySelector('meta[property="og:locale"]')
+        ?.getAttribute('content'),
+    ).toBe('id_ID');
+    expect(
+      translated.querySelector('link[rel="canonical"]')?.getAttribute('href'),
+    ).toBe('https://www.easttowndigital.com' + idPath);
+    expect(
+      translated.querySelector('link[hreflang="en"]')?.getAttribute('href'),
+    ).toBe('https://www.easttowndigital.com' + path);
+    expect(
+      translated.querySelector('link[hreflang="id"]')?.getAttribute('href'),
+    ).toBe('https://www.easttowndigital.com' + idPath);
+    const english = parseHTML(
+      await (await fetch(origin + path)).text(),
+    ).document;
+    expect(english.documentElement.lang).toBe('en');
+    expect(
+      english.querySelector('link[hreflang="id"]')?.getAttribute('href'),
+    ).toBe('https://www.easttowndigital.com' + idPath);
+    expect(
+      translated.querySelector('a[data-language-switch]')?.getAttribute('href'),
+    ).toBe(path);
+    expect(
+      translated.querySelector('a[href="https://wa.me/62817131366"]'),
+    ).not.toBeNull();
+  }
+});

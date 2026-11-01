@@ -1,0 +1,129 @@
+---
+import { getLanguage, createTranslator } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+interface Props {
+  kind: 'salon' | 'projects' | 'qa';
+}
+const { kind } = Astro.props;
+---
+
+<figure class={`work-preview work-preview--${kind}`}>
+  <div class="preview-window" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span class="preview-window-label">
+      {t('East Town Digital /')}{' '}
+      {t(
+        kind === 'salon'
+          ? 'Reservations'
+          : kind === 'projects'
+            ? 'Project overview'
+            : 'Quality review',
+      )}
+    </span>
+  </div>
+  {kind === 'salon' ? (
+    <div class="preview-content">
+      <div class="preview-heading">
+        <strong>{t('Booking calendar')}</strong>
+        <span>{t('Sample day')}</span>
+      </div>
+      <div class="preview-calendar">
+        <div class="preview-time">
+          <span>09:00</span>
+          <span>10:00</span>
+          <span>11:00</span>
+          <span>12:00</span>
+        </div>
+        <div class="preview-calendar-lane">
+          <p>{t('Staff 01')}</p>
+          <div class="preview-booking">
+            <strong>{t('Hair consultation')}</strong>
+            <span>{t('Guest A · 09:00')}</span>
+          </div>
+          <div class="preview-booking preview-booking--muted">
+            <strong>{t('Cut & styling')}</strong>
+            <span>{t('Guest B · 11:00')}</span>
+          </div>
+        </div>
+        <div class="preview-calendar-lane">
+          <p>{t('Staff 02')}</p>
+          <div class="preview-booking preview-booking--offset">
+            <strong>{t('Hair treatment')}</strong>
+            <span>{t('Guest C · 10:00')}</span>
+          </div>
+        </div>
+      </div>
+      <div class="preview-footer">
+        {t('Reservation → service → checkout → receipt')}
+      </div>
+    </div>
+  ) : kind === 'projects' ? (
+    <div class="preview-content">
+      <div class="preview-heading">
+        <strong>{t('Project overview')}</strong>
+        <span>{t('Project A')}</span>
+      </div>
+      <div class="preview-budget">
+        <div>
+          <span>{t('Budget')}</span>
+          <strong>{t('Rp 120m')}</strong>
+        </div>
+        <div>
+          <span>{t('Recorded expenses')}</span>
+          <strong>{t('Rp 42m')}</strong>
+        </div>
+      </div>
+      <div class="preview-chart" aria-hidden="true">
+        <span style="--bar:35%"></span>
+        <span style="--bar:52%"></span>
+        <span style="--bar:43%"></span>
+        <span style="--bar:68%"></span>
+        <span style="--bar:59%"></span>
+        <span style="--bar:78%"></span>
+        <span style="--bar:65%"></span>
+      </div>
+      <div class="preview-record">
+        <span>{t('Materials')}</span>
+        <span>{t('Receipt attached')}</span>
+      </div>
+      <div class="preview-record">
+        <span>{t('Site preparation')}</span>
+        <span>{t('Awaiting review')}</span>
+      </div>
+      <div class="preview-footer">
+        {t('Field expense → receipt → office review')}
+      </div>
+    </div>
+  ) : (
+    <div class="preview-content">
+      <div class="preview-heading">
+        <strong>{t('Conversation review')}</strong>
+        <span>{t('Sample call')}</span>
+      </div>
+      <div class="preview-qa">
+        <div>
+          <p class="preview-label">{t('TRANSCRIPT EXCERPT')}</p>
+          <blockquote>
+            {t('“Could you confirm the delivery address?”')}
+          </blockquote>
+          <p class="preview-label">{t('ASSESSMENT')}</p>
+          <strong>{t('Identity verification')}</strong>
+          <p>{t('Supporting evidence found in the conversation.')}</p>
+        </div>
+        <div class="preview-review">
+          <span>{t('Review status')}</span>
+          <strong>{t('Pending human review')}</strong>
+          <span>{t('Rubric')}</span>
+          <strong>{t('Service quality')}</strong>
+        </div>
+      </div>
+      <div class="preview-footer">
+        {t('Transcript → evidence → reviewer decision')}
+      </div>
+    </div>
+  )}
+  <figcaption>{t('Illustrative interface · sample data')}</figcaption>
+</figure>

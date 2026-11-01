@@ -1,0 +1,62 @@
+---
+import { getLanguage, createTranslator } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+const steps = [
+  {
+    title: 'Discovery',
+    text: 'Understand the business process, users, constraints, and the problem to solve.',
+    output: 'Agreed scope and priorities',
+  },
+  {
+    title: 'Prototype',
+    text: 'Map the workflow and review the important screens before full implementation.',
+    output: 'Flow map and reviewable prototype',
+  },
+  {
+    title: 'Development',
+    text: 'Build in increments so the team can review progress against the agreed scope.',
+    output: 'Working application increments',
+  },
+  {
+    title: 'Testing',
+    text: 'Check business rules, integrations, target devices, and acceptance scenarios.',
+    output: 'Test results and release checklist',
+  },
+  {
+    title: 'Handover',
+    text: 'Prepare the release, explain operation, and agree on the boundaries of ongoing support.',
+    output: 'Handover notes and operating guidance',
+  },
+];
+---
+
+<section id="process" class="section-wrap" aria-labelledby="process-heading">
+  <div class="editorial-card page-grid">
+    <div class="section-heading">
+      <p class="eyebrow">{t('HOW WE WORK')}</p>
+      <h2 id="process-heading">{t('A clear path from brief to handover.')}</h2>
+      <p>
+        {t(
+          'A typical project follows these stages. Deliverables and acceptance criteria are agreed for each engagement.',
+        )}
+      </p>
+    </div>
+    <ol class="process-steps">
+      {steps.map((step, index) => (
+        <li>
+          <span class="eyebrow process-number" aria-hidden="true">
+            0{index + 1}
+          </span>
+          <div>
+            <h3>{t(step.title)}</h3>
+            <p>{t(step.text)}</p>
+            <p class="process-output">
+              <span>{t('Output')}</span> {t(step.output)}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

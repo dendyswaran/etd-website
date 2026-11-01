@@ -1,0 +1,181 @@
+---
+import { getLanguage, createTranslator, localizePath } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+const localeHref = (path: string) => localizePath(path, lang);
+import { serviceOptions } from '../lib/project-brief';
+---
+
+<div class="brief-builder cds--layout--size-lg" data-brief-builder>
+  <div class="brief-fields">
+    <p class="eyebrow">{t('01 / YOUR PROJECT')}</p>
+    <p>
+      {t(
+        'Start with the work you want to improve. A full technical specification is not required.',
+      )}
+    </p>
+    <form id="project-brief-form" action="#brief-output">
+      <div class="brief-field">
+        <label class="cds--label" for="brief-service">
+          {t('Service')} <span>{t('(required)')}</span>
+        </label>
+        <div class="cds--select-input__wrapper">
+          <select id="brief-service" class="cds--select-input" required>
+            <option value="">{t('Choose a service')}</option>
+            {serviceOptions.map((option) => (
+              <option value={option.value}>{t(option.label)}</option>
+            ))}
+          </select>
+          <svg
+            class="cds--select__arrow"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="m8 11-5-5 .7-.7L8 9.6l4.3-4.3.7.7z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="brief-field">
+        <label class="cds--label" for="brief-context">
+          {t('Business context')}
+        </label>
+        <input
+          class="cds--text-input"
+          id="brief-context"
+          type="text"
+          maxlength="300"
+          placeholder={t('What does your business do?')}
+        />
+      </div>
+      <div class="brief-field">
+        <label class="cds--label" for="brief-problem">
+          {t('Problem to solve')} <span>{t('(required)')}</span>
+        </label>
+        <textarea
+          class="cds--text-area"
+          id="brief-problem"
+          rows="4"
+          required
+          maxlength="3000"
+          placeholder={t(
+            'Describe the current process and what gets in the way.',
+          )}
+        ></textarea>
+      </div>
+      <div class="brief-field">
+        <label class="cds--label" for="brief-users">
+          {t('People using the system')}
+        </label>
+        <input
+          class="cds--text-input"
+          id="brief-users"
+          type="text"
+          maxlength="300"
+          placeholder={t('For example, customers, cashiers, or field staff.')}
+        />
+      </div>
+      <div class="brief-field">
+        <label class="cds--label" for="brief-integrations">
+          {t('Existing systems & integrations')}
+        </label>
+        <textarea
+          class="cds--text-area"
+          id="brief-integrations"
+          rows="3"
+          maxlength="1500"
+          placeholder={t(
+            'Applications, spreadsheets, or devices involved. Do not include credentials.',
+          )}
+        ></textarea>
+      </div>
+      <div class="brief-field">
+        <label class="cds--label" for="brief-timeline">
+          {t('Timeline')}
+        </label>
+        <input
+          class="cds--text-input"
+          id="brief-timeline"
+          type="text"
+          maxlength="200"
+          placeholder={t('A target date, or leave open for discussion.')}
+        />
+      </div>
+      <button
+        class="cds--btn cds--btn--primary"
+        type="button"
+        data-brief-review
+        hidden
+      >
+        {t('Review brief')}
+      </button>
+    </form>
+    <noscript>
+      <p>
+        {t(
+          'You can copy your notes manually and discuss the project through WhatsApp.',
+        )}
+      </p>
+    </noscript>
+    <p class="brief-privacy">
+      {t(
+        'Your draft stays in this browser tab. Nothing is sent automatically.',
+      )}
+    </p>
+  </div>
+  <section
+    id="brief-output"
+    class="brief-output"
+    aria-labelledby="brief-output-heading"
+  >
+    <p class="eyebrow">{t('02 / REVIEW & SHARE')}</p>
+    <h2 id="brief-output-heading">{t('Your project brief.')}</h2>
+    <p>
+      {t(
+        'Review the summary, copy it, then paste it into your WhatsApp conversation.',
+      )}
+    </p>
+    <label class="cds--label" for="brief-summary">
+      {t('Brief summary')}
+    </label>
+    <textarea
+      id="brief-summary"
+      class="cds--text-area"
+      rows="12"
+      readonly
+      placeholder={t(
+        'Your summary will appear here after you review the brief.',
+      )}
+    ></textarea>
+    <div class="brief-actions">
+      <button
+        class="cds--btn cds--btn--tertiary"
+        type="button"
+        data-brief-copy
+        hidden
+        disabled
+      >
+        {t('Copy brief')}
+      </button>
+      <a
+        class="cds--btn cds--btn--primary"
+        href="https://wa.me/62817131366"
+        data-brief-contact
+        data-contact-location="brief"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t('Continue to WhatsApp')} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <p class="brief-status" role="status" aria-live="polite"></p>
+    <a class="resource-link" href={localeHref('/#process')}>
+      {t('See how we work')} <span aria-hidden="true">↗</span>
+    </a>
+  </section>
+</div>
+<script>
+  import '../scripts/project-brief';
+</script>

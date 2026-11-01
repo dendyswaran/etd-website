@@ -1,0 +1,52 @@
+---
+import { getLanguage, createTranslator, localizePath } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+const localeHref = (path: string) => localizePath(path, lang);
+import WorkPreview from './WorkPreview.astro';
+const work = [
+  {
+    kind: 'salon' as const,
+    title: 'Salon POS & reservations',
+    slug: 'studi-kasus/pos-reservasi-salon',
+    category: 'RESERVATIONS & TRANSACTIONS',
+    text: 'Connect bookings, staff roles, checkout, and receipt printing in one service workflow.',
+  },
+  {
+    kind: 'projects' as const,
+    title: 'Financial & project monitoring',
+    slug: 'studi-kasus/monitoring-keuangan-proyek',
+    category: 'FIELD TO OFFICE',
+    text: 'Bring budgets, payment milestones, expenses, and receipt records into the same project context.',
+  },
+  {
+    kind: 'qa' as const,
+    title: 'AI-assisted quality assurance',
+    slug: 'studi-kasus/ai-quality-assurance',
+    category: 'AUDIO TO REVIEWABLE EVIDENCE',
+    text: 'Turn recordings into transcripts and rubric-based assessments, with evidence and reviewer corrections.',
+  },
+];
+---
+
+<div class="selected-work">
+  {work.map((item) => (
+    <article>
+      <WorkPreview kind={item.kind} />
+      <div class="selected-work-copy">
+        <p class="eyebrow">{t(item.category)}</p>
+        <h3>{t(item.title)}</h3>
+        <p>{t(item.text)}</p>
+        <a class="resource-link" href={localeHref(`/${item.slug}/`)}>
+          {t('Read the case study')} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </article>
+  ))}
+  <p class="selected-work-more">
+    <a class="resource-link" href={localeHref('/studi-kasus/sistem-antrean/')}>
+      {t('Also explore service queue systems')}{' '}
+      <span aria-hidden="true">↗</span>
+    </a>
+  </p>
+</div>

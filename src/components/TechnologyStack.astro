@@ -1,4 +1,7 @@
 ---
+import { getLanguage, createTranslator } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
 interface Props {
   headingId: string;
   title?: string;
@@ -15,14 +18,14 @@ const {
 
 <section class="integration-technologies" aria-labelledby={headingId}>
   <div class="technology-heading">
-    <p class="eyebrow">OUR TECHNOLOGY EXPERIENCE</p>
-    <h2 id={headingId}>{title}</h2>
-    <p>{description}</p>
+    <p class="eyebrow">{t('OUR TECHNOLOGY EXPERIENCE')}</p>
+    <h2 id={headingId}>{t(title)}</h2>
+    <p>{t(description)}</p>
   </div>
   <div class="technology-groups">
     {groups.map((group) => (
       <div class="technology-group">
-        <h3 class="eyebrow">{group.label}</h3>
+        <h3 class="eyebrow">{t(group.label)}</h3>
         <ul>
           {group.items.map((technology) => (
             <li>

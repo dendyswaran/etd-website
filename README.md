@@ -1,6 +1,6 @@
 # East Town Digital
 
-An Indonesian-language website for East Town Digital, an independent software house with 15+ years of IT experience. Inspired by the warm, typographic composition and animated line field at [abliteration.ai](https://abliteration.ai), with original branding, copy, and artwork.
+An English-first, bilingual English/Indonesian website for East Town Digital, an independent software house with 15+ years of IT experience. Inspired by the warm, typographic composition and animated line field at [abliteration.ai](https://abliteration.ai), with original branding, copy, and artwork.
 
 [Live website](https://www.easttowndigital.com) · [Public GitHub repository](https://github.com/dendyswaran/etd-website)
 
@@ -45,7 +45,7 @@ Content entries live in `src/data/pages.ts`; `src/pages/[...slug].astro` renders
 
 ## SEO
 
-The canonical domain is `https://www.easttowndigital.com/`, configured in `astro.config.mjs`. The website includes Indonesian service content, organization JSON-LD, social-preview images, `robots.txt`, and an XML sitemap for all published pages. See [SEO operations](docs/seo.md) for Search Console setup, content rules, and lead measurement.
+The canonical domain is `https://www.easttowndigital.com/`, configured in `astro.config.mjs`. The website includes English and Indonesian service content, visual case-study previews, a local project brief builder, organization JSON-LD, social-preview images, `robots.txt`, and an XML sitemap for all published pages. See [SEO operations](docs/seo.md) for Search Console setup, content rules, and lead measurement.
 
 ## Deployment
 

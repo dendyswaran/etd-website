@@ -1,0 +1,80 @@
+---
+import { getLanguage, createTranslator, localizePath } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+const localeHref = (path: string) => localizePath(path, lang);
+import Brand from './Brand.astro';
+import LanguageSwitch from './LanguageSwitch.astro';
+interface Props {
+  home?: boolean;
+}
+const { home = false } = Astro.props;
+---
+
+<header class="site-header page-grid">
+  <Brand href={home ? '#top' : '/'} />
+  <nav class="header-note" aria-label={t('Main navigation')}>
+    <a href={localeHref(home ? '#ai' : '/#ai')}>{t('AI & AUTOMATION')}</a>
+    <a href={localeHref(home ? '#layanan' : '/#layanan')}>{t('SERVICES')}</a>
+    <a href={localeHref(home ? '#pengalaman' : '/#pengalaman')}>
+      {t('EXPERIENCE')}
+    </a>
+    <a href={localeHref(home ? '#contact' : '/#contact')}>{t('CONTACT')}</a>
+  </nav>
+  <LanguageSwitch />
+  <details class="mobile-navigation">
+    <summary>
+      <span>{t('Menu')}</span>
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+        <path d="M2 4h12M2 8h12M2 12h12" fill="none" stroke="currentColor" />
+      </svg>
+    </summary>
+    <nav aria-label={t('Mobile navigation')}>
+      <a href={localeHref('/#ai')}>{t('AI & automation')}</a>
+      <a href={localeHref('/#layanan')}>{t('Services')}</a>
+      <a href={localeHref('/#pengalaman')}>{t('Selected work')}</a>
+      <a href={localeHref('/#process')}>{t('How we work')}</a>
+      <a href={localeHref('/project-brief/')}>{t('Prepare a project brief')}</a>
+      <a
+        href="https://wa.me/62817131366"
+        data-contact-location="header"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t('Contact us on WhatsApp')} <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </details>
+  <a
+    class="cds--btn cds--btn--tertiary header-contact"
+    href="https://wa.me/62817131366"
+    data-contact-location="header"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {t('Contact us')} <span aria-hidden="true">↗</span>
+  </a>
+</header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-navigation');
+  if (menu) {
+    menu.querySelectorAll('a').forEach((link) =>
+      link.addEventListener('click', () => {
+        menu.open = false;
+      }),
+    );
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !menu.contains(event.target))
+        menu.open = false;
+    });
+    matchMedia('(min-width: 1056px)').addEventListener('change', (event) => {
+      if (event.matches) menu.open = false;
+    });
+  }
+</script>

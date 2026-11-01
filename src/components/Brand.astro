@@ -1,11 +1,19 @@
 ---
+import { getLanguage, createTranslator, localizePath } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+const localeHref = (path: string) => localizePath(path, lang);
 interface Props {
   href?: string;
 }
 const { href = '/' } = Astro.props;
 ---
 
-<a class="brand" href={href} aria-label="East Town Digital home">
+<a
+  class="brand"
+  href={localeHref(href)}
+  aria-label={t('East Town Digital home')}
+>
   <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
     <path d="M4 6h29v6H10v5h19v6H10v5h23v6H4V6Z" fill="currentColor" />
     <path d="m27 16 9 4-9 4v-8Z" fill="currentColor" />

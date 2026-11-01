@@ -1,6 +1,8 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { playOpeningIntro } from './intro';
+import { createTranslator, getLanguage } from '../lib/i18n';
+const t = createTranslator(getLanguage(location.pathname));
 
 gsap.registerPlugin(ScrollTrigger);
 const media = gsap.matchMedia();
@@ -154,7 +156,9 @@ if (canvas && context && toggle) {
       };
       const togglePlayback = () => {
         paused = !paused;
-        control.textContent = paused ? 'Resume animation' : 'Pause animation';
+        control.textContent = t(
+          paused ? 'Resume animation' : 'Pause animation',
+        );
         syncPlayback();
       };
       const resize = new ResizeObserver(([entry]) => {
@@ -173,7 +177,7 @@ if (canvas && context && toggle) {
       resize.observe(field);
       intersection.observe(field);
       control.hidden = reduced;
-      control.textContent = paused ? 'Resume animation' : 'Pause animation';
+      control.textContent = t(paused ? 'Resume animation' : 'Pause animation');
       control.addEventListener('click', togglePlayback);
       document.addEventListener('visibilitychange', syncPlayback);
       syncPlayback();

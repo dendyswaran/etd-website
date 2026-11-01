@@ -1,0 +1,74 @@
+---
+import { getLanguage, createTranslator, localizePath } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+const localeHref = (path: string) => localizePath(path, lang);
+import '../styles/global.scss';
+import '@fontsource/ibm-plex-sans/latin-400.css';
+import '@fontsource/ibm-plex-sans/latin-500.css';
+import '@fontsource/ibm-plex-sans/latin-600.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import SeoHead from './SeoHead.astro';
+import SiteHeader from './SiteHeader.astro';
+import OpeningIntro from './OpeningIntro.astro';
+import ProjectBrief from './ProjectBrief.astro';
+const canonical = new URL(localeHref('/project-brief/'), Astro.site).href;
+const title = t('Prepare a project brief | East Town Digital');
+const description = t(
+  'Outline your business needs, users, integrations, and timeline. Review a project brief before discussing it with East Town Digital on WhatsApp.',
+);
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  url: canonical,
+  name: title,
+  inLanguage: lang,
+};
+---
+
+<!doctype html>
+<html lang={lang} class="cds--white">
+  <head>
+    <SeoHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      structuredData={structuredData}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      {t('Skip to content')}
+    </a>
+    <OpeningIntro />
+    <SiteHeader />
+    <main id="main" tabindex="-1">
+      <div class="page-grid detail-intro">
+        <nav class="detail-breadcrumb" aria-label={t('Breadcrumb')}>
+          <a href={localeHref('/')}>{t('Home')}</a> {t('/ Project brief')}
+        </nav>
+        <p class="eyebrow detail-label">{t('LET’S DEFINE THE WORK')}</p>
+        <h1 class="detail-title">{t('Prepare your project brief.')}</h1>
+        <p class="detail-lead">
+          {t(
+            'A few useful details make the first conversation more productive.',
+          )}
+        </p>
+      </div>
+      <div class="page-grid brief-page">
+        <ProjectBrief />
+      </div>
+    </main>
+    <footer class="site-footer page-grid">
+      <a class="footer-brand" href={localeHref('/')}>
+        {t('EAST TOWN DIGITAL ↗')}
+      </a>
+      <span>
+        © {new Date().getFullYear()} {t('East Town Digital')}
+      </span>
+    </footer>
+    <script>
+      import '../scripts/motion';
+    </script>
+  </body>
+</html>

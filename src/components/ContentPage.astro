@@ -1,0 +1,220 @@
+---
+import { getLanguage, createTranslator, localizePath } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+const localeHref = (path: string) => localizePath(path, lang);
+import { pages } from '../data/pages';
+import { pagesId } from '../data/pages-id';
+import SeoHead from '../components/SeoHead.astro';
+import IntegrationArchitecture from '../components/IntegrationArchitecture.astro';
+import AiWorkflow from '../components/AiWorkflow.astro';
+import OpeningIntro from '../components/OpeningIntro.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import WorkPreview from '../components/WorkPreview.astro';
+import { Image } from 'astro:assets';
+import { articleIllustrations } from '../data/article-illustrations';
+import '@fontsource/ibm-plex-sans/latin-400.css';
+import '@fontsource/ibm-plex-sans/latin-500.css';
+import '@fontsource/ibm-plex-sans/latin-600.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '../styles/global.scss';
+interface Props {
+  page: (typeof pages)[number];
+}
+const { page: sourcePage } = Astro.props;
+const page =
+  lang === 'id'
+    ? pagesId.find((entry) => entry.slug === sourcePage.slug)!
+    : sourcePage;
+const previewKind = (
+  {
+    'studi-kasus/pos-reservasi-salon': 'salon',
+    'studi-kasus/monitoring-keuangan-proyek': 'projects',
+    'studi-kasus/ai-quality-assurance': 'qa',
+  } as const
+)[
+  page.slug as
+    | 'studi-kasus/pos-reservasi-salon'
+    | 'studi-kasus/monitoring-keuangan-proyek'
+    | 'studi-kasus/ai-quality-assurance'
+];
+const illustration = articleIllustrations[page.slug];
+const canonical = new URL(localeHref(`/${page.slug}/`), Astro.site).href;
+const title = `${page.title} | East Town Digital`;
+const related = page.related.map((slug) =>
+  (lang === 'id' ? pagesId : pages).find((item) => item.slug === slug)!,
+);
+const home = new URL(localeHref('/'), Astro.site).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description: page.description,
+      inLanguage: lang,
+      isPartOf: { '@id': `${home}#website` },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: t('Home'), item: home },
+        { '@type': 'ListItem', position: 2, name: page.title, item: canonical },
+      ],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={lang} class="cds--white">
+  <head>
+    <SeoHead
+      title={title}
+      description={page.description}
+      canonical={canonical}
+      structuredData={structuredData}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      {t('Skip to content')}
+    </a>
+    <OpeningIntro />
+    <SiteHeader />
+    <main id="main" class="detail-page" tabindex="-1">
+      <div class="page-grid detail-intro">
+        <nav class="detail-breadcrumb" aria-label={t('Breadcrumb')}>
+          <a href={localeHref('/')}>{t('Home')}</a>
+          <span aria-hidden="true"> / </span>
+          <span>{page.kind}</span>
+        </nav>
+        <p class="eyebrow detail-label">
+          {t('EAST TOWN DIGITAL /')} {page.kind.toUpperCase()}
+        </p>
+        <h1 class="detail-title">{page.title}</h1>
+        <p class="detail-lead">{page.lead}</p>
+        {previewKind && (
+          <div class="case-preview">
+            <WorkPreview kind={previewKind} />
+          </div>
+        )}
+        {page.slug === 'integrasi-sistem' && <IntegrationArchitecture />}
+        {page.slug === 'solusi-ai' && <AiWorkflow />}
+        {illustration && (
+          <figure class="article-illustration">
+            <Image
+              src={illustration.image}
+              alt={t(illustration.alt)}
+              widths={[480, 768, 1152, 1536]}
+              sizes="(max-width: 671px) calc(100vw - 48px), (max-width: 1055px) calc(100vw - 64px), min(75vw, 1120px)"
+              format="webp"
+              quality={80}
+              loading="eager"
+              decoding="async"
+            />
+            <figcaption>{t(illustration.caption)}</figcaption>
+          </figure>
+        )}
+      </div>
+      <div class="page-grid detail-body">
+        <aside class="detail-aside" aria-label={t('On this page')}>
+          <p class="eyebrow">{t('ON THIS PAGE')}</p>
+          <nav>
+            {page.slug === 'integrasi-sistem' && (
+              <>
+                <a href="#architecture-heading">{t('Example architecture')}</a>
+                <a href="#integration-technologies-heading">
+                  {t('Technologies')}
+                </a>
+              </>
+            )}
+            {page.slug === 'solusi-ai' && (
+              <>
+                <a href="#ai-workflow-heading">{t('AI workflow')}</a>
+                <a href="#ai-technologies-heading">{t('Technologies')}</a>
+              </>
+            )}
+            {page.sections.map((section, index) => (
+              <a href={localeHref(`#bagian-${index + 1}`)}>{section.heading}</a>
+            ))}
+          </nav>
+        </aside>
+        <div class="detail-copy">
+          {page.sections.map((section, index) => (
+            <section id={`bagian-${index + 1}`}>
+              <h2>{section.heading}</h2>
+              <p>{section.text}</p>
+            </section>
+          ))}
+        </div>
+      </div>
+      <section class="section-wrap" aria-labelledby="related-heading">
+        <div class="editorial-card page-grid">
+          <div class="section-heading">
+            <p class="eyebrow">{t('READ MORE')}</p>
+            <h2 id="related-heading">{t('Related reading.')}</h2>
+          </div>
+          <div class="work-list">
+            {related.map((item) => (
+              <article>
+                <p class="eyebrow">{item.kind}</p>
+                <h3>
+                  <a class="resource-link" href={localeHref(`/${item.slug}/`)}>
+                    {t(item.title)} ↗
+                  </a>
+                </h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section class="section-wrap" aria-labelledby="discussion-heading">
+        <div class="editorial-card page-grid">
+          <div class="section-heading">
+            <p class="eyebrow">{t('DISCUSS A PROJECT')}</p>
+            <h2 id="discussion-heading">
+              {t('Tell us about your business needs.')}
+            </h2>
+          </div>
+          <div class="service-list">
+            <p>
+              {t(
+                'Send a summary of your workflow, challenges, and target timeline through WhatsApp. Examples of spreadsheets or applications you use help us understand the project.',
+              )}
+            </p>
+            <p class="brief-entry">
+              <a class="resource-link" href={localeHref('/project-brief/')}>
+                {t('Prepare a project brief before we talk')}{' '}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </p>
+            <a
+              class="cds--btn cds--btn--primary contact-button detail-contact"
+              href="https://wa.me/62817131366"
+              data-contact-location="contact"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('Discuss your project ↗')}
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer page-grid">
+      <a class="footer-brand" href={localeHref('/')}>
+        {t('EAST TOWN DIGITAL ↗')}
+      </a>
+      <span>
+        © {new Date().getFullYear()} {t('East Town Digital')}
+      </span>
+    </footer>
+    <script>
+      import '../scripts/motion';
+    </script>
+  </body>
+</html>

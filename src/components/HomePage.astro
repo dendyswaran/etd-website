@@ -1,0 +1,484 @@
+---
+import { getLanguage, createTranslator, localizePath } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
+const localeHref = (path: string) => localizePath(path, lang);
+import '@fontsource/ibm-plex-sans/latin-400.css';
+import '@fontsource/ibm-plex-sans/latin-500.css';
+import '@fontsource/ibm-plex-sans/latin-600.css';
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '../styles/global.scss';
+import SeoHead from '../components/SeoHead.astro';
+import OpeningIntro from '../components/OpeningIntro.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SelectedWork from '../components/SelectedWork.astro';
+import WorkProcess from '../components/WorkProcess.astro';
+import { pages } from '../data/pages';
+import { pagesId } from '../data/pages-id';
+
+const whatsapp = 'https://wa.me/62817131366';
+const resourceGroups = ['Services', 'Case studies', 'Guides'].map((kind) => ({
+  kind,
+  pages: (lang === 'id' ? pagesId : pages).filter(
+    (page) =>
+      page.kind ===
+      (lang === 'id'
+        ? {
+            Services: 'Layanan',
+            'Case studies': 'Studi kasus',
+            Guides: 'Panduan',
+          }[kind as 'Services' | 'Case studies' | 'Guides']
+        : kind),
+  ),
+}));
+const year = new Date().getFullYear();
+const canonical = new URL(localeHref('/'), Astro.site).href;
+const title = t(
+  'Software House & AI Solutions in Indonesia | East Town Digital',
+);
+const description = t(
+  'Software house and AI solutions for businesses in Indonesia. Backed by 15+ years in IT, we build AI agents, speech-to-text workflows, and business applications.',
+);
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${canonical}#organization`,
+      name: 'East Town Digital',
+      url: canonical,
+      description,
+      logo: new URL('/logo.png', Astro.site).href,
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+62817131366',
+        contactType: 'sales',
+        availableLanguage: ['Indonesian'],
+        areaServed: { '@type': 'Country', name: 'Indonesia' },
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${canonical}#website`,
+      url: canonical,
+      name: 'East Town Digital',
+      inLanguage: lang,
+      publisher: { '@id': `${canonical}#organization` },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: lang,
+      isPartOf: { '@id': `${canonical}#website` },
+      about: { '@id': `${canonical}#organization` },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={lang} class="cds--white">
+  <head>
+    <SeoHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      structuredData={structuredData}
+    />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">
+      {t('Skip to content')}
+    </a>
+    <OpeningIntro />
+    <SiteHeader home />
+    <main id="main" tabindex="-1">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-field" aria-hidden="true">
+          <canvas id="east-field"></canvas>
+        </div>
+        <div class="hero-inner page-grid">
+          <p class="eyebrow hero-eyebrow">
+            {t('SOFTWARE & AI FOR BUSINESSES IN INDONESIA')}
+          </p>
+          <h1 id="hero-heading" class="hero-title">
+            <span class="hero-line-mask">
+              <span class="hero-line">{t('Software house and AI for')}</span>
+            </span>{' '}
+            <span class="hero-line-mask">
+              <span class="hero-line">{t('your business operations.')}</span>
+            </span>
+          </h1>
+          <div class="hero-proof">
+            <p class="eyebrow">{t('DEVELOPMENT EXPERIENCE')}</p>
+            <a
+              class="resource-link"
+              href={localeHref('/studi-kasus/ai-quality-assurance/')}
+            >
+              {t('Service recordings → transcripts → QA evaluation')}
+            </a>
+            <p>{t('Assessment rubrics, coaching notes, and human review.')}</p>
+          </div>
+          <div class="hero-action">
+            <p>
+              {t(
+                'We build websites, business applications, and system integrations. From inventory records to AI-assisted conversation evaluation.',
+              )}
+            </p>
+            <a
+              class="cds--btn cds--btn--primary contact-button"
+              href={localeHref(whatsapp)}
+              data-contact-location="hero"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('Discuss your project')}{' '}
+              <span class="button-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <span class="contact-caption">{t('DIRECTLY VIA WHATSAPP')}</span>
+            <a class="resource-link" href={localeHref('/project-brief/')}>
+              {t('Or prepare a project brief')}{' '}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="hero-baseline">
+            <a class="scroll-link" href="#hello">
+              <span aria-hidden="true">↓</span> {t('MEET THE TEAM')}
+            </a>
+            <button
+              type="button"
+              class="cds--btn cds--btn--ghost motion-toggle"
+              aria-controls="east-field"
+              hidden
+            >
+              {t('Pause animation')}
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        class="introduction section-wrap"
+        id="hello"
+        aria-labelledby="intro-heading"
+      >
+        <div class="intro-card page-grid">
+          <p class="eyebrow intro-label">{t('01 / ABOUT EAST TOWN DIGITAL')}</p>
+          <div class="intro-copy">
+            <h2 id="intro-heading">
+              {t('A new name.')}
+              <br />
+              {t('Years of experience.')}
+            </h2>
+            <p>
+              {t(
+                'East Town Digital is a software house founded by two partners with more than 15 years of IT experience. We help businesses in Indonesia develop websites, business applications, mobile applications, system integrations, and AI solutions. Our team uses AI in development and builds applications of it for business operations.',
+              )}
+            </p>
+            <p>
+              {t(
+                'Every business has its own way of working. We start with your processes, the challenges you face, and the goals you want to achieve, so the software has a clear purpose.',
+              )}
+            </p>
+          </div>
+          <aside class="experience">
+            <p class="eyebrow">{t('TWO PARTNERS, 15+ YEARS IN IT')}</p>
+            <p>
+              {t(
+                'Our development experience includes salon POS and reservations, service queues, and financial and project monitoring.',
+              )}
+            </p>
+            <a class="resource-link" href="#pengalaman">
+              {t('Explore our development experience ↓')}
+            </a>
+          </aside>
+        </div>
+      </section>
+      <section class="section-wrap" id="ai" aria-labelledby="ai-heading">
+        <div class="editorial-card page-grid ai-card">
+          <div class="section-heading">
+            <p class="eyebrow">{t('02 / AI IN PRACTICE')}</p>
+            <h2 id="ai-heading">
+              {t('Agents, transcription,')}
+              <br />
+              {t('and service evaluation.')}
+            </h2>
+            <p>
+              {t(
+                'We use AI in software development and help you apply it to business tasks. From agents to conversation analysis, each workflow starts with clear goals and evaluation criteria.',
+              )}
+            </p>
+            <a class="resource-link" href={localeHref('/solusi-ai/')}>
+              {t('Explore AI solutions')} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="service-list">
+            <article class="service-row">
+              <span class="eyebrow" aria-hidden="true">
+                01
+              </span>
+              <h3>{t('AI agents & agent harnesses')}</h3>
+              <p>
+                {t(
+                  'Our team works with a range of agent harnesses. We design context, tool use, and agent integrations with engineer review and action limits suited to the task.',
+                )}
+              </p>
+            </article>
+            <article class="service-row">
+              <span class="eyebrow" aria-hidden="true">
+                02
+              </span>
+              <h3>{t('AI training & adaptation')}</h3>
+              <p>
+                {t(
+                  'Data preparation, reference knowledge, and evaluation help adapt AI to your business context. Adaptation methods and training needs follow data readiness, goals, and evaluation results.',
+                )}
+              </p>
+            </article>
+            <article class="service-row">
+              <span class="eyebrow" aria-hidden="true">
+                03
+              </span>
+              <h3>{t('Speech-to-text & quality assurance')}</h3>
+              <p>
+                {t(
+                  'Turn recordings into transcripts, rubric-based evaluations, and coaching material. Our experience includes reviewer corrections and report exports within this workflow.',
+                )}
+              </p>
+              <a
+                class="resource-link"
+                href={localeHref('/studi-kasus/ai-quality-assurance/')}
+              >
+                {t('Explore our AI QA experience')}{' '}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section
+        class="section-wrap"
+        id="layanan"
+        aria-labelledby="services-heading"
+      >
+        <div class="editorial-card page-grid">
+          <div class="section-heading">
+            <p class="eyebrow">{t('03 / OUR SERVICES')}</p>
+            <h2 id="services-heading">
+              {t('Software that fits')}
+              <br />
+              {t('the way you work.')}
+            </h2>
+            <p>
+              {t(
+                'From your online presence to operational processes, we help you choose and build solutions around your needs.',
+              )}
+            </p>
+          </div>
+          <div class="service-list">
+            <article class="service-row">
+              <span class="eyebrow" aria-hidden="true">
+                01
+              </span>
+              <h3>{t('Website development')}</h3>
+              <p>
+                {t(
+                  'Company websites, product pages, and CMS websites your team can manage. Designed to explain your business clearly and help potential customers get in touch.',
+                )}
+              </p>
+            </article>
+            <article class="service-row">
+              <span class="eyebrow" aria-hidden="true">
+                02
+              </span>
+              <h3>{t('Business applications & custom software')}</h3>
+              <p>
+                {t(
+                  'Applications for transactions, inventory, reservations, queues, and financial and project monitoring. Workflows are tailored to your business operations.',
+                )}
+              </p>
+            </article>
+            <article class="service-row">
+              <span class="eyebrow" aria-hidden="true">
+                03
+              </span>
+              <h3>{t('Mobile application development')}</h3>
+              <p>
+                {t(
+                  'Applications for customers or field teams, including mobile web and PWAs. Platform and feature choices follow your devices, users, and the work involved.',
+                )}
+              </p>
+            </article>
+            <article class="service-row">
+              <span class="eyebrow" aria-hidden="true">
+                04
+              </span>
+              <h3>{t('API & system integration')}</h3>
+              <p>
+                {t(
+                  'Connect the applications, databases, and services you already use. Integration helps data move between processes so your team can avoid repeated data entry.',
+                )}
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section
+        class="section-wrap"
+        id="pengalaman"
+        aria-labelledby="work-heading"
+      >
+        <div class="editorial-card page-grid selected-work-section">
+          <div class="section-heading">
+            <p class="eyebrow">{t('04 / DEVELOPMENT EXPERIENCE')}</p>
+            <h2 id="work-heading">
+              {t('What we have')}
+              <br />
+              {t('built.')}
+            </h2>
+            <p>
+              {t(
+                'Our experience covers the operational needs below. Share your business context so we can discuss a relevant approach.',
+              )}
+            </p>
+          </div>
+          <SelectedWork />
+        </div>
+      </section>
+      <WorkProcess />
+      <section
+        class="section-wrap"
+        id="pertanyaan"
+        aria-labelledby="questions-heading"
+      >
+        <div class="editorial-card page-grid">
+          <div class="section-heading">
+            <p class="eyebrow">{t('05 / GETTING STARTED')}</p>
+            <h2 id="questions-heading">
+              {t('Before we discuss your project.')}
+            </h2>
+          </div>
+          <dl class="question-list">
+            <div>
+              <dt>{t('How much does a website or software project cost?')}</dt>
+              <dd>
+                {t(
+                  'Cost depends on features, integrations, and project complexity. Share your needs through WhatsApp so we can discuss an estimate based on a clear scope.',
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt>{t('What should I prepare for an initial discussion?')}</dt>
+              <dd>
+                {t(
+                  'Describe your business, the problem to solve, who will use the system, and any target timeline. Examples of current workflows or applications are also helpful.',
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt>{t('Can we discuss a project remotely?')}</dt>
+              <dd>
+                {t(
+                  'Yes. Initial discussions can start through WhatsApp from anywhere in Indonesia. We will discuss requirements, how to work together, and next steps around your project.',
+                )}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+      <section class="section-wrap" aria-labelledby="resources-heading">
+        <div class="editorial-card page-grid">
+          <div class="section-heading">
+            <p class="eyebrow">{t('EXPLORE FURTHER')}</p>
+            <h2 id="resources-heading">{t('Explore our approach.')}</h2>
+            <p>
+              {t(
+                'Services, development experience, and guides to help you prepare for your project.',
+              )}
+            </p>
+          </div>
+          <div class="resource-directory">
+            {resourceGroups.map((group) => (
+              <div class="resource-group">
+                <h3 class="eyebrow">{t(group.kind)}</h3>
+                <ul>
+                  {group.pages.map((page) => (
+                    <li>
+                      <a
+                        class="resource-link"
+                        href={localeHref(`/${page.slug}/`)}
+                      >
+                        {page.title}
+                        <span aria-hidden="true"> ↗</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section
+        class="contact-section section-wrap"
+        id="contact"
+        aria-labelledby="contact-heading"
+      >
+        <div class="contact-card page-grid">
+          <p class="eyebrow contact-label">{t('DISCUSS A PROJECT')}</p>
+          <h2 id="contact-heading">
+            {t('Planning something')}
+            <br />
+            {t('for your business?')}
+          </h2>
+          <div class="contact-detail">
+            <p>
+              {t('Tell us what you need.')}
+              <br />
+              {t('Let’s discuss an approach and the next steps.')}
+            </p>
+            <a
+              class="cds--btn cds--btn--primary contact-button contact-button-light"
+              href={localeHref(whatsapp)}
+              data-contact-location="contact"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('Discuss your project')}{' '}
+              <span class="button-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <a
+              class="phone-link"
+              href={localeHref(whatsapp)}
+              data-contact-location="phone"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              +62 817 131 366 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer page-grid">
+      <a class="footer-brand" href="#top">
+        {t('EAST TOWN DIGITAL')} <span aria-hidden="true">↗</span>
+      </a>
+      <span>
+        © {year} {t('East Town Digital')}
+      </span>
+      <span class="footer-note">
+        {t('SOFTWARE HOUSE FOR BUSINESSES IN INDONESIA.')}
+      </span>
+    </footer>
+    <script>
+      import '../scripts/motion';
+    </script>
+  </body>
+</html>

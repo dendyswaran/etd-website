@@ -1,4 +1,7 @@
 ---
+import { getLanguage, createTranslator, localizePath } from '../lib/i18n';
+const lang = getLanguage(Astro.url.pathname);
+const t = createTranslator(lang);
 interface Props {
   title: string;
   description: string;
@@ -6,7 +9,13 @@ interface Props {
   structuredData: unknown;
 }
 const { title, description, canonical, structuredData } = Astro.props;
-const socialImage = new URL('/og-image.png', Astro.site).href;
+const socialImage = new URL(
+  lang === 'id' ? '/og-image-id.png' : '/og-image.png',
+  Astro.site,
+).href;
+const pagePath = Astro.url.pathname.replace(/\/?$/, '/');
+const english = new URL(localizePath(pagePath, 'en'), Astro.site).href;
+const indonesian = new URL(localizePath(pagePath, 'id'), Astro.site).href;
 ---
 
 <meta charset="UTF-8" />
@@ -40,10 +49,13 @@ const socialImage = new URL('/og-image.png', Astro.site).href;
 <meta name="description" content={description} />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="en" href={english} />
+<link rel="alternate" hreflang="id" href={indonesian} />
+<link rel="alternate" hreflang="x-default" href={english} />
 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="East Town Digital" />
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content={lang === 'id' ? 'id_ID' : 'en_US'} />
 <meta property="og:url" content={canonical} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -53,7 +65,9 @@ const socialImage = new URL('/og-image.png', Astro.site).href;
 <meta property="og:image:type" content="image/png" />
 <meta
   property="og:image:alt"
-  content="East Town Digital: software house for businesses in Indonesia. Backed by 15+ years in IT."
+  content={t(
+    'East Town Digital: software house for businesses in Indonesia. Backed by 15+ years in IT.',
+  )}
 />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
@@ -61,7 +75,9 @@ const socialImage = new URL('/og-image.png', Astro.site).href;
 <meta name="twitter:image" content={socialImage} />
 <meta
   name="twitter:image:alt"
-  content="East Town Digital: software house for businesses in Indonesia. Backed by 15+ years in IT."
+  content={t(
+    'East Town Digital: software house for businesses in Indonesia. Backed by 15+ years in IT.',
+  )}
 />
 <script
   is:inline

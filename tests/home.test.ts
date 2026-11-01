@@ -199,3 +199,34 @@ test('refresh replays the opening even after a previous visit or at a fragment U
   });
   expect(reduced.document.getElementById('opening-intro')!.hidden).toBe(true);
 });
+
+test('selected work shows three labelled sample interfaces linked to anonymous case studies', () => {
+  const work = document.querySelector('#pengalaman .selected-work');
+  expect(work).not.toBeNull();
+  expect(work!.querySelectorAll('article').length).toBe(3);
+  for (const article of work!.querySelectorAll('article')) {
+    expect(article.querySelector('figure figcaption')?.textContent).toMatch(
+      /sample data/i,
+    );
+    expect(article.querySelector('a[href^="/studi-kasus/"]')).not.toBeNull();
+    expect(article.querySelector('button, input')).toBeNull();
+  }
+});
+
+test('mobile navigation is a native disclosure with service, work and project brief destinations', () => {
+  const menu = document.querySelector('details.mobile-navigation');
+  expect(menu).not.toBeNull();
+  expect(menu!.querySelector('summary')).not.toBeNull();
+  expect(menu!.querySelector('a[href="/#layanan"]')).not.toBeNull();
+  expect(menu!.querySelector('a[href="/#pengalaman"]')).not.toBeNull();
+  expect(menu!.querySelector('a[href="/project-brief/"]')).not.toBeNull();
+});
+
+test('the project process connects five stages to tangible deliverables', () => {
+  const steps = document.querySelectorAll('#process .process-steps > li');
+  expect(steps.length).toBe(5);
+  for (const step of steps)
+    expect(
+      step.querySelector('.process-output')?.textContent?.trim().length,
+    ).toBeGreaterThan(10);
+});

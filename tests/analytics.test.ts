@@ -65,11 +65,12 @@ test('WhatsApp clicks queue a contact event without blocking the link or trackin
   const events = browser.dataLayer
     .slice(2)
     .map((command) => Array.from(command));
-  expect(events).toHaveLength(4);
+  expect(events).toHaveLength(5);
   expect(events.map((command) => command.slice(0, 2))).toEqual(
-    Array(4).fill(['event', 'contact_whatsapp']),
+    Array(5).fill(['event', 'contact_whatsapp']),
   );
   expect(events.map((command) => command[2])).toEqual([
+    { link_location: 'header' },
     { link_location: 'header' },
     { link_location: 'hero' },
     { link_location: 'contact' },
