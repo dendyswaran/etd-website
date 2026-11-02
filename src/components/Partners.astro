@@ -1,0 +1,57 @@
+---
+import { getLanguage } from '../lib/i18n';
+
+const isIndonesian = getLanguage(Astro.url.pathname) === 'id';
+const partners = [
+  {
+    name: 'Kementerian Perhubungan',
+    shortName: 'Kemenhub',
+    href: 'https://kemenhub.go.id/',
+    logo: '/partners/kemenhub.png',
+    width: 880,
+    height: 1024,
+  },
+  {
+    name: 'Direktorat Kelaikudaraan dan Pengoperasian Pesawat Udara',
+    shortName: 'DKPPU',
+    href: 'https://imsis-djpu.kemenhub.go.id/PortalDKPPU/',
+    logo: '/partners/dkppu.png',
+    width: 225,
+    height: 225,
+  },
+  {
+    name: 'Balai Besar Pendidikan Penyegaran dan Peningkatan Ilmu Pelayaran',
+    shortName: 'BP3IP Jakarta',
+    href: 'https://bp3ip.ac.id/',
+    logo: '/partners/bp3ip.jpeg',
+    width: 2048,
+    height: 2048,
+  },
+];
+---
+
+<section class="section-wrap" id="partners" aria-labelledby="partners-heading">
+  <div class="partners-card page-grid">
+    <h2 id="partners-heading">
+      {isIndonesian ? 'Partner kami' : 'Our partners'}
+    </h2>
+    <ul class="partner-list">
+      {partners.map((partner) => (
+        <li>
+          <a class="partner-link" href={partner.href}>
+            <img
+              src={partner.logo}
+              alt={`Logo ${partner.name}`}
+              width={partner.width}
+              height={partner.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="partner-name">{partner.shortName}</span>
+            <span class="partner-description">{partner.name}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

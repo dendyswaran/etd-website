@@ -23,11 +23,11 @@ export const uiId: Record<string, string> = {
   '01 / ABOUT EAST TOWN DIGITAL': '01 / TENTANG EAST TOWN DIGITAL',
   'A new name.': 'Nama baru.',
   'Years of experience.': 'Pengalaman yang matang.',
-  'East Town Digital is a software house founded by two partners with more than 15 years of IT experience. We help businesses in Indonesia develop websites, business applications, mobile applications, system integrations, and AI solutions. Our team uses AI in development and builds applications of it for business operations.':
-    'East Town Digital adalah software house yang dibangun oleh dua partner dengan pengalaman lebih dari 15 tahun di dunia IT. Kami membantu bisnis di Indonesia mewujudkan kebutuhan digital melalui pengembangan website, aplikasi bisnis, aplikasi mobile, integrasi sistem, serta solusi AI. Tim kami aktif memanfaatkan AI dalam proses pengembangan dan membangun penerapannya untuk kebutuhan operasional bisnis.',
+  'East Town Digital is a software house founded by three partners with more than 15 years of IT experience. We help businesses in Indonesia develop websites, business applications, mobile applications, system integrations, and AI solutions. Our team uses AI in development and builds applications of it for business operations.':
+    'East Town Digital adalah software house yang dibangun oleh tiga partner dengan pengalaman lebih dari 15 tahun di dunia IT. Kami membantu bisnis di Indonesia mewujudkan kebutuhan digital melalui pengembangan website, aplikasi bisnis, aplikasi mobile, integrasi sistem, serta solusi AI. Tim kami aktif memanfaatkan AI dalam proses pengembangan dan membangun penerapannya untuk kebutuhan operasional bisnis.',
   'Every business has its own way of working. We start with your processes, the challenges you face, and the goals you want to achieve, so the software has a clear purpose.':
     'Setiap bisnis punya cara kerja sendiri. Karena itu, percakapan dimulai dari proses yang Anda jalankan, kendala yang dihadapi, dan tujuan yang ingin dicapai, agar software yang dibuat punya peran yang jelas.',
-  'TWO PARTNERS, 15+ YEARS IN IT': 'DUA PARTNER, 15+ TAHUN DI IT',
+  'THREE PARTNERS, 15+ YEARS IN IT': 'TIGA PARTNER, 15+ TAHUN DI IT',
   'Our development experience includes salon POS and reservations, service queues, and financial and project monitoring.':
     'Pengalaman pengembangan mencakup kasir dan reservasi salon, antrean layanan, serta monitoring keuangan dan proyek.',
   'Explore our development experience ↓': 'Lihat pengalaman pengembangan ↓',

@@ -13,6 +13,7 @@ import OpeningIntro from '../components/OpeningIntro.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SelectedWork from '../components/SelectedWork.astro';
 import WorkProcess from '../components/WorkProcess.astro';
+import Partners from '../components/Partners.astro';
 import { pages } from '../data/pages';
 import { pagesId } from '../data/pages-id';
 
@@ -161,6 +162,7 @@ const structuredData = {
           </div>
         </div>
       </section>
+      <Partners />
       <section
         class="introduction section-wrap"
         id="hello"
@@ -176,7 +178,7 @@ const structuredData = {
             </h2>
             <p>
               {t(
-                'East Town Digital is a software house founded by two partners with more than 15 years of IT experience. We help businesses in Indonesia develop websites, business applications, mobile applications, system integrations, and AI solutions. Our team uses AI in development and builds applications of it for business operations.',
+                'East Town Digital is a software house founded by three partners with more than 15 years of IT experience. We help businesses in Indonesia develop websites, business applications, mobile applications, system integrations, and AI solutions. Our team uses AI in development and builds applications of it for business operations.',
               )}
             </p>
             <p>
@@ -186,7 +188,7 @@ const structuredData = {
             </p>
           </div>
           <aside class="experience">
-            <p class="eyebrow">{t('TWO PARTNERS, 15+ YEARS IN IT')}</p>
+            <p class="eyebrow">{t('THREE PARTNERS, 15+ YEARS IN IT')}</p>
             <p>
               {t(
                 'Our development experience includes salon POS and reservations, service queues, and financial and project monitoring.',

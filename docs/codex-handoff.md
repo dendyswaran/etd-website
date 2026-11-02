@@ -11,13 +11,15 @@ Last updated: 2 November 2026 (Asia/Jakarta).
 
 ## Current state and next work
 
+East Town Digital was founded by **three partners**, as corrected by the user on 2 November 2026. Both homepage languages and the experience label reflect this. The 15+ years statement describes IT experience, not the company age.
+
 The website implementation, including bilingual pages, selected work, workflow diagrams, and the project brief, was already committed before this handoff. This handoff adds documentation and portable Codex configuration; it does not publish new articles or illustrations.
 
 The user selected a 12-week content plan focused on AI automation, especially customer service and other practical business use cases. Audience: business owners and operations managers in Indonesia. Cadence: one original article per week. The user specifically requires warm, soft editorial illustrations with a Medium-like feel. The full calendar, illustration concepts, production checks, and measurement plan are in `docs/content-plan-ai.md`.
 
 Next content task when requested: research and produce week 1, including its unique illustration and English localization. No articles in the new plan have been drafted, generated, or published. The first publication date has not been scheduled; the default is Wednesday in the first execution week. Do not interpret this handoff as an automation or a request to publish all 12 articles immediately.
 
-The latest user request is to commit and push all project updates, including portable Codex configuration, so work can continue on another device. Preserve project decisions in repository documentation when they would otherwise exist only in chat.
+The latest user request adds Kemenhub, DKPPU, and BP3IP as partners on both homepages. Official logo files and verification notes are recorded in `docs/partner-logos.md`; preserve the original artwork and use official sources for updates. The partner designation is user-authorized and does not authorize additional endorsement or project claims. These changes have not been deployed as part of this task. Preserve project decisions in repository documentation when they would otherwise exist only in chat.
 
 ## Portable configuration and local setup
 
