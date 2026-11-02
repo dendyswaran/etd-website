@@ -17,6 +17,10 @@ This is the East Town Digital company website, built with Astro 7, TypeScript, B
 
 Keep generated `dist/`, `.astro/`, installed dependencies, and `.vercel/` out of version control.
 
+## Cross-device Codex Continuity
+
+Read `docs/codex-handoff.md` when continuing work in a new chat or on another device. The agreed AI content calendar and warm, soft editorial illustration requirements are in `docs/content-plan-ai.md`. Keep these documents current when project decisions or completion status change. Portable Codex preferences are tracked in `.codex/config.toml`; account credentials, device-specific paths, installed plugin caches, and chat/session state must remain outside Git.
+
 ## Build, Test, and Development Commands
 
 Use Bun consistently and commit `bun.lock`. Install with `bun install --frozen-lockfile`. Node.js 22.12+ is required; Node 24 is recommended.

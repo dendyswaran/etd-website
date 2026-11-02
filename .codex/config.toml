@@ -1,0 +1,6 @@
+# Portable project preferences. Repository instructions live in ../AGENTS.md.
+# Preserve the reasoning preference used when this project was handed off.
+model_reasoning_effort = "medium"
+
+# Inherit model, permissions, authentication, plugins, and MCP connections from
+# the current device/account rather than copying machine-specific settings.
