@@ -1,6 +1,6 @@
 # Codex project handoff
 
-Last updated: 2 November 2026 (Asia/Jakarta).
+Last updated: 6 November 2026 (Asia/Jakarta).
 
 ## Start here on another device
 
@@ -10,6 +10,8 @@ Last updated: 2 November 2026 (Asia/Jakarta).
 4. Run `bun run dev` to preview the site. Before publishing changes, run `bun test`, `bun run check`, `bun run format:check`, and `bun run build`.
 
 ## Current state and next work
+
+Featured projects are ordered AI-assisted quality assurance first, financial and project monitoring second, and Salon POS last, as requested on 6 November 2026. This order applies to both homepage languages.
 
 East Town Digital was founded by **three partners**, as corrected by the user on 2 November 2026. Both homepage languages and the experience label reflect this. The 15+ years statement describes IT experience, not the company age.
 
